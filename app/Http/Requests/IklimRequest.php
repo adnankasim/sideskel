@@ -14,8 +14,8 @@ class IklimRequest extends FormRequest
     public function rules()
     {
         return [
-            'uraian_iklim' => 'required|string|max:100',
-            'keterangan_iklim' => 'required|string|max:100',
+            'uraian_iklim' => 'required|string|max:300',
+            'keterangan_iklim' => 'required|string|max:300',
         ];
     }
 }

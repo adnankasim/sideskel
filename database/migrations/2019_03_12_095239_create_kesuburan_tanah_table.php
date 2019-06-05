@@ -10,9 +10,9 @@ class CreateKesuburanTanahTable extends Migration
     {
         Schema::create('kesuburan_tanah', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uraian_kesuburan_tanah', 100);
+            $table->string('uraian_kesuburan_tanah', 300);
             $table->string('luas_ha', 30);
-            $table->string('keterangan_kesuburan_tanah', 50);
+            $table->string('keterangan_kesuburan_tanah', 300);
         });
     }
 

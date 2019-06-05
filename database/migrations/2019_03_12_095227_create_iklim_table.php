@@ -10,8 +10,8 @@ class CreateIklimTable extends Migration
     {
         Schema::create('iklim', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uraian_iklim', 100);
-            $table->string('keterangan_iklim', 100);
+            $table->string('uraian_iklim', 300);
+            $table->string('keterangan_iklim', 300);
         });
     }
 

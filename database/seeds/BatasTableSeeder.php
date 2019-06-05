@@ -7,16 +7,14 @@ class BatasTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            [
-                'utara' => 'Desa ABC', 
-                'selatan' => 'Desa DEF',
-                'barat' => 'Desa GHI',
-                'timur' => 'Desa JKL'
-            ],
+            ['mata_angin' => 'Utara','uraian' => 'Desa ABC'],
+            ['mata_angin' => 'Barat','uraian' => 'Desa DEF'],
+            ['mata_angin' => 'Timur','uraian' => 'Desa GHI'],
+            ['mata_angin' => 'Selatan','uraian' => 'Desa JKL'],
         ];
 
         DB::table('batas')->insert($data);
         
-        $this->command->info('Berhasil Menambahkan 1 baris di tabel batas');
+        $this->command->info('Berhasil Menambahkan 4 baris di tabel batas');
     }
 }

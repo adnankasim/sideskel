@@ -10,7 +10,7 @@ class CreateTipologiTable extends Migration
     {
         Schema::create('tipologi', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uraian_tipologi', 100);
+            $table->string('uraian_tipologi', 300);
             $table->enum('keterangan_tipologi', ['ya', 'tidak']);
         });
     }

@@ -10,7 +10,7 @@ class CreatePenggunaanTanahTable extends Migration
     {
         Schema::create('penggunaan_tanah', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uraian_penggunaan_tanah', 100);
+            $table->string('uraian_penggunaan_tanah', 300);
             $table->string('keterangan_penggunaan_tanah', 50);
         });
     }

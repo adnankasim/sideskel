@@ -10,12 +10,8 @@ class CreateOrbitasiTable extends Migration
     {
         Schema::create('orbitasi', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('jarak_ke_kecamatan', '30');
-            $table->string('lama_tempuh_ke_kecamatan', '30');
-            $table->string('jarak_ke_kabupaten', '30');
-            $table->string('lama_tempuh_ke_kabupaten', '30');
-            $table->string('jarak_ke_kota', '30');
-            $table->string('lama_tempuh_ke_kota', '30');
+            $table->string('uraian', '300');
+            $table->string('keterangan', '300');
         });
     }
 

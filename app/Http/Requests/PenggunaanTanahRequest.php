@@ -14,7 +14,7 @@ class PenggunaanTanahRequest extends FormRequest
     public function rules()
     {
         return [
-            'uraian_penggunaan_tanah' => 'required|string|max:100',
+            'uraian_penggunaan_tanah' => 'required|string|max:300',
             'keterangan_penggunaan_tanah' => 'required|string|max:50',
         ];
     }

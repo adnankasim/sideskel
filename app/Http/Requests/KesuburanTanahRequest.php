@@ -14,9 +14,9 @@ class KesuburanTanahRequest extends FormRequest
     public function rules()
     {
         return [
-            'uraian_kesuburan_tanah' => 'required|string|max:100',
+            'uraian_kesuburan_tanah' => 'required|string|max:300',
             'luas_ha' => 'required|string|max:30',
-            'keterangan_kesuburan_tanah' => 'required|string|max:50',
+            'keterangan_kesuburan_tanah' => 'required|string|max:300',
         ];
     }
 }

@@ -14,10 +14,8 @@ class BatasRequest extends FormRequest
     public function rules()
     {
         return [
-            'utara' => 'required|string|max:200',
-            'selatan' => 'required|string|max:200',
-            'barat' => 'required|string|max:200',
-            'timur' => 'required|string|max:200',
+            'mata_angin' => 'required|string|max:400',
+            'uraian' => 'required|string|max:300'
         ];
     }
 }

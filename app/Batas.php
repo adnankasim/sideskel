@@ -10,5 +10,5 @@ class Batas extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['utara', 'selatan', 'barat', 'timur'];
+    protected $fillable = ['mata_angin', 'uraian'];
 }
