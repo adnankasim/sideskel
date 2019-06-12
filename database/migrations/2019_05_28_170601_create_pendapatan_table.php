@@ -12,7 +12,7 @@ class CreatePendapatanTable extends Migration
             $table->increments('id');
             $table->string('uraian_pendapatan', 300);
             $table->string('nominal_pendapatan', 300);
-            $table->string('tahun_anggaran', 4);
+            $table->string('tahun', 4);
         });
     }
 

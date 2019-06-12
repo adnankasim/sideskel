@@ -8,7 +8,7 @@ class ProfilTableSeeder extends Seeder
     {
         $data = [
             [
-                'nama' => 'Bionga',
+                'nama' => 'Desa Kayu Bulan',
                 'alamat' => 'Kec. Limboto, Kab. Gorontalo, Provinsi Gorontalo',
                 'telepon' => '08xx-xxxx-xxxx',
                 'email' => 'contoh@email.com',
@@ -22,7 +22,7 @@ class ProfilTableSeeder extends Seeder
                 Sed vulputate laoreet nisi, in rutrum lacus faucibus a. Proin id auctor lectus, at imperdiet ligula. Aliquam varius, ligula in dapibus dictum, nisi dolor vehicula lacus, ut auctor ipsum eros quis sapien. Suspendisse at semper enim, sit amet ullamcorper magna. Integer nec sodales lorem. Donec turpis massa, semper sit amet massa vitae, accumsan porta augue. Donec in tortor ligula. Sed ultrices arcu sed felis semper commodo. Morbi imperdiet justo eget tristique ornare. Nam cursus sagittis massa, sit amet faucibus purus bibendum sed. Phasellus justo est, efficitur vitae fringilla at, imperdiet at mi. Sed eu nisi consectetur ipsum egestas placerat. Nam ullamcorper elit id magna dictum, elementum efficitur augue finibus. Vestibulum tincidunt in turpis nec vestibulum. Quisque non ex non ipsum vulputate tempus et vitae neque.
                 <br>
                 Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex. Maecenas sed luctus risus. Nam eu fringilla eros. Quisque interdum pulvinar nisi, eleifend bibendum quam convallis sed. Nulla ultricies massa tellus, nec vehicula eros blandit sed. In malesuada nisi euismod mauris tempus luctus. ',
-                'logo' => 'default.jpg',
+                'logo' => 'LOGOKABGOR.png',
                 'visi_misi' => 
                 'VISI : "MENJADIKAN DESA TALANGO DESA YANG BERSINAR“ <br>
                 MISI : <br>

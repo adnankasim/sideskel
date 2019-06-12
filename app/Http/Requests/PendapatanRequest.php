@@ -16,7 +16,7 @@ class PendapatanRequest extends FormRequest
         return [
             'uraian_pendapatan' => 'required|string|max:300',
             'nominal_pendapatan' => 'required|string|max:300',
-            'tahun_anggaran' => 'required|string|max:4',
+            'tahun' => 'required|string|max:4',
         ];
     }
 }

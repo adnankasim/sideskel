@@ -16,7 +16,7 @@ class BelanjaRequest extends FormRequest
         return [
             'uraian_belanja' => 'required|string|max:300',
             'nominal_belanja' => 'required|string|max:300',
-            'tahun_anggaran' => 'required|string|max:4',
+            'tahun' => 'required|string|max:4',
         ];
     }
 }

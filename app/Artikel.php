@@ -14,8 +14,8 @@ class Artikel extends Model
 
     public $timestamps = false;
 
-    // Relasi N-1 dengan user
-    public function user(){
+    // Relasi N-1 dengan pengguna
+    public function pengguna(){
         return $this->belongsTo('App\Pengguna', 'id_pengguna');
     }
 }

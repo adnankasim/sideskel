@@ -10,8 +10,8 @@ class CreatePemerintahanTable extends Migration
     {
         Schema::create('pemerintahan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_pemerintahan', 200);
-            $table->string('jabatan_pemerintahan', 100);
+            $table->string('nama_pemerintahan', 300);
+            $table->string('jabatan_pemerintahan', 300);
             $table->string('masa_bakti_pemerintahan', 30);
         });
     }

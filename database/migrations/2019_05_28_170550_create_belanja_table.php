@@ -12,7 +12,7 @@ class CreateBelanjaTable extends Migration
             $table->increments('id');
             $table->string('uraian_belanja', 300);
             $table->string('nominal_belanja', 300);
-            $table->string('tahun_anggaran', 4);
+            $table->string('tahun', 4);
         });
     }
 

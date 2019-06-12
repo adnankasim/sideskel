@@ -10,12 +10,11 @@ class CreateKegiatanTable extends Migration
     {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('judul_kegiatan', 200);
+            $table->string('nama_kegiatan', 200);
             $table->string('slug_kegiatan', 200);
             $table->dateTime('waktu_kegiatan');
             $table->text('deskripsi_kegiatan');
             $table->string('poster_kegiatan', 100);
-            $table->timestamps();
         });
     }
 

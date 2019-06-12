@@ -14,7 +14,7 @@ class ArtikelTableSeeder extends Seeder
               'judul_artikel' => $faker->sentence(),
               'slug_artikel' => $faker->slug,
               'isi_artikel' => $faker->paragraph(),
-              'gambar_artikel' => 'default.jpg',
+              'gambar_artikel' => 'img_1.jpg',
               'waktu_artikel' => $faker->dateTime(),
               'id_pengguna' => mt_rand(1, 10)
             ]);

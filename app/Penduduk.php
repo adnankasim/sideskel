@@ -11,7 +11,7 @@ class Penduduk extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nik', 'nama_penduduk', 'alamat_penduduk', 'status_menikah', 'tempat_lahir', 'tanggal_lahir', 'foto_penduduk', 'pendidikan_terakhir', 'golongan_darah', 'status_hidup', 'agama', 'pekerjaan'
+        'nik', 'nama_penduduk', 'alamat_penduduk', 'status_menikah', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'foto_penduduk', 'pendidikan_terakhir', 'golongan_darah', 'agama', 'pekerjaan'
     ];
 
 }

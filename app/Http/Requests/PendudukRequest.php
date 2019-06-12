@@ -23,12 +23,12 @@ class PendudukRequest extends FormRequest
             'nama_penduduk' => 'required|string|max:255',
             'alamat_penduduk' => 'required|string|max:255',
             'status_menikah' => 'required|in:sudah,belum',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'foto_penduduk' => $gambar_rule,
             'golongan_darah' => 'required|in:o,a,ab,b',
-            'pendidikan_terakhir' => 'required|in:sd,smp,sma,d1,d2,d3,s1,s2,s3',
-            'status_hidup' => 'required|in:hidup,meninggal',
+            'pendidikan_terakhir' => 'required|in:tidak-sekolah,tk,sd,smp,sma,d1,d2,d3,s1,s2,s3',
             'agama' => 'required|string',
             'pekerjaan' => 'required|string'
         ];

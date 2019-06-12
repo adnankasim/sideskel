@@ -17,7 +17,7 @@ class TanamanKomoditasRequest extends FormRequest
             'uraian_tanaman_komoditas' => 'required|string|max:100',
             'luas_tanaman_komoditas' => 'required|string|max:30',
             'produksi_per_ha' => 'required|string|max:30',
-            'tahun_anggaran' => 'required|string|max:4',
+            'tahun' => 'required|string|max:4',
         ];
     }
 }

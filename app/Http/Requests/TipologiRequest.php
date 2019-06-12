@@ -15,7 +15,7 @@ class TipologiRequest extends FormRequest
     {
         return [
             'uraian_tipologi' => 'required|string|max:300',
-            'keterangan_tipologi' => 'required|in:ya,tidak',
+            'keterangan_tipologi' => 'required|string|max:100',
         ];
     }
 }

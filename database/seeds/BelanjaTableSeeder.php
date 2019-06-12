@@ -10,12 +10,12 @@ class BelanjaTableSeeder extends Seeder
             [
                 'uraian_belanja' => 'Beli Barang ABC', 
                 'nominal_belanja' => '5000000',
-                'tahun_anggaran' => '2018'
+                'tahun' => '2018'
             ],
             [
                 'uraian_belanja' => 'Beli Barang ABC', 
                 'nominal_belanja' => '5000000',
-                'tahun_anggaran' => '2019'
+                'tahun' => '2019'
             ],
         ];
 

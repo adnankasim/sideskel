@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FasilitasPendidikanTableSeeder::class);
         $this->call(FasilitasPeribadatanTableSeeder::class);
         $this->call(FasilitasPemerintahanTableSeeder::class);
-        $this->call(FasilitasPenunjangPemukimanTableSeeder::class);
+        $this->call(FasilitasPemukimanTableSeeder::class);
         $this->call(InfraMelintasiTableSeeder::class);
         $this->call(PenggunaanTanahTableSeeder::class);
         $this->call(KesuburanTanahTableSeeder::class);

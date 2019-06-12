@@ -8,27 +8,27 @@ class OrbitasiTableSeeder extends Seeder
     {
         $data = [
             [
-                'uraian' => 'jarak_ke_kecamatan',
+                'uraian' => 'Jarak ke kecamatan',
                 'keterangan' => '7 KM' 
             ],
             [
-                'uraian' => 'lama_tempuh_ke_kecamatan', 
+                'uraian' => 'Lama tempuh ke kecamatan', 
                 'keterangan' => '30 Menit'
             ],
             [
-                'uraian' => 'jarak_ke_kabupaten',
+                'uraian' => 'Jarak ke kabupaten',
                 'keterangan' => '20 KM'
             ],
             [
-                'uraian' => 'lama_tempuh_ke_kabupaten',
+                'uraian' => 'lama tempuh ke kabupaten',
                 'keterangan' => '1 Jam'
             ],
             [
-                'uraian' => 'jarak_ke_kota', 
+                'uraian' => 'Jarak ke kota', 
                 'keterangan' => '25 KM'
             ],
             [
-                'uraian' => 'lama_tempuh_ke_kota', 
+                'uraian' => 'Lama tempuh ke_kota', 
                 'keterangan' => '1,5 Jam',
             ]
         ];

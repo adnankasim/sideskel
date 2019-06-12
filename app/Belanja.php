@@ -10,5 +10,5 @@ class Belanja extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['uraian_belanja', 'nominal_belanja', 'tahun_anggaran'];
+    protected $fillable = ['uraian_belanja', 'nominal_belanja', 'tahun'];
 }

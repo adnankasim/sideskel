@@ -19,7 +19,7 @@ class KegiatanRequest extends FormRequest
             $poster_rule = 'required|image|max:5000|mimes:jpeg,jpg,bmp,png';
         }
         return [
-            'judul_kegiatan' => 'required|string|max:100',
+            'nama_kegiatan' => 'required|string|max:100',
             'slug_kegiatan' => 'required|string|max:100',
             'waktu_kegiatan' => 'required|',
             'deskripsi_kegiatan' => 'required|string',

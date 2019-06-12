@@ -14,8 +14,8 @@ class PemerintahanRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_pemerintahan' => 'required|string|max:255',
-            'jabatan_pemerintahan' => 'required|string|max:100',
+            'nama_pemerintahan' => 'required|string|max:300',
+            'jabatan_pemerintahan' => 'required|string|max:300',
             'masa_bakti_pemerintahan' => 'required|string|max:30',
         ];
     }

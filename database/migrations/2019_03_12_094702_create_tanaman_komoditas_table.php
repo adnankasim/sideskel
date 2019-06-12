@@ -13,8 +13,7 @@ class CreateTanamanKomoditasTable extends Migration
             $table->string('uraian_tanaman_komoditas', 100);
             $table->string('luas_tanaman_komoditas', 30);
             $table->string('produksi_per_ha', 30);
-            $table->string('tahun_anggaran', 4);
-
+            $table->string('tahun', 4);
         });
     }
 

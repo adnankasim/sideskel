@@ -10,5 +10,5 @@ class Pendapatan extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['uraian_pendapatan', 'nominal_pendapatan', 'tahun_anggaran'];
+    protected $fillable = ['uraian_pendapatan', 'nominal_pendapatan', 'tahun'];
 }
