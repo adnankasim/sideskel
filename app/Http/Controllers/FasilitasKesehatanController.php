@@ -11,12 +11,12 @@ class FasilitasKesehatanController extends Controller
 {
     public function index()
     {
-        //
+        return view('fasilitas-kesehatan.index');
     }
 
     public function create()
     {
-        //
+        return view('fasilitas-kesehatan.create');
     }
 
     public function store(FasilitasKesehatanRequest $request)
@@ -24,14 +24,9 @@ class FasilitasKesehatanController extends Controller
         //
     }
 
-    public function show(FasilitasKesehatan $fasilitasKesehatan)
-    {
-        //
-    }
-
     public function edit(FasilitasKesehatan $fasilitasKesehatan)
     {
-        //
+        return view('fasilitas-kesehatan.edit');
     }
 
     public function update(FasilitasKesehatanRequest $request, FasilitasKesehatan $fasilitasKesehatan)

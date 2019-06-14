@@ -11,12 +11,12 @@ class InfraMelintasiController extends Controller
 {
     public function index()
     {
-        //
+        return view('infrastruktur-melintasi.index');
     }
 
     public function create()
     {
-        //
+        return view('infrastruktur-melintasi.index');
     }
 
     public function store(InfraMelintasiRequest $request)
@@ -24,14 +24,9 @@ class InfraMelintasiController extends Controller
         //
     }
 
-    public function show(InfraMelintasi $infraMelintasi)
-    {
-        //
-    }
-
     public function edit(InfraMelintasi $infraMelintasi)
     {
-        //
+        return view('infrastruktur-melintasi.edit');
     }
 
     public function update(InfraMelintasiRequest $request, InfraMelintasi $infraMelintasi)

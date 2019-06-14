@@ -11,12 +11,12 @@ class IklimController extends Controller
 {
     public function index()
     {
-        //
+        return view('iklim.index');
     }
 
     public function create()
     {
-        //
+        return view('iklim.create');
     }
 
     public function store(IklimRequest $request)
@@ -24,14 +24,9 @@ class IklimController extends Controller
         //
     }
 
-    public function show(Iklim $iklim)
-    {
-        //
-    }
-
     public function edit(Iklim $iklim)
     {
-        //
+        return view('iklim.edit');
     }
 
     public function update(IklimRequest $request, Iklim $iklim)

@@ -11,12 +11,12 @@ class PendudukController extends Controller
 {
     public function index()
     {
-        return Penduduk::all();
+        return view('penduduk.index');
     }
 
     public function create()
     {
-        //
+        return view('penduduk.create');
     }
 
     public function store(PendudukRequest $request)
@@ -26,12 +26,12 @@ class PendudukController extends Controller
 
     public function show(Penduduk $penduduk)
     {
-        //
+        return view('penduduk.detail');
     }
 
     public function edit(Penduduk $penduduk)
     {
-        //
+        return view('penduduk.edit');
     }
 
     public function update(PendudukRequest $request, Penduduk $penduduk)

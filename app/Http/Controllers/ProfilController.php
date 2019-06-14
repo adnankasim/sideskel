@@ -11,27 +11,12 @@ class ProfilController extends Controller
 {
     public function index()
     {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(ProfilRequest $request)
-    {
-        //
-    }
-
-    public function show(Profil $profil)
-    {
-        //
+        return view('profil.index');
     }
 
     public function edit(Profil $profil)
     {
-        //
+        return view('profil.edit');
     }
 
     public function update(ProfilRequest $request, Profil $profil)

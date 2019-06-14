@@ -11,12 +11,12 @@ class TipologiController extends Controller
 {
     public function index()
     {
-        //
+        return view('tipologi.index');
     }
 
     public function create()
     {
-        //
+        return view('tipologi.create');
     }
 
     public function store(TipologiRequest $request)
@@ -24,14 +24,9 @@ class TipologiController extends Controller
         //
     }
 
-    public function show(Tipologi $tipologi)
-    {
-        //
-    }
-
     public function edit(Tipologi $tipologi)
     {
-        //
+        return view('tipologi.edit');
     }
 
     public function update(TipologiRequest $request, Tipologi $tipologi)

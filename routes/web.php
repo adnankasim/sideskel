@@ -7,13 +7,14 @@ Route::get('/', function () {
 });
 Route::prefix('beranda')->group(function()
 {
-    Route::get('/', function () {
+    Route::get('/', function ()
+    {
         $daftar_artikel = App\Artikel::take(3)->get();
         $daftar_kegiatan = App\Kegiatan::take(3)->get();
-
         return view('beranda/index', compact('daftar_artikel', 'daftar_kegiatan'));
     });
 
+    // tentang
     Route::get('profil', 'BerandaController@profil'); 
     Route::get('batas', 'BerandaController@batas'); 
     Route::get('tanaman-komoditas', 'BerandaController@tanamanKomoditas'); 
@@ -23,9 +24,12 @@ Route::prefix('beranda')->group(function()
     Route::get('iklim', 'BerandaController@iklim'); 
     Route::get('kesuburan-tanah', 'BerandaController@kesuburanTanah'); 
     Route::get('penggunaan-tanah', 'BerandaController@penggunaanTanah');
+    Route::get('infrastruktur-melintasi', 'BerandaController@infraMelintasi');
 
+    // pemerintahan
     Route::get('pemerintahan', 'BerandaController@pemerintahan'); 
-    
+
+    // fasilitas
     Route::get('fasilitas-pemukiman', 'BerandaController@fasilitasPemukiman'); 
     Route::get('fasilitas-pemerintahan', 'BerandaController@fasilitasPemerintahan'); 
     Route::get('fasilitas-peribadatan', 'BerandaController@fasilitasPeribadatan'); 
@@ -34,11 +38,13 @@ Route::prefix('beranda')->group(function()
     Route::get('fasilitas-prasarana', 'BerandaController@fasilitasPrasarana'); 
     Route::get('fasilitas-pendidikan', 'BerandaController@fasilitasPendidikan'); 
     
+    // keuangan
     Route::get('belanja', 'BerandaController@belanja'); 
     Route::get('belanja/{tahun}', 'BerandaController@belanjaDetail');
     Route::get('pendapatan', 'BerandaController@pendapatan'); 
     Route::get('pendapatan/{tahun}', 'BerandaController@pendapatanDetail');
     
+    // penduduk
     Route::get('penduduk-usia', 'BerandaController@pendudukUsia');
     Route::get('penduduk-pekerjaan', 'BerandaController@pendudukPekerjaan');
     Route::get('penduduk-pendidikan', 'BerandaController@pendudukPendidikan');
@@ -47,12 +53,15 @@ Route::prefix('beranda')->group(function()
     Route::get('penduduk-agama', 'BerandaController@pendudukAgama');
     Route::get('penduduk-jenis-kelamin', 'BerandaController@pendudukJenisKelamin');
     
+    // dokumen
     Route::get('dokumen', 'BerandaController@dokumen');
     
+    // artikel
     Route::get('artikel', 'BerandaController@artikel');
     Route::get('artikel/cari', 'BerandaController@artikelCari');
     Route::get('artikel/{slug}', 'BerandaController@artikelDetail');
 
+    // kegiatan
     Route::get('kegiatan', 'BerandaController@kegiatan');
     Route::get('kegiatan/cari', 'BerandaController@kegiatanCari');
     Route::get('kegiatan/{slug}', 'BerandaController@kegiatanDetail');
@@ -64,12 +73,24 @@ Route::post('masuk', 'BerandaController@cekPengguna');
 Route::get('daftar', 'BerandaController@daftar');
 Route::post('daftar', 'BerandaController@daftarPengguna');
 
-Route::resource('profil', 'ProfilController');
+// admin dashboard
+Route::get('dashboard', 'DashboardController@index');
 
-Route::resource('artikel', 'ArtikelController');
+// tentang
+Route::resource('profil', 'ProfilController');
 Route::resource('batas', 'BatasController');
-Route::resource('belanja', 'BelanjaController');
-Route::resource('dokumen', 'DokumenController');
+Route::resource('tanaman-komoditas', 'TanamanKomoditasController');
+Route::resource('orbitasi', 'OrbitasiController');
+Route::resource('tipologi', 'TipologiController');
+Route::resource('iklim', 'IklimController');
+Route::resource('kesuburan-tanah', 'KesuburanTanahController');
+Route::resource('penggunaan-tanah', 'PenggunaanTanahController');
+Route::resource('infrastruktur-melintasi', 'InfraMelintasiController');
+
+// pemerintahan
+Route::resource('pemerintahan', 'PemerintahanController');
+
+// fasilitas
 Route::resource('fasilitas-ekonomi', 'FasilitasEkonomiController');
 Route::resource('fasilitas-kesehatan', 'FasilitasKesehatanController');
 Route::resource('fasilitas-pemerintahan', 'FasilitasPemerintahanController');
@@ -77,15 +98,25 @@ Route::resource('fasilitas-pemukiman', 'FasilitasPemukimanController');
 Route::resource('fasilitas-pendidikan', 'FasilitasPendidikanController');
 Route::resource('fasilitas-peribadatan', 'FasilitasPeribadatanController');
 Route::resource('fasilitas-prasarana', 'FasilitasPrasaranaController');
-Route::resource('iklim', 'IklimController');
-Route::resource('infrastruktur-melintasi', 'InfraMelintasiController');
-Route::resource('kegiatan', 'KegiatanController');
-Route::resource('kesuburan-tanah', 'KesuburanTanahController');
-Route::resource('orbitasi', 'OrbitasiController');
-Route::resource('pemerintahan', 'PemerintahanController');
+
+// keuangan
+Route::resource('belanja', 'BelanjaController');
 Route::resource('pendapatan', 'PendapatanController');
+
+// penduduk
 Route::resource('penduduk', 'PendudukController');
-Route::resource('penggunaan-tanah', 'PenggunaanTanahController');
+
+// dokumen
+Route::resource('dokumen', 'DokumenController');
+
+// artikel
+Route::resource('artikel', 'ArtikelController');
+
+// kegiatan
+Route::resource('kegiatan', 'KegiatanController');
+
+// pengguna
 Route::resource('pengguna', 'PenggunaController');
-Route::resource('tanaman-komoditas', 'TanamanKomoditasController');
-Route::resource('tipologi', 'TipologiController');
+
+// admin
+Route::resource('admin', 'AdminController');

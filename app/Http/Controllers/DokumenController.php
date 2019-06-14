@@ -11,12 +11,12 @@ class DokumenController extends Controller
 {
     public function index()
     {
-        //
+        return view('dokumen.index');
     }
 
     public function create()
     {
-        //
+        return view('dokumen.create');
     }
 
     public function store(DokumenRequest $request)
@@ -24,14 +24,9 @@ class DokumenController extends Controller
         //
     }
 
-    public function show(Dokumen $dokumen)
-    {
-        //
-    }
-
     public function edit(Dokumen $dokumen)
     {
-        //
+        return view('dokumen.edit');
     }
 
     public function update(DokumenRequest $request, Dokumen $dokumen)

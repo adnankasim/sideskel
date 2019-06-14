@@ -11,12 +11,12 @@ class BelanjaController extends Controller
 {
     public function index()
     {
-        //
+        return view('belanja.index');
     }
 
     public function create()
     {
-        //
+        return view('belanja.create');
     }
 
     public function store(BelanjaRequest $request)
@@ -24,14 +24,9 @@ class BelanjaController extends Controller
         //
     }
 
-    public function show(Belanja $belanja)
-    {
-        //
-    }
-
     public function edit(Belanja $belanja)
     {
-        //
+        return view('belanja.edit');
     }
 
     public function update(BelanjaRequest $request, Belanja $belanja)

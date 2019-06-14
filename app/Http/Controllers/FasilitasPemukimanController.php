@@ -11,12 +11,12 @@ class FasilitasPemukimanController extends Controller
 {
     public function index()
     {
-        //
+        return view('fasilitas-pemukiman.index');
     }
 
     public function create()
     {
-        //
+        return view('fasilitas-pemukiman.create');
     }
 
     public function store(FasilitasPemukimanRequest $request)
@@ -24,14 +24,9 @@ class FasilitasPemukimanController extends Controller
         //
     }
 
-    public function show(FasilitasPemukiman $fasilitasPemukiman)
-    {
-        //
-    }
-
     public function edit(FasilitasPemukiman $fasilitasPemukiman)
     {
-        //
+        return view('fasilitas-pemukiman.edit');
     }
 
     public function update(FasilitasPemukimanRequest $request, FasilitasPemukiman $fasilitasPemukiman)

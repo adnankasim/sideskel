@@ -11,12 +11,12 @@ class FasilitasEkonomiController extends Controller
 {
     public function index()
     {
-        //
+        return view('fasilitas-ekonomi.index');
     }
 
     public function create()
     {
-        //
+        return view('fasilitas-ekonomi.create');
     }
 
     public function store(FasilitasEkonomiRequest $request)
@@ -24,14 +24,9 @@ class FasilitasEkonomiController extends Controller
         //
     }
 
-    public function show(FasilitasEkonomi $fasilitasEkonomi)
-    {
-        //
-    }
-
     public function edit(FasilitasEkonomi $fasilitasEkonomi)
     {
-        //
+        return view('fasilitas-ekonomi.edit');
     }
 
     public function update(FasilitasEkonomiRequest $request, FasilitasEkonomi $fasilitasEkonomi)

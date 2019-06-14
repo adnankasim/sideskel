@@ -11,12 +11,12 @@ class PendapatanController extends Controller
 {
     public function index()
     {
-        //
+        return view('pendapatan.index');
     }
 
     public function create()
     {
-        //
+        return view('pendapatan.create');
     }
 
     public function store(PendapatanRequest $request)
@@ -24,14 +24,9 @@ class PendapatanController extends Controller
         //
     }
 
-    public function show(Pendapatan $pendapatan)
-    {
-        //
-    }
-
     public function edit(Pendapatan $pendapatan)
     {
-        //
+        return view('pendapatan.edit');
     }
 
     public function update(PendapatanRequest $request, Pendapatan $pendapatan)

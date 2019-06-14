@@ -34,5 +34,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BelanjaTableSeeder::class);
         $this->call(PendapatanTableSeeder::class);
+
+        $this->call(AdminTableSeeder::class);
     }
 }

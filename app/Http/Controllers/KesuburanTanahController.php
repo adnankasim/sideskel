@@ -11,12 +11,12 @@ class KesuburanTanahController extends Controller
 {
     public function index()
     {
-        //
+        return view('kesuburan-tanah.index');
     }
 
     public function create()
     {
-        //
+        return view('kesuburan-tanah.create');
     }
 
     public function store(KesuburanTanahRequest $request)
@@ -24,14 +24,9 @@ class KesuburanTanahController extends Controller
         //
     }
 
-    public function show(KesuburanTanah $kesuburanTanah)
-    {
-        //
-    }
-
     public function edit(KesuburanTanah $kesuburanTanah)
     {
-        //
+        return view('kesuburan-tanah.edit');
     }
 
     public function update(KesuburanTanahRequest $request, KesuburanTanah $kesuburanTanah)

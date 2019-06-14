@@ -11,12 +11,12 @@ class OrbitasiController extends Controller
 {
     public function index()
     {
-        //
+        return view('orbitasi.index');
     }
 
     public function create()
     {
-        //
+        return view('orbitasi.create');
     }
 
     public function store(OrbitasiRequest $request)
@@ -24,14 +24,9 @@ class OrbitasiController extends Controller
         //
     }
 
-    public function show(Orbitasi $orbitasi)
-    {
-        //
-    }
-
     public function edit(Orbitasi $orbitasi)
     {
-        //
+        return view('orbitasi.edit');
     }
 
     public function update(OrbitasiRequest $request, Orbitasi $orbitasi)

@@ -20,11 +20,14 @@
         <meta name="keywords" content="Kesuburan Tanah {{ $profil->nama }}">
     @elseif(Request::segment(2) === 'penggunaan-tanah')
         <meta name="keywords" content="Penggunaan Tanah {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'infrastruktur-melintasi')
+        <meta name="keywords" content="Infrastruktur Melintasi {{ $profil->nama }}">
     @endif
     
     <meta name="description" content="{{ $profil->deskripsi }}">
     <meta name="author" content="{{ $profil->nama }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900">
     <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
@@ -82,6 +85,7 @@
                                                 <li><a href="{{ url('beranda/iklim') }}">IKLIM</a></li>
                                                 <li><a href="{{ url('beranda/kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
                                                 <li><a href="{{ url('beranda/penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
+                                                <li><a href="{{ url('beranda/infrastruktur-melintasi') }}">INFRASTRUKTUR MELINTASI</a></li>
                                             </ul>
                                         </li>
 @if(Request::segment(2) === 'pemerintahan')

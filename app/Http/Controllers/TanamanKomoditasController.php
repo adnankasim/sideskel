@@ -11,12 +11,12 @@ class TanamanKomoditasController extends Controller
 {
     public function index()
     {
-        //
+        return view('tanaman-komoditas.index');
     }
 
     public function create()
     {
-        //
+        return view('tanaman-komoditas.create');
     }
 
     public function store(TanamanKomoditasRequest $request)
@@ -24,14 +24,9 @@ class TanamanKomoditasController extends Controller
         //
     }
 
-    public function show(TanamanKomoditas $tanamanKomoditas)
-    {
-        //
-    }
-
     public function edit(TanamanKomoditas $tanamanKomoditas)
     {
-        //
+        return view('tanaman-komoditas.edit');
     }
 
     public function update(TanamanKomoditasRequest $request, TanamanKomoditas $tanamanKomoditas)

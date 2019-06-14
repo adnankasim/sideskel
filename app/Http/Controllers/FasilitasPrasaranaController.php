@@ -11,12 +11,12 @@ class FasilitasPrasaranaController extends Controller
 {
     public function index()
     {
-        //
+        return view('fasilitas-prasarana.index');
     }
 
     public function create()
     {
-        //
+        return view('fasilitas-prasarana.create');
     }
 
     public function store(FasilitasPrasaranaRequest $request)
@@ -24,14 +24,9 @@ class FasilitasPrasaranaController extends Controller
         //
     }
 
-    public function show(FasilitasPrasarana $fasilitasPrasarana)
-    {
-        //
-    }
-
     public function edit(FasilitasPrasarana $fasilitasPrasarana)
     {
-        //
+        return view('fasilitas-prasarana.edit');
     }
 
     public function update(FasilitasPrasaranaRequest $request, FasilitasPrasarana $fasilitasPrasarana)

@@ -50,6 +50,11 @@ class BerandaController extends Controller
         $daftar_penggunaan_tanah = \App\PenggunaanTanah::all();
         return view('beranda/penggunaan-tanah', compact('daftar_penggunaan_tanah'));
     }
+
+    public function infraMelintasi(){
+        $daftar_infra_melintasi = \App\InfraMelintasi::all();
+        return view('beranda/infrastruktur-melintasi', compact('daftar_infra_melintasi'));
+    }
     
     // pemerintahan
     public function pemerintahan(){

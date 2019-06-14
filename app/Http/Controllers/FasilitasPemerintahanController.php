@@ -11,12 +11,12 @@ class FasilitasPemerintahanController extends Controller
 {
     public function index()
     {
-        //
+        return view('fasilitas-pemerintahan.index');
     }
 
     public function create()
     {
-        //
+        return view('fasilitas-pemerintahan.create');
     }
 
     public function store(FasilitasPemerintahanRequest $request)
@@ -24,14 +24,9 @@ class FasilitasPemerintahanController extends Controller
         //
     }
 
-    public function show(FasilitasPemerintahan $fasilitasPemerintahan)
-    {
-        //
-    }
-
     public function edit(FasilitasPemerintahan $fasilitasPemerintahan)
     {
-        //
+        return view('fasilitas-pemerintahan.edit');
     }
 
     public function update(FasilitasPemerintahanRequest $request, FasilitasPemerintahan $fasilitasPemerintahan)

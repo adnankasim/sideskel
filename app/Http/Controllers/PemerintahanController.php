@@ -11,12 +11,12 @@ class PemerintahanController extends Controller
 {
     public function index()
     {
-        //
+        return view('pemerintahan.index');
     }
 
     public function create()
     {
-        //
+        return view('pemerintahan.create');
     }
 
     public function store(PemerintahanRequest $request)
@@ -24,14 +24,9 @@ class PemerintahanController extends Controller
         //
     }
 
-    public function show(Pemerintahan $pemerintahan)
-    {
-        //
-    }
-
     public function edit(Pemerintahan $pemerintahan)
     {
-        //
+        return view('pemerintahan.edit');
     }
 
     public function update(PemerintahanRequest $request, Pemerintahan $pemerintahan)

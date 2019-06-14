@@ -11,12 +11,12 @@ class ArtikelController extends Controller
 {
     public function index()
     {
-        //
+        return view('artikel.index');
     }
 
     public function create()
     {
-        //
+        return view('artikel.create');
     }
 
     public function store(ArtikelRequest $request)
@@ -26,12 +26,12 @@ class ArtikelController extends Controller
 
     public function show(Artikel $artikel)
     {
-        //
+        return view('artikel.detail');
     }
 
     public function edit(Artikel $artikel)
     {
-        //
+        return view('artikel.edit');
     }
 
     public function update(ArtikelRequest $request, Artikel $artikel)
