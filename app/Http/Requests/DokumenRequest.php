@@ -19,8 +19,8 @@ class DokumenRequest extends FormRequest
             $file_rule = 'required|file|max:5000|mimes:docx,doc,pdf';
         }
         return [
-            'nama_dokumen' => 'required|string|max:100',
-            'file_dokumen' => $file_rule,
+            'file' => $file_rule,
+            'keterangan' => 'required|string',
         ];
     }
 }

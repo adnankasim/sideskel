@@ -12,7 +12,7 @@ class CreatePemerintahanTable extends Migration
             $table->increments('id');
             $table->string('nama_pemerintahan', 300);
             $table->string('jabatan_pemerintahan', 300);
-            $table->string('masa_bakti_pemerintahan', 30);
+            $table->string('foto_pemerintahan', 100);
         });
     }
 

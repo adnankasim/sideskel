@@ -11,7 +11,8 @@ class FasilitasPemerintahanController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-pemerintahan.index');
+        $daftar_fasilitas_pemerintahan = FasilitasPemerintahan::all();
+        return view('fasilitas-pemerintahan.index', compact('daftar_fasilitas_pemerintahan'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasPemerintahanController extends Controller
 
     public function store(FasilitasPemerintahanRequest $request)
     {
-        //
+        FasilitasPemerintahan::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Pemerintahan Berhasil Disimpan');
+        return redirect('fasilitas-pemerintahan');
     }
 
     public function edit(FasilitasPemerintahan $fasilitasPemerintahan)
     {
-        return view('fasilitas-pemerintahan.edit');
+        return view('fasilitas-pemerintahan.edit', compact('fasilitasPemerintahan'));
     }
 
     public function update(FasilitasPemerintahanRequest $request, FasilitasPemerintahan $fasilitasPemerintahan)
     {
-        //
+        $fasilitasPemerintahan->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Pemerintahan Berhasil Diupdate');
+        return redirect('fasilitas-pemerintahan');
     }
 
     public function destroy(FasilitasPemerintahan $fasilitasPemerintahan)
     {
-        //
+        $fasilitasPemerintahan->delete();
+        Session::flash('pesan', '1 Fasilitas Pemerintahan Berhasil Dihapus');
+        return redirect('fasilitas-pemerintahan');
     }
 }

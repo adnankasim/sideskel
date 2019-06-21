@@ -16,7 +16,7 @@ class PemerintahanRequest extends FormRequest
         return [
             'nama_pemerintahan' => 'required|string|max:300',
             'jabatan_pemerintahan' => 'required|string|max:300',
-            'masa_bakti_pemerintahan' => 'required|string|max:30',
+            'foto_pemerintahan' => 'sometimes|image|max:5000|mimes:jpeg,jpg,bmp,png'
         ];
     }
 }

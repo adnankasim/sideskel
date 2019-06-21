@@ -2,56 +2,76 @@
 @section('main-dashboard')
 <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
-
-
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <!-- <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert">
-                          <h4 class="alert-heading">SIDESKEL</h4>
-                          <p class="text-dark">1 Batas Berhasil ditambahkan</p>
-                        </div>
-                    </div> -->
+                    @include('pesan.pesan_info')
 
-                    <div class="col-md-12">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari Judul Artikel">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="submit"> <i class="fa fa-search fa-lg"></i> </button>
-                            </div>
-                        </div>
-                    </div>
+                    @include('artikel.cari')
 
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">ARTIKEL</strong>
-                                <a href="" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
+                                <a href="{{ url('artikel/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
+                                <span> TOTAL DATA :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_artikel->total() }}  </strong>
+                                </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
                                         <th>NO</th>
                                         <th>JUDUL</th>
                                         <th>WAKTU</th>
                                         <th>PENGGUNA</th>
+                                        <th>VALID</th>
                                         <th>AKSI</th>
                                     </tr>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_artikel as $artikel)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Lorem Ipsum Dolor Sit Amet</td>
-                                        <td>21-03-2019</td>
-                                        <td>Adnan Kasim</td>
+                                        <td class="text-center">{{ $i }}</td>
+                                        <td>{{ $artikel->judul_artikel }}</td>
+                                        <td>{{ $artikel->created_at }} WITA</td>
+                                        <td>{{ $artikel->pengguna->nama_pengguna }}</td>
+                                        <td class="text-center">
+                                            @if($artikel->is_valid === 'tidak')
+                                                <span class="fa fa-times fa-lg text-danger"></span>
+                                            @else
+                                                <span class="fa fa-check fa-lg text-primary"></span>
+                                            @endif
+                                        </td>
                                         <td>
-                                            <a href="#" class="btn btn-info btn-sm" target="_blank">DETAIL</a>
-                                            <form action="#" class="d-inline">
-                                                <input type="hidden">
-                                                <input type="submit" class="btn btn-danger btn-sm" value="HAPUS">
-                                            </form>
+                                            <a href="{{ url('artikel/'. $artikel->id) }}" class="btn btn-primary btn-sm d-block my-1">DETAIL</a>                           
+                                            <a href="{{ url('artikel/'. $artikel->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>
+                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}">HAPUS</a>
+
+<div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <i class="fa fa-exclamation-circle fa-lg"></i> PERINGATAN!
+            </div>
+            <div class="modal-body">
+                APAKAH YAKIN AKAN MENGHAPUS DATA INI ? 
+                <br><br><br>
+                *) Data yang sudah dihapus tidak bisa dikembalikan lagi
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                {!! Form::open(['url' => 'artikel/'.$artikel->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
+                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
+
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -59,17 +79,7 @@
 
                     <div class="col-md-12">
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" tabindex="-1"> KEMBALI </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">LANJUT</a>
-                                </li>
-                            </ul>
+                            {{ $daftar_artikel->links() }}
                         </nav>
                     </div>
 
@@ -79,24 +89,9 @@
 
 
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-4">
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> Desa Kayu Bulan, Gorontalo
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+        
+        @include('footer')
+
     </div>
     <!-- /#right-panel -->
 @stop

@@ -11,7 +11,8 @@ class FasilitasEkonomiController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-ekonomi.index');
+        $daftar_fasilitas_ekonomi = FasilitasEkonomi::all();
+        return view('fasilitas-ekonomi.index', compact('daftar_fasilitas_ekonomi'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasEkonomiController extends Controller
 
     public function store(FasilitasEkonomiRequest $request)
     {
-        //
+        FasilitasEkonomi::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Ekonomi Berhasil Disimpan');
+        return redirect('fasilitas-ekonomi');
     }
 
     public function edit(FasilitasEkonomi $fasilitasEkonomi)
     {
-        return view('fasilitas-ekonomi.edit');
+        return view('fasilitas-ekonomi.edit', compact('fasilitasEkonomi'));
     }
 
     public function update(FasilitasEkonomiRequest $request, FasilitasEkonomi $fasilitasEkonomi)
     {
-        //
+        $fasilitasEkonomi->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Ekonomi Berhasil Diupdate');
+        return redirect('fasilitas-ekonomi');
     }
 
     public function destroy(FasilitasEkonomi $fasilitasEkonomi)
     {
-        //
+        $fasilitasEkonomi->delete();
+        Session::flash('pesan', '1 Fasilitas Ekonomi Berhasil Dihapus');
+        return redirect('fasilitas-ekonomi');
     }
 }

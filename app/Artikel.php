@@ -9,10 +9,12 @@ class Artikel extends Model
     protected $table = 'artikel';
 
     protected $fillable = [
-        'judul_artikel', 'slug_artikel', 'isi_artikel', 'gambar_artikel', 'id_pengguna'
+        'judul_artikel', 'slug_artikel', 'isi_artikel', 'gambar_artikel', 'id_pengguna', 'is_valid'
     ];
 
-    public $timestamps = false;
+    protected $attributes = [
+        'is_valid' => 'tidak'
+    ];
 
     // Relasi N-1 dengan pengguna
     public function pengguna(){

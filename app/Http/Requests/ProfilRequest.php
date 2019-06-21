@@ -19,7 +19,7 @@ class ProfilRequest extends FormRequest
             'telepon' => 'required|string|max:15',
             'email' => 'required|string|max:100',
             'deskripsi' => 'required|string',
-            'logo' => 'required|string',
+            'logo' => 'sometimes|image|max:5000|mimes:jpeg,jpg,bmp,png',
             'visi_misi' => 'required|string',
         ];
     }

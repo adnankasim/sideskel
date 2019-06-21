@@ -11,7 +11,8 @@ class BatasController extends Controller
 {
     public function index()
     {
-        return view('batas.index'); 
+        $daftar_batas = Batas::all();
+        return view('batas.index', compact('daftar_batas')); 
     }
 
     public function create()
@@ -21,21 +22,27 @@ class BatasController extends Controller
 
     public function store(BatasRequest $request)
     {
-        //
+        Batas::create($request->all());
+        Session::flash('pesan', '1 Batas Berhasil Disimpan');
+        return redirect('batas');
     }
 
-    public function edit(Batas $batas)
+    public function edit(Batas $bata)
     {
-        return view('batas.edit'); 
+        return view('batas.edit', compact('bata')); 
     }
 
-    public function update(BatasRequest $request, Batas $batas)
+    public function update(BatasRequest $request, Batas $bata)
     {
-        //
+        $bata->update($request->all());
+        Session::flash('pesan', '1 Batas Berhasil Diupdate');
+        return redirect('batas');
     }
 
-    public function destroy(Batas $batas)
+    public function destroy(Batas $bata)
     {
-        //
+        $bata->delete();
+        Session::flash('pesan', '1 Batas Berhasil Dihapus');
+        return redirect('batas');
     }
 }

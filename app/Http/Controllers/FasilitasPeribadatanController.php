@@ -11,7 +11,8 @@ class FasilitasPeribadatanController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-peribadatan.index');
+        $daftar_fasilitas_peribadatan = FasilitasPeribadatan::all();
+        return view('fasilitas-peribadatan.index', compact('daftar_fasilitas_peribadatan'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasPeribadatanController extends Controller
 
     public function store(FasilitasPeribadatanRequest $request)
     {
-        //
+        FasilitasPeribadatan::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Peribadatan Berhasil Disimpan');
+        return redirect('fasilitas-peribadatan');
     }
 
     public function edit(FasilitasPeribadatan $fasilitasPeribadatan)
     {
-    return view('fasilitas-peribadatan.edit');
+        return view('fasilitas-peribadatan.edit', compact('fasilitasPeribadatan'));
     }
 
     public function update(FasilitasPeribadatanRequest $request, FasilitasPeribadatan $fasilitasPeribadatan)
     {
-        //
+        $fasilitasPeribadatan->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Peribadatan Berhasil Diupdate');
+        return redirect('fasilitas-peribadatan');
     }
 
     public function destroy(FasilitasPeribadatan $fasilitasPeribadatan)
     {
-        //
+        $fasilitasPeribadatan->delete();
+        Session::flash('pesan', '1 Fasilitas Peribadatan Berhasil Dihapus');
+        return redirect('fasilitas-peribadatan');
     }
 }

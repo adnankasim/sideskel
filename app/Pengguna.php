@@ -10,7 +10,7 @@ class Pengguna extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nama_pengguna', 'email_pengguna', 'password_pengguna', 'jenis_kelamin', 'no_hp', 'terakhir_login'];
+    protected $fillable = ['nama_pengguna', 'email_pengguna', 'password_pengguna', 'jenis_kelamin', 'no_hp'];
 
     // relasi 1-N dengan artikel
     public function artikel(){

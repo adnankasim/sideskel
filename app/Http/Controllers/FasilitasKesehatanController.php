@@ -11,7 +11,8 @@ class FasilitasKesehatanController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-kesehatan.index');
+        $daftar_fasilitas_kesehatan = FasilitasKesehatan::all();
+        return view('fasilitas-kesehatan.index', compact('daftar_fasilitas_kesehatan'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasKesehatanController extends Controller
 
     public function store(FasilitasKesehatanRequest $request)
     {
-        //
+        FasilitasKesehatan::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Kesehatan Berhasil Disimpan');
+        return redirect('fasilitas-kesehatan');
     }
 
     public function edit(FasilitasKesehatan $fasilitasKesehatan)
     {
-        return view('fasilitas-kesehatan.edit');
+        return view('fasilitas-kesehatan.edit', compact('fasilitasKesehatan'));
     }
 
     public function update(FasilitasKesehatanRequest $request, FasilitasKesehatan $fasilitasKesehatan)
     {
-        //
+        $fasilitasKesehatan->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Kesehatan Berhasil Diupdate');
+        return redirect('fasilitas-kesehatan');
     }
 
     public function destroy(FasilitasKesehatan $fasilitasKesehatan)
     {
-        //
+        $fasilitasKesehatan->delete();
+        Session::flash('pesan', '1 Fasilitas Kesehatan Berhasil Dihapus');
+        return redirect('fasilitas-kesehatan');
     }
 }

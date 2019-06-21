@@ -11,7 +11,8 @@ class FasilitasPemukimanController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-pemukiman.index');
+        $daftar_fasilitas_pemukiman = FasilitasPemukiman::all();
+        return view('fasilitas-pemukiman.index', compact('daftar_fasilitas_pemukiman'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasPemukimanController extends Controller
 
     public function store(FasilitasPemukimanRequest $request)
     {
-        //
+        FasilitasPemukiman::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Berhasil Disimpan');
+        return redirect('fasilitas-pemukiman');
     }
 
     public function edit(FasilitasPemukiman $fasilitasPemukiman)
     {
-        return view('fasilitas-pemukiman.edit');
+        return view('fasilitas-pemukiman.edit', compact('fasilitasPemukiman'));
     }
 
     public function update(FasilitasPemukimanRequest $request, FasilitasPemukiman $fasilitasPemukiman)
     {
-        //
+        $fasilitasPemukiman->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Pemukiman Berhasil Diupdate');
+        return redirect('fasilitas-pemukiman');
     }
 
     public function destroy(FasilitasPemukiman $fasilitasPemukiman)
     {
-        //
+        $fasilitasPemukiman->delete();
+        Session::flash('pesan', '1 Fasilitas Pemukiman Berhasil Dihapus');
+        return redirect('fasilitas-pemukiman');
     }
 }

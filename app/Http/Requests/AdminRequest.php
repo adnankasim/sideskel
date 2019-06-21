@@ -14,7 +14,7 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         if($this->method() === 'PATCH'){
-            $pass_rule = 'sometimes|string|max:100';
+            $pass_rule = 'sometimes|max:100';
         }else{
             $pass_rule = 'required|string|max:100';
         }

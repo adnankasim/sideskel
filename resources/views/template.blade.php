@@ -13,6 +13,16 @@
 
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/style.css') }}">
+    <script src="{{ asset('assets-dashboard/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: '.editor',
+            plugins: "lists",
+            toolbar: "numlist bullist",
+            theme: 'modern',
+            mobile: { theme: 'mobile' }
+        });
+    </script>
 </head>
 
 <body>
@@ -22,7 +32,9 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-title text-center border-bottom">
-                        <h3 class="font-weight-bold py-3 d-inline-block">SIDESKEL</h3> <small>v. 2019.6</small>
+                        <h3 class="font-weight-bold py-3 d-inline-block">SIDESKEL</h3> 
+                        <h5 class="font-weight-bold py-3 d-inline-block">v. 1</h5> 
+                        <small> (2019.6)</small>
                     </li>
 
 @if(Request::segment(1) === 'dashboard')
@@ -47,6 +59,7 @@
                             <li><i class="fa fa-info"></i><a href="{{ url('iklim') }}">IKLIM</a></li>
                             <li><i class="fa fa-square"></i><a href="{{ url('kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
                             <li><i class="fa fa-book"></i><a href="{{ url('penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
+                            <li><i class="fa fa-binoculars"></i><a href="{{ url('infrastruktur-melintasi') }}">INFRASTRUKTUR</a></li>
                         </ul>
                     </li>
 
@@ -103,6 +116,18 @@
                     <li class="active"><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
 @else
                     <li><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
+@endif
+
+@if(Request::segment(1) === 'dokumen')
+                    <li class="active"><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file-pdf-o"></i>DOKUMEN</a></li>
+@else
+                    <li><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file-pdf-o"></i>DOKUMEN</a></li>
+@endif
+
+@if(Request::segment(1) === 'pelayanan')
+                    <li class="active"><a href="{{ url('pelayanan') }}"><i class="menu-icon fa fa-info-circle"></i>PELAYANAN</a></li>
+@else
+                    <li><a href="{{ url('pelayanan') }}"><i class="menu-icon fa fa-info-circle"></i>PELAYANAN</a></li>
 @endif
 
 @if(Request::segment(1) === 'pengguna')

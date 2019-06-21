@@ -15,7 +15,6 @@ class CreatAdminTable extends Migration
             $table->string('password_admin', 100);
             $table->enum('jenis_kelamin', ['perempuan', 'laki-laki']);
             $table->string('no_hp', 15);
-            $table->dateTime('terakhir_login')->default(date('Y-m-d H:i:s'));
         });
     }
 

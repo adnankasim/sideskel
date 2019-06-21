@@ -11,8 +11,9 @@
                                 <thead>
                                     <tr>
                                         <td class="font-weight-bold">NO</td>
-                                        <td class="font-weight-bold">NAMA</td>
                                         <td class="font-weight-bold">FILE</td>
+                                        <td class="font-weight-bold">Keterangan</td>
+                                        <td class="font-weight-bold">Waktu Upload</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -20,8 +21,9 @@
                                     @foreach($daftar_dokumen as $dokumen)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $dokumen->nama_dokumen }}</td>
-                                        <td> <a href="{{ asset('assets-beranda/dokumen/'.$dokumen->file_dokumen) }}" class="text-black"> {{ $dokumen->file_dokumen }} </a> </td>
+                                        <td> <a href="{{ asset('assets-beranda/dokumen/'.$dokumen->file) }}" class="text-black"> {{ $dokumen->file }} </a> </td>
+                                        <td>{{ $dokumen->keterangan }}</td>
+                                        <td>{{ $dokumen->created_at }} WITA</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

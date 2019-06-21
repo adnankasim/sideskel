@@ -9,9 +9,7 @@ class Kegiatan extends Model
     protected $table = 'kegiatan';
 
     protected $fillable = [
-        'nama_kegiatan', 'slug_kegiatan', 'waktu_kegiatan', 'deskripsi_kegiatan', 'poster_kegiatan'
+        'nama_kegiatan', 'slug_kegiatan', 'deskripsi_kegiatan', 'poster_kegiatan'
     ];
-
-    public $timestamps = false;
 
 }

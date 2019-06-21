@@ -10,5 +10,5 @@ class Admin extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nama_admin', 'email_admin', 'password_admin', 'jenis_kelamin', 'no_hp', 'terakhir_login'];
+    protected $fillable = ['nama_admin', 'email_admin', 'password_admin', 'jenis_kelamin', 'no_hp'];
 }

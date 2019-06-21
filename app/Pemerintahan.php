@@ -10,5 +10,5 @@ class Pemerintahan extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nama_pemerintahan', 'jabatan_pemerintahan', 'masa_bakti_pemerintahan'];
+    protected $fillable = ['nama_pemerintahan', 'jabatan_pemerintahan', 'foto_pemerintahan'];
 }

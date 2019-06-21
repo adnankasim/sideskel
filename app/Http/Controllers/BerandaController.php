@@ -196,9 +196,16 @@ class BerandaController extends Controller
         return view('beranda/penduduk-jenis-kelamin', compact('daftar_jk'));
     }
 
+    // dokumen
     public function dokumen(){
         $daftar_dokumen = \App\Dokumen::all();
         return view('beranda/dokumen', compact('daftar_dokumen'));
+    }
+
+    // pelayanan
+    public function pelayanan(){
+        $daftar_pelayanan = \App\Pelayanan::all();
+        return view('beranda/pelayanan', compact('daftar_pelayanan'));
     }
     
     // artikel

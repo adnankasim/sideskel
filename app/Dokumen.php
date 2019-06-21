@@ -8,5 +8,5 @@ class Dokumen extends Model
 {
     protected $table = 'dokumen';
 
-    protected $fillable = ['nama_dokumen', 'file_dokumen'];
+    protected $fillable = ['file', 'keterangan'];
 }

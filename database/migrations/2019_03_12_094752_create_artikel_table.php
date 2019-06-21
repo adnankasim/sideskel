@@ -14,7 +14,8 @@ class CreateArtikelTable extends Migration
             $table->string('slug_artikel', 200);
             $table->text('isi_artikel');
             $table->string('gambar_artikel', 100);
-            $table->dateTime('waktu_artikel')->useCurrent();
+            $table->enum('is_valid', ['ya', 'tidak'])->default('tidak');
+            $table->timestamps();
 
             // foreign key
             $table->integer('id_pengguna')->unsigned();

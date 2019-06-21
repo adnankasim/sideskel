@@ -11,7 +11,8 @@ class FasilitasPendidikanController extends Controller
 {
     public function index()
     {
-        return view('fasilitas-pendidikan.index');
+        $daftar_fasilitas_pendidikan = FasilitasPendidikan::all();
+        return view('fasilitas-pendidikan.index', compact('daftar_fasilitas_pendidikan'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class FasilitasPendidikanController extends Controller
 
     public function store(FasilitasPendidikanRequest $request)
     {
-        //
+        FasilitasPendidikan::create($request->all());
+        Session::flash('pesan', '1 Fasilitas Pendidikan Berhasil Disimpan');
+        return redirect('fasilitas-pendidikan');
     }
 
     public function edit(FasilitasPendidikan $fasilitasPendidikan)
     {
-        return view('fasilitas-pendidikan.edit');
+        return view('fasilitas-pendidikan.edit', compact('fasilitasPendidikan'));
     }
 
     public function update(FasilitasPendidikanRequest $request, FasilitasPendidikan $fasilitasPendidikan)
     {
-        //
+        $fasilitasPendidikan->update($request->all());
+        Session::flash('pesan', '1 Fasilitas Pendidikan Berhasil Diupdate');
+        return redirect('fasilitas-pendidikan');
     }
 
     public function destroy(FasilitasPendidikan $fasilitasPendidikan)
     {
-        //
+        $fasilitasPendidikan->delete();
+        Session::flash('pesan', '1 Fasilitas Pendidikan Berhasil Dihapus');
+        return redirect('fasilitas-pendidikan');
     }
 }

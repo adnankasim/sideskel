@@ -11,7 +11,9 @@ class BelanjaController extends Controller
 {
     public function index()
     {
-        return view('belanja.index');
+        $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');
+        $daftar_belanja = Belanja::orderBy('tahun', 'desc')->paginate(25);
+        return view('belanja.index', compact('daftar_belanja', 'daftar_tahun'));
     }
 
     public function create()
@@ -21,21 +23,36 @@ class BelanjaController extends Controller
 
     public function store(BelanjaRequest $request)
     {
-        //
+        Belanja::create($request->all());
+        Session::flash('pesan', '1 Belanja Berhasil Disimpan');
+        return redirect('belanja');
     }
 
     public function edit(Belanja $belanja)
     {
-        return view('belanja.edit');
+        return view('belanja.edit', compact('belanja'));
     }
 
     public function update(BelanjaRequest $request, Belanja $belanja)
     {
-        //
+        $belanja->update($request->all());
+        Session::flash('pesan', '1 Belanja Berhasil Diupdate');
+        return redirect('belanja');
     }
 
     public function destroy(Belanja $belanja)
     {
-        //
+        $belanja->delete();
+        Session::flash('pesan', '1 Belanja Berhasil Dihapus');
+        return redirect('belanja');
     }
+
+    public function urutkan(Request $request)
+    {
+        $daftar_belanja = Belanja::where('tahun', $request->input('tahun'))->orderBy('nominal_belanja', 'asc')->get();
+        $total = $daftar_belanja->sum('nominal_belanja');
+        $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');
+        return view('belanja.urutkan', compact('daftar_belanja', 'total', 'daftar_tahun'));
+    }
+    
 }

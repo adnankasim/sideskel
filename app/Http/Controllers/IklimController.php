@@ -11,7 +11,8 @@ class IklimController extends Controller
 {
     public function index()
     {
-        return view('iklim.index');
+        $daftar_iklim = Iklim::all();
+        return view('iklim.index', compact('daftar_iklim'));
     }
 
     public function create()
@@ -21,21 +22,27 @@ class IklimController extends Controller
 
     public function store(IklimRequest $request)
     {
-        //
+        Iklim::create($request->all());
+        Session::flash('pesan', '1 Iklim Berhasil Disimpan');
+        return redirect('iklim');
     }
 
     public function edit(Iklim $iklim)
     {
-        return view('iklim.edit');
+        return view('iklim.edit', compact('iklim'));
     }
 
     public function update(IklimRequest $request, Iklim $iklim)
     {
-        //
+        $iklim->update($request->all());
+        Session::flash('pesan', '1 Iklim Berhasil Diupdate');
+        return redirect('iklim');
     }
 
     public function destroy(Iklim $iklim)
     {
-        //
+        $iklim->delete();
+        Session::flash('pesan', '1 Iklim Berhasil Dihapus');
+        return redirect('iklim');
     }
 }

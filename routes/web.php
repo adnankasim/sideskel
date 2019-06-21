@@ -55,6 +55,9 @@ Route::prefix('beranda')->group(function()
     
     // dokumen
     Route::get('dokumen', 'BerandaController@dokumen');
+
+    // pelayanan
+    Route::get('pelayanan', 'BerandaController@pelayanan');
     
     // artikel
     Route::get('artikel', 'BerandaController@artikel');
@@ -79,6 +82,7 @@ Route::get('dashboard', 'DashboardController@index');
 // tentang
 Route::resource('profil', 'ProfilController');
 Route::resource('batas', 'BatasController');
+Route::get('tanaman-komoditas/urutkan', 'TanamanKomoditasController@urutkan');
 Route::resource('tanaman-komoditas', 'TanamanKomoditasController');
 Route::resource('orbitasi', 'OrbitasiController');
 Route::resource('tipologi', 'TipologiController');
@@ -100,20 +104,30 @@ Route::resource('fasilitas-peribadatan', 'FasilitasPeribadatanController');
 Route::resource('fasilitas-prasarana', 'FasilitasPrasaranaController');
 
 // keuangan
+Route::get('belanja/urutkan', 'BelanjaController@urutkan');
 Route::resource('belanja', 'BelanjaController');
+
+Route::get('pendapatan/urutkan', 'PendapatanController@urutkan');
 Route::resource('pendapatan', 'PendapatanController');
 
 // penduduk
+Route::get('penduduk/cari', 'PendudukController@cari');
 Route::resource('penduduk', 'PendudukController');
+
+// artikel
+Route::post('artikel/validasi/{artikel}', 'ArtikelController@validasi');
+Route::get('artikel/cari', 'ArtikelController@cari');
+Route::resource('artikel', 'ArtikelController');
+
+// kegiatan
+Route::get('kegiatan/cari', 'KegiatanController@cari');
+Route::resource('kegiatan', 'KegiatanController');
 
 // dokumen
 Route::resource('dokumen', 'DokumenController');
 
-// artikel
-Route::resource('artikel', 'ArtikelController');
-
-// kegiatan
-Route::resource('kegiatan', 'KegiatanController');
+// pelayanan
+Route::resource('pelayanan', 'PelayananController');
 
 // pengguna
 Route::resource('pengguna', 'PenggunaController');

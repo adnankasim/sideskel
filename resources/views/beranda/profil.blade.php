@@ -15,7 +15,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">
-                                        <img src="{{ asset('assets-beranda/images/'.$profil->logo) }}" width="200">
+                                        <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="200">
                                     </td>
                                 </tr>
                             </table>
@@ -38,7 +38,7 @@
                                 </tr>
                                 <tr>
                                     <td>Deskripsi</td>
-                                    <td class="font-weight-bold text-justify"> {{ $profil->deskripsi }} </td>
+                                    <td class="font-weight-bold text-justify"> {!! $profil->deskripsi !!} </td>
                                 </tr>
                             </table>
                             <table class="table">

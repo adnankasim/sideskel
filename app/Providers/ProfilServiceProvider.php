@@ -4,28 +4,23 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Profil;
+use App\Penduduk;
 
 class ProfilServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
     public function register()
     {
         //
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
-        view()->composer('beranda.*', function($view){
+        view()->composer('*', function($view){
             $view->with('profil', Profil::find(1));
+        });
+
+        view()->composer('penduduk.cari', function($view){
+            $view->with('daftar_agama', Penduduk::distinct('agama')->pluck('agama', 'agama'));
         });
     }
 }

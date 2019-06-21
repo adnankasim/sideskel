@@ -31,13 +31,12 @@
       <div class="site-navbar">
         <div class="container-fluid py-1">
           <div class="row align-items-center">
-            <div class="col-3 text-center">
+            <div class="col-2 text-center">
               <a href="{{ url('/') }}">
-                <img src="{{ asset('assets-beranda/images/'.$profil->logo) }}" style="display: inline-block; margin-top: -10px" alt="Logo Kabupaten Gorontalo" width="40">
+                <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" style="display: inline-block;" width="40">
               </a>
-              <h4 class="ml-1 mt-2 site-logo text-white d-none d-xl-inline-block" style="display: inline-block;"><a href="{{ url('/') }}"> {{ $profil->nama }} </a></h4>
             </div>
-            <div class="col-9">
+            <div class="col-10">
               <nav class="site-navigation text-right" role="navigation">
                 <div class="container">
                   <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
@@ -90,6 +89,7 @@
                       </ul>
                     </li>
                     <li><a href="{{ url('beranda/dokumen') }}">DOKUMEN</a></li>
+                    <li><a href="{{ url('beranda/pelayanan') }}">PELAYANAN</a></li>
                     <li><a href="{{ url('beranda/artikel') }}">ARTIKEL</a></li>
                     <li><a href="{{ url('beranda/kegiatan') }}">KEGIATAN</a></li>
                     <li><a href="{{ url('masuk') }}">MASUK</a></li>
@@ -292,7 +292,7 @@
         <div class="row pt-2 text-center">
           <div class="col-md-12">
             <p>
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> {{ $profil->nama }} 
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>  
             <br> SIDESKEL Development by. <strong> <a href="https://facebook.com/adnan.indrakasim" target="_blank">Adnan Kasim</a></strong>
             <br> and This template is made by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             </p>

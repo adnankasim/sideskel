@@ -2,44 +2,67 @@
 @section('main-dashboard')
 <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
-
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <!-- <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert">
-                          <h4 class="alert-heading">SIDESKEL</h4>
-                          <p class="text-dark">1 Batas Berhasil ditambahkan</p>
-                        </div>
-                    </div> -->
+                    @include('pesan.pesan_info')
 
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">DOKUMEN</strong>
-                                <a href="" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
+                                <a href="{{ url('dokumen/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
+                                <span> TOTAL DATA :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_dokumen->total() }}  </strong>
+                                </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
                                         <th>NO</th>
-                                        <th>NAMA</th>
                                         <th>FILE</th>
+                                        <th>KETERANGAN</th>
+                                        <th>WAKTU UPLOAD</th>
+                                        <th>TERAKHIR UPDATE</th>
                                         <th>AKSI</th>
                                     </tr>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_dokumen as $dokumen)
                                     <tr>
-                                        <td>1</td>
-                                        <td>DEFAULT</td>
-                                        <td>DEFAULT.jpg</td>
+                                        <td>{{ $i }}</td>
+                                        <td> <a href="{{ asset('assets-beranda/dokumen/'.$dokumen->file) }}"> {{ $dokumen->file }} </a> </td>
+                                        <td>{{ $dokumen->keterangan }}</td>
+                                        <td>{{ $dokumen->created_at }}</td>
+                                        <td>{{ $dokumen->updated_at }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-info btn-sm">EDIT</a>
-                                            <form action="#" class="d-inline">
-                                                <input type="hidden">
-                                                <input type="submit" class="btn btn-danger btn-sm" value="HAPUS">
-                                            </form>
+                                            <a href="{{ url('dokumen/'. $dokumen->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>
+                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}">HAPUS</a>
+
+<div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <i class="fa fa-exclamation-circle fa-lg"></i> PERINGATAN!
+            </div>
+            <div class="modal-body">
+                APAKAH YAKIN AKAN MENGHAPUS DATA INI ? 
+                <br><br><br>
+                *) Data yang sudah dihapus tidak bisa dikembalikan lagi
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                {!! Form::open(['url' => 'dokumen/'.$dokumen->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
+                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
+
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -47,44 +70,19 @@
 
                     <div class="col-md-12">
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" tabindex="-1"> KEMBALI </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">LANJUT</a>
-                                </li>
-                            </ul>
+                            {{ $daftar_dokumen->links() }}
                         </nav>
                     </div>
 
                 </div>
             </div><!-- .animated -->
+
+
         </div><!-- .content -->
-
-
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-4">
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> Desa Kayu Bulan, Gorontalo
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+        
+        @include('footer')
+        
     </div>
     <!-- /#right-panel -->
 @stop

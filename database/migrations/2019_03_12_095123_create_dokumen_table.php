@@ -10,8 +10,8 @@ class CreateDokumenTable extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_dokumen', 300);
-            $table->string('file_dokumen', 300);
+            $table->string('file', 300);
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

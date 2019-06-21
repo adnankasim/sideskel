@@ -2,23 +2,38 @@
 @section('main-dashboard')
 <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
-
-
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-                    <!-- <div class="col-md-12">
-                                            <div class="alert alert-danger" role="alert">
-                                              <h4 class="alert-heading">SIDESKEL</h4>
-                                              <p class="text-dark">1 Batas Berhasil ditambahkan</p>
-                                            </div>
-                                        </div> -->
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">PENDUDUK</strong>
-                                <a href="#" class="btn btn-primary btn-sm float-right"> EDIT </a>
-                                <a href="" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
+                                <a href="#" class="btn btn-danger btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete">HAPUS</a>
+                                <a href="{{ url('penduduk/'.$penduduk->id.'/edit') }}" class="btn btn-info btn-sm float-right mx-1"> EDIT </a>
+                                <a href="{{ url('penduduk/create') }}" class="btn btn-primary btn-sm float-right mx-1"> TAMBAH </a>
+                                <a href="{{ url('penduduk') }}" class="btn btn-secondary btn-sm float-right mx-1"> KEMBALI </a>
+
+<div class="modal fade text-danger" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <i class="fa fa-exclamation-circle fa-lg"></i> PERINGATAN!
+            </div>
+            <div class="modal-body">
+                APAKAH YAKIN AKAN MENGHAPUS DATA INI ? 
+                <br><br><br>
+                *) Data yang sudah dihapus tidak bisa dikembalikan lagi
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                {!! Form::open(['url' => 'penduduk/'.$penduduk->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
+                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table">
@@ -26,93 +41,76 @@
                                         <th class="text-center">FOTO</th>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"> <img src="images/LOGOKABGOR.png" alt="LOGO"
-                                                width="200"> </td>
+                                        <td class="text-center"> <img src="{{ asset('assets-dashboard/images/'.$penduduk->foto_penduduk) }}"
+                                                width="300"> </td>
                                     </tr>
                                 </table>
                                 <table class="table">
                                     <tr>
                                         <td>NIK</td>
-                                        <th>123457890123456</th>
+                                        <th> {{ $penduduk->nik }} </th>
                                     </tr>
                                     <tr>
                                         <td>Nama</td>
-                                        <th>Adnan Kasim</th>
+                                        <th>{{ $penduduk->nama_penduduk }}</th>
                                     </tr>
                                     <tr>
                                         <td>Alamat</td>
-                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolor commodi laudantium quod hic cupiditate perferendis ullam eum tempore perspiciatis, excepturi quaerat expedita quae voluptas quisquam quibusdam, nemo itaque consequuntur.</th>
+                                        <th>{{ $penduduk->alamat_penduduk }}</th>
                                     </tr>
                                     <tr>
                                         <td>Menikah</td>
-                                        <th>Sudah</th>
+                                        <th class="text-uppercase">{{ $penduduk->status_menikah }}</th>
                                     </tr>
                                     <tr>
                                         <td>Tempat Lahir</td>
                                         <th>
-                                            Tobelo
+                                            {{ $penduduk->tempat_lahir }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>Tanggal Lahir</td>
                                         <th>
-                                            21 Maret 1998
+                                            {{ $penduduk->tanggal_lahir }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>Pekerjaan</td>
                                         <th>
-                                            PNS
+                                            {{ $penduduk->pekerjaan }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>Agama</td>
-                                        <th>
-                                            Islam
+                                        <th class="text-uppercase">
+                                            {{ $penduduk->agama }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>Pendidikan Terakhir</td>
-                                        <th>
-                                            S3
+                                        <th class="text-uppercase">
+                                            {{ $penduduk->pendidikan_terakhir }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>Golongan Darah</td>
-                                        <th>
-                                            O
+                                        <th class="text-uppercase">
+                                            {{ $penduduk->golongan_darah }}
                                         </th>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 
 
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-4">
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> Desa Kayu Bulan, Gorontalo
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+        
+        @include('footer')
+        
     </div>
     <!-- /#right-panel -->
 @stop

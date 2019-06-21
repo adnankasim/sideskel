@@ -217,29 +217,36 @@
                     </div>
                     </a>
                 </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <a href="#">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-five">
+                                <div class="stat-icon dib flat-color-4">
+                                    <i class="fa fa-info-circle"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="text-left dib">
+                                        <div class="stat-text"> 15</div>
+                                        <div class="stat-heading"> PELAYANAN </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
                 
             </div>
             <!-- /Widgets -->
             <div class="clearfix"></div>
         </div>
         <!-- /.content -->
+
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-4">
-                        Copyright &copy; <script>document.write(new Date().getFullYear());</script> Desa Kayu Bulan, Gorontalo
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+        
+        @include('footer')
+
     </div>
 @stop

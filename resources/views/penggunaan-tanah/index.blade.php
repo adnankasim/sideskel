@@ -2,26 +2,22 @@
 @section('main-dashboard')
 <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
-
-
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <!-- <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert">
-                          <h4 class="alert-heading">SIDESKEL</h4>
-                          <p class="text-dark">1 Batas Berhasil ditambahkan</p>
-                        </div>
-                    </div> -->
+                    @include('pesan.pesan_info')
 
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">PENGGUNAAN TANAH</strong>
-                                <a href="" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
+                                <a href="{{ url('penggunaan-tanah/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
+                                <span> TOTAL DATA :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_penggunaan_tanah->count() }}  </strong>
+                                </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
                                         <th>NO</th>
@@ -29,18 +25,39 @@
                                         <th>KETERANGAN (HA)</th>
                                         <th>AKSI</th>
                                     </tr>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_penggunaan_tanah as $penggunaan)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Sawah Irigasi Teknis</td>
-                                        <td>10</td>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $penggunaan->uraian_penggunaan_tanah }}</td>
+                                        <td>{{ $penggunaan->keterangan_penggunaan_tanah }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-info btn-sm">EDIT</a>
-                                            <form action="#" class="d-inline">
-                                                <input type="hidden">
-                                                <input type="submit" class="btn btn-danger btn-sm" value="HAPUS">
-                                            </form>
+                                            <a href="{{ url('penggunaan-tanah/'. $penggunaan->id .'/edit') }}" class="btn btn-info btn-sm">EDIT</a>
+
+                                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete-{{ $i }}">HAPUS</a>
+<div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <i class="fa fa-exclamation-circle fa-lg"></i> PERINGATAN!
+            </div>
+            <div class="modal-body">
+                APAKAH YAKIN AKAN MENGHAPUS DATA INI ? 
+                <br><br><br>
+                *) Data yang sudah dihapus tidak bisa dikembalikan lagi
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                {!! Form::open(['url' => 'penggunaan-tanah/'.$penggunaan->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
+                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </table>
 
                             </div>
@@ -54,24 +71,9 @@
 
 
         <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-4">
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> Desa Kayu Bulan, Gorontalo
-                    </div>
-                    <div class="col-sm-4 text-center">
-                        SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+        
+        @include('footer')
+        
     </div>
     <!-- /#right-panel -->
 @stop

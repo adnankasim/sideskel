@@ -11,31 +11,14 @@ class PenggunaController extends Controller
 {
     public function index()
     {
-        return view('pengguna.index');
-    }
-
-    public function create()
-    {
-        return view('pengguna.create');
-    }
-
-    public function store(PenggunaRequest $request)
-    {
-        //
-    }
-
-    public function edit(Pengguna $pengguna)
-    {
-        return view('pengguna.edit');
-    }
-
-    public function update(PenggunaRequest $request, Pengguna $pengguna)
-    {
-        //
+        $daftar_pengguna = Pengguna::paginate(25);
+        return view('pengguna.index', compact('daftar_pengguna'));
     }
 
     public function destroy(Pengguna $pengguna)
     {
-        //
+        $pengguna->delete();
+        Session::flash('pesan', '1 Pengguna Berhasil Dihapus');
+        return redirect('pengguna');
     }
 }

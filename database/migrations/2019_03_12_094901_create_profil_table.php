@@ -15,7 +15,7 @@ class CreateProfilTable extends Migration
             $table->text('telepon', 15);
             $table->text('email', 100);
             $table->text('deskripsi');
-            $table->text('logo', 100);
+            $table->text('logo', 100)->nullable();
             $table->text('visi_misi');
         });
     }

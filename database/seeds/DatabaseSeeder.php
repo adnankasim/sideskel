@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PendapatanTableSeeder::class);
 
         $this->call(AdminTableSeeder::class);
+        $this->call(PelayananTableSeeder::class);
     }
 }

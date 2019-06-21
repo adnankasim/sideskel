@@ -20,8 +20,6 @@ class KegiatanRequest extends FormRequest
         }
         return [
             'nama_kegiatan' => 'required|string|max:100',
-            'slug_kegiatan' => 'required|string|max:100',
-            'waktu_kegiatan' => 'required|',
             'deskripsi_kegiatan' => 'required|string',
             'poster_kegiatan' => $poster_rule,
         ];
