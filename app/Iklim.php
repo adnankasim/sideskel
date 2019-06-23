@@ -8,7 +8,5 @@ class Iklim extends Model
 {
     protected $table = 'iklim';
 
-    public $timestamps = false;
-
     protected $fillable = ['uraian_iklim', 'keterangan_iklim'];
 }

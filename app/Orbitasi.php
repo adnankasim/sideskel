@@ -8,7 +8,5 @@ class Orbitasi extends Model
 {
     protected $table = 'orbitasi';
 
-    public $timestamps = false;
-
     protected $fillable = ['uraian', 'keterangan'];
 }

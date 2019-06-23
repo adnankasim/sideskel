@@ -15,9 +15,15 @@
                                 <a href="{{ url('infrastruktur-melintasi/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
-                                <span> TOTAL DATA :
-                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_infrastruktur->count() }}  </strong>
-                                </span>
+                                <span class="float-left"> Total Data :
+                                <strong class="font-weight-bold d-inline-block mb-1"> {{$daftar_infrastruktur->count() }}  </strong>
+                            </span>
+                            <span class="float-right"> 
+                                Update Terakhir :
+                                <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                    {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                </strong>
+                            </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
                                         <th>NO</th>

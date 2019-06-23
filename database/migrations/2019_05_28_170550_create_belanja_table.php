@@ -13,6 +13,7 @@ class CreateBelanjaTable extends Migration
             $table->string('uraian_belanja', 300);
             $table->string('nominal_belanja', 300);
             $table->string('tahun', 4);
+            $table->timestamps();
         });
     }
 

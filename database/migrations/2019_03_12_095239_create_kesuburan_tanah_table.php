@@ -13,6 +13,7 @@ class CreateKesuburanTanahTable extends Migration
             $table->string('uraian_kesuburan_tanah', 300);
             $table->string('luas_ha', 30);
             $table->string('keterangan_kesuburan_tanah', 300);
+            $table->timestamps();
         });
     }
 

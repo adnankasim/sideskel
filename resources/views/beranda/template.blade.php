@@ -35,7 +35,11 @@
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}">
-    
+    <style>
+        .pelayanan{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -194,6 +198,7 @@
 <script src="{{ asset('assets-beranda/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets-beranda/js/aos.js') }}"></script>
 <script src="{{ asset('assets-beranda/js/main.js') }}"></script>
+
 </body>
 
 </html>

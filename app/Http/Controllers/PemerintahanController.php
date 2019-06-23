@@ -12,7 +12,8 @@ class PemerintahanController extends Controller
     public function index()
     {
         $daftar_pemerintahan = Pemerintahan::paginate(25);
-        return view('pemerintahan.index', compact('daftar_pemerintahan'));
+        $update_terakhir = Pemerintahan::orderBy('updated_at', 'desc')->first();
+        return view('pemerintahan.index', compact('daftar_pemerintahan', 'update_terakhir'));
     }
 
     public function create()

@@ -12,6 +12,7 @@ class CreateFasilitasKesehatanTable extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_kesehatan', 100);
             $table->string('keterangan_fasilitas_kesehatan', 50);
+            $table->timestamps();
         });
     }
 

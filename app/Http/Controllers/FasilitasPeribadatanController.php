@@ -12,7 +12,8 @@ class FasilitasPeribadatanController extends Controller
     public function index()
     {
         $daftar_fasilitas_peribadatan = FasilitasPeribadatan::all();
-        return view('fasilitas-peribadatan.index', compact('daftar_fasilitas_peribadatan'));
+        $update_terakhir = FasilitasPeribadatan::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-peribadatan.index', compact('daftar_fasilitas_peribadatan', 'update_terakhir'));
     }
 
     public function create()

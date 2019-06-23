@@ -13,6 +13,7 @@ class CreateInfraMelintasiTable extends Migration
             $table->string('uraian_infra_melintasi', 100);
             $table->string('panjang_infra_melintasi', 50);
             $table->string('lebar_infra_melintasi', 50);
+            $table->timestamps();
         });
     }
 

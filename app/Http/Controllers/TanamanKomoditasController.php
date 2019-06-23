@@ -13,7 +13,8 @@ class TanamanKomoditasController extends Controller
     {
         $daftar_tahun = TanamanKomoditas::distinct('tahun')->pluck('tahun', 'tahun');
         $daftar_tanaman_komoditas = TanamanKomoditas::orderBy('tahun', 'desc')->paginate(25);
-        return view('tanaman-komoditas.index', compact('daftar_tanaman_komoditas', 'daftar_tahun'));
+        $update_terakhir = TanamanKomoditas::orderBy('updated_at', 'desc')->first();
+        return view('tanaman-komoditas.index', compact('daftar_tanaman_komoditas', 'daftar_tahun', 'update_terakhir'));
     }
 
     public function create()
@@ -51,6 +52,7 @@ class TanamanKomoditasController extends Controller
     {
         $daftar_tanaman_komoditas = TanamanKomoditas::where('tahun', $request->input('tahun'))->orderBy('produksi_per_ha', 'asc')->get();
         $daftar_tahun = TanamanKomoditas::distinct('tahun')->pluck('tahun', 'tahun');
-        return view('tanaman-komoditas.urutkan', compact('daftar_tanaman_komoditas', 'daftar_tahun'));
+        $update_terakhir = TanamanKomoditas::where('tahun', $request->input('tahun'))->orderBy('updated_at', 'desc')->first();
+        return view('tanaman-komoditas.urutkan', compact('daftar_tanaman_komoditas', 'daftar_tahun', 'update_terakhir'));
     }
 }

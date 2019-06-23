@@ -29,7 +29,7 @@
                             <img src="{{ asset('assets-beranda/images/'.$artikel->gambar_artikel) }}" class="img-fluid">
                         </a>
                         <i class="text-muted d-inline-block fa fa-calendar"></i>
-                        <span>{{ $artikel->waktu_artikel }}</span>
+                        <span>{{ $artikel->created_at->diffForHumans() }}</span>
                         <i class="d-inline-block ml-3 fa fa-user"></i>
                         <span>{{ $artikel->pengguna->nama_pengguna }}</span>
                         <h3><a href="{{ url('beranda/artikel/'.$artikel->slug_artikel) }}">{{ $artikel->judul_artikel }} </a></h3>

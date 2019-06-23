@@ -12,6 +12,7 @@ class CreateIklimTable extends Migration
             $table->increments('id');
             $table->string('uraian_iklim', 300);
             $table->string('keterangan_iklim', 300);
+            $table->timestamps();
         });
     }
 

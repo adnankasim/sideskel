@@ -6,7 +6,17 @@
                     <div class="col-md-12 col-lg-12">
                         <h2 class="site-heading text-center text-black mb-5 mt-5 mt-xl-0"><strong>PEMERINTAHAN</strong></h2>
                         <div class="non-home p-5 bg-white">
-                            
+                            <div class="clearfix">
+                                <span class="float-left"> Total Data :
+                                <strong class="font-weight-bold d-inline-block mb-1"> {{$daftar_pemerintahan->count() }}  </strong>
+                            </span>
+                            <span class="float-right"> 
+                                Update Terakhir :
+                                <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                    {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                </strong>
+                            </span>
+                            </div>
                             <div class="row"> 
                             @foreach($daftar_pemerintahan as $pemerintahan)
                             <div class="col-4 text-center">

@@ -12,7 +12,8 @@ class DokumenController extends Controller
     public function index()
     {
         $daftar_dokumen = Dokumen::orderBy('created_at', 'desc')->paginate(25);
-        return view('dokumen.index', compact('daftar_dokumen'));
+        $update_terakhir = Dokumen::orderBy('updated_at', 'desc')->first();
+        return view('dokumen.index', compact('daftar_dokumen', 'update_terakhir'));
     }
 
     public function create()

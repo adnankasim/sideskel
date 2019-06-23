@@ -9,11 +9,15 @@ class FasilitasKesehatanTableSeeder extends Seeder
         $data = [
             [
                 'jenis_fasilitas_kesehatan' => 'Puskesmas Pembantu', 
-                'keterangan_fasilitas_kesehatan' => '3 unit'
+                'keterangan_fasilitas_kesehatan' => '3 unit',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_kesehatan' => 'Posyandu', 
-                'keterangan_fasilitas_kesehatan' => '1 unit'
+                'keterangan_fasilitas_kesehatan' => '1 unit',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

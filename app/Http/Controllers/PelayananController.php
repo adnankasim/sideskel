@@ -12,7 +12,8 @@ class PelayananController extends Controller
     public function index()
     {
         $daftar_pelayanan = Pelayanan::orderBy('id', 'desc')->paginate(25);
-        return view('pelayanan.index', compact('daftar_pelayanan'));
+        $update_terakhir = Pelayanan::orderBy('updated_at', 'desc')->first();
+        return view('pelayanan.index', compact('daftar_pelayanan', 'update_terakhir'));
     }
 
     public function create()

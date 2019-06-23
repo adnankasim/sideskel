@@ -14,6 +14,7 @@ class CreateTanamanKomoditasTable extends Migration
             $table->string('luas_tanaman_komoditas', 30);
             $table->string('produksi_per_ha', 30);
             $table->string('tahun', 4);
+            $table->timestamps();
         });
     }
 

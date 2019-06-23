@@ -12,7 +12,15 @@ class PelayananTableSeeder extends Seeder
             DB::insert('insert into pelayanan (nama, keterangan, created_at, updated_at) values (:nama, :keterangan, :created_at, :updated_at)',
             [
               'nama' => $faker->sentence(),
-              'keterangan' => $faker->paragraph(),
+              'keterangan' => 
+              'Untuk pengurusan layanan ABC silahkan ke kantor dengan ketentuan sebagai berikut : <br>
+              1. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex. <br>
+                2. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                3. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                4. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                5. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                6. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                7. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>',
               'created_at' => $faker->dateTime(),
               'updated_at' => $faker->dateTime()
             ]);

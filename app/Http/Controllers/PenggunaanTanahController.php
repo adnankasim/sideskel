@@ -12,7 +12,8 @@ class PenggunaanTanahController extends Controller
     public function index()
     {
         $daftar_penggunaan_tanah = PenggunaanTanah::all();
-        return view('penggunaan-tanah.index', compact('daftar_penggunaan_tanah'));
+        $update_terakhir = PenggunaanTanah::orderBy('updated_at', 'desc')->first();
+        return view('penggunaan-tanah.index', compact('daftar_penggunaan_tanah', 'update_terakhir'));
     }
 
     public function create()

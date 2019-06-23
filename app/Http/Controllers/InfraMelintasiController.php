@@ -12,7 +12,8 @@ class InfraMelintasiController extends Controller
     public function index()
     {
         $daftar_infrastruktur = InfraMelintasi::all();
-        return view('infrastruktur-melintasi.index', compact('daftar_infrastruktur'));
+        $update_terakhir = InfraMelintasi::orderBy('updated_at', 'desc')->first();
+        return view('infrastruktur-melintasi.index', compact('daftar_infrastruktur', 'update_terakhir'));
     }
 
     public function create()

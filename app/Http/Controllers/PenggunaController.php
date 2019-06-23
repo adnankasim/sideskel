@@ -12,7 +12,8 @@ class PenggunaController extends Controller
     public function index()
     {
         $daftar_pengguna = Pengguna::paginate(25);
-        return view('pengguna.index', compact('daftar_pengguna'));
+        $update_terakhir = Pengguna::orderBy('updated_at', 'desc')->first();
+        return view('pengguna.index', compact('daftar_pengguna', 'update_terakhir'));
     }
 
     public function destroy(Pengguna $pengguna)

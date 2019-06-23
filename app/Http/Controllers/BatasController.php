@@ -12,7 +12,8 @@ class BatasController extends Controller
     public function index()
     {
         $daftar_batas = Batas::all();
-        return view('batas.index', compact('daftar_batas')); 
+        $update_terakhir = Batas::orderBy('updated_at', 'desc')->first();
+        return view('batas.index', compact('daftar_batas', 'update_terakhir')); 
     }
 
     public function create()

@@ -12,6 +12,7 @@ class CreateFasilitasPemerintahanTable extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_pemerintahan', 100);
             $table->string('keterangan_fasilitas_pemerintahan', 50);
+            $table->timestamps();
         });
     }
 

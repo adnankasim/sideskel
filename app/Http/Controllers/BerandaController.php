@@ -13,7 +13,8 @@ class BerandaController extends Controller
 
     public function batas(){
         $daftar_batas = \App\Batas::all();
-        return view('beranda/batas', compact('daftar_batas'));
+        $update_terakhir = \App\Batas::orderBy('updated_at', 'desc')->first();
+        return view('beranda/batas', compact('daftar_batas', 'update_terakhir'));
     }
 
     public function tanamanKomoditas(){
@@ -23,73 +24,88 @@ class BerandaController extends Controller
 
     public function tanamanKomoditasDetail($tahun){
         $daftar_komoditas = \App\TanamanKomoditas::where('tahun', $tahun)->get();
-        return view('beranda/tanaman-komoditas-detail', compact('daftar_komoditas'));
+        $update_terakhir = \App\TanamanKomoditas::where('tahun', $tahun)->orderBy('updated_at', 'desc')->first();
+        return view('beranda/tanaman-komoditas-detail', compact('daftar_komoditas', 'update_terakhir'));
     }
 
     public function orbitasi(){
         $daftar_orbitasi = \App\Orbitasi::all();
-        return view('beranda/orbitasi', compact('daftar_orbitasi'));
+        $update_terakhir = \App\Orbitasi::orderBy('updated_at', 'desc')->first();
+        return view('beranda/orbitasi', compact('daftar_orbitasi', 'update_terakhir'));
     }
     
     public function tipologi(){
         $daftar_tipologi = \App\Tipologi::all();
-        return view('beranda/tipologi', compact('daftar_tipologi'));
+        $update_terakhir = \App\Tipologi::orderBy('updated_at', 'desc')->first();
+        return view('beranda/tipologi', compact('daftar_tipologi', 'update_terakhir'));
     }
     
     public function iklim(){
         $daftar_iklim = \App\Iklim::all();
-        return view('beranda/iklim', compact('daftar_iklim'));
+        $update_terakhir = \App\Iklim::orderBy('updated_at', 'desc')->first();
+        return view('beranda/iklim', compact('daftar_iklim', 'update_terakhir'));
     }
     
     public function kesuburanTanah(){
         $daftar_kesuburan_tanah = \App\KesuburanTanah::all();
-        return view('beranda/kesuburan-tanah', compact('daftar_kesuburan_tanah'));
+        $update_terakhir = \App\KesuburanTanah::orderBy('updated_at', 'desc')->first();
+        return view('beranda/kesuburan-tanah', compact('daftar_kesuburan_tanah', 'update_terakhir'));
     }
     
     public function penggunaanTanah(){
         $daftar_penggunaan_tanah = \App\PenggunaanTanah::all();
-        return view('beranda/penggunaan-tanah', compact('daftar_penggunaan_tanah'));
+        $update_terakhir = \App\PenggunaanTanah::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penggunaan-tanah', compact('daftar_penggunaan_tanah', 'update_terakhir'));
     }
 
     public function infraMelintasi(){
         $daftar_infra_melintasi = \App\InfraMelintasi::all();
-        return view('beranda/infrastruktur-melintasi', compact('daftar_infra_melintasi'));
+        $update_terakhir = \App\InfraMelintasi::orderBy('updated_at', 'desc')->first();
+        return view('beranda/infrastruktur-melintasi', compact('daftar_infra_melintasi', 'update_terakhir'));
     }
     
     // pemerintahan
     public function pemerintahan(){
         $daftar_pemerintahan = \App\Pemerintahan::all();
-        return view('beranda/pemerintahan', compact('daftar_pemerintahan'));
+        $update_terakhir = \App\Pemerintahan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/pemerintahan', compact('daftar_pemerintahan', 'update_terakhir'));
     }
     
     // fasilitas
     public function fasilitasPemukiman(){
         $daftar_fasilitas_pemukiman = \App\FasilitasPemukiman::all();
-        return view('beranda/fasilitas-pemukiman', compact('daftar_fasilitas_pemukiman'));
+        $update_terakhir = \App\FasilitasPemukiman::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-pemukiman', compact('daftar_fasilitas_pemukiman', 'update_terakhir'));
     }
     public function fasilitasPemerintahan(){
         $daftar_fasilitas_pemerintahan = \App\FasilitasPemerintahan::all();
-        return view('beranda/fasilitas-pemerintahan', compact('daftar_fasilitas_pemerintahan'));
+        $update_terakhir = \App\FasilitasPemerintahan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-pemerintahan', compact('daftar_fasilitas_pemerintahan', 'update_terakhir'));
     }
     public function fasilitasPeribadatan(){
         $daftar_fasilitas_peribadatan = \App\FasilitasPeribadatan::all();
-        return view('beranda/fasilitas-peribadatan', compact('daftar_fasilitas_peribadatan'));
+        $update_terakhir = \App\FasilitasPeribadatan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-peribadatan', compact('daftar_fasilitas_peribadatan', 'update_terakhir'));
     }
     public function fasilitasKesehatan(){
         $daftar_fasilitas_kesehatan = \App\FasilitasKesehatan::all();
-        return view('beranda/fasilitas-kesehatan', compact('daftar_fasilitas_kesehatan'));
+        $update_terakhir = \App\FasilitasKesehatan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-kesehatan', compact('daftar_fasilitas_kesehatan', 'update_terakhir'));
     }
     public function fasilitasEkonomi(){
         $daftar_fasilitas_ekonomi = \App\FasilitasEkonomi::all();
-        return view('beranda/fasilitas-ekonomi', compact('daftar_fasilitas_ekonomi'));
+        $update_terakhir = \App\FasilitasEkonomi::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-ekonomi', compact('daftar_fasilitas_ekonomi', 'update_terakhir'));
     }
     public function fasilitasPrasarana(){
         $daftar_fasilitas_prasarana = \App\FasilitasPrasarana::all();
-        return view('beranda/fasilitas-prasarana', compact('daftar_fasilitas_prasarana'));
+        $update_terakhir = \App\FasilitasPrasarana::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-prasarana', compact('daftar_fasilitas_prasarana', 'update_terakhir'));
     }
     public function fasilitasPendidikan(){
         $daftar_fasilitas_pendidikan = \App\FasilitasPendidikan::all();
-        return view('beranda/fasilitas-pendidikan', compact('daftar_fasilitas_pendidikan'));
+        $update_terakhir = \App\FasilitasPendidikan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/fasilitas-pendidikan', compact('daftar_fasilitas_pendidikan', 'update_terakhir'));
     }
     
     // belanja
@@ -99,8 +115,9 @@ class BerandaController extends Controller
     }
     public function belanjaDetail($tahun){
         $daftar_belanja = \App\Belanja::where('tahun', $tahun)->get();
+        $update_terakhir = \App\Belanja::where('tahun', $tahun)->orderBy('updated_at', 'desc')->first();
         $total = $daftar_belanja->sum('nominal_belanja');
-        return view('beranda/belanja-detail', compact('daftar_belanja', 'total'));
+        return view('beranda/belanja-detail', compact('daftar_belanja', 'total', 'update_terakhir'));
     }
 
     // pendapatan
@@ -112,7 +129,8 @@ class BerandaController extends Controller
     {
         $daftar_pendapatan = \App\Pendapatan::where('tahun', $tahun)->get();
         $total = $daftar_pendapatan->sum('nominal_pendapatan');
-        return view('beranda/pendapatan-detail', compact('daftar_pendapatan', 'total'));
+        $update_terakhir = \App\Pendapatan::where('tahun', $tahun)->orderBy('updated_at', 'desc')->first();
+        return view('beranda/pendapatan-detail', compact('daftar_pendapatan', 'total', 'update_terakhir'));
     }
     
     public function pendudukUsia()
@@ -153,6 +171,8 @@ class BerandaController extends Controller
         $nol_tahun = Carbon::today()->subYears(0)->format('Y-m-d');
         $balita = \App\Penduduk::where('tanggal_lahir', '>', $enam_tahun)->where('tanggal_lahir', '<=', $nol_tahun)->count();
 
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+
         return view('beranda/penduduk-usia', compact(
             'manula', 'enampuluhenam_tahun', 
             'lansia_akhir', 'limapuluhenam_tahun',  
@@ -162,50 +182,58 @@ class BerandaController extends Controller
             'remaja_akhir', 'tujuhbelas_tahun', 
             'remaja_awal', 'duabelas_tahun', 
             'kanak_kanak', 'enam_tahun', 
-            'balita', 'nol_tahun'
+            'balita', 'nol_tahun', 'update_terakhir'
         ));
     }
     public function pendudukPekerjaan()
     {
         $daftar_pekerjaan = DB::table('penduduk')->select('pekerjaan', DB::raw('count(*) as total'))->groupBy('pekerjaan')->get();
-        return view('beranda/penduduk-pekerjaan', compact('daftar_pekerjaan'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-pekerjaan', compact('daftar_pekerjaan', 'update_terakhir'));
     }
     public function pendudukPendidikan()
     {
         $daftar_pendidikan = DB::table('penduduk')->select('pendidikan_terakhir', DB::raw('count(*) as total'))->groupBy('pendidikan_terakhir')->get();
-        return view('beranda/penduduk-pendidikan', compact('daftar_pendidikan'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-pendidikan', compact('daftar_pendidikan', 'update_terakhir'));
     }
     public function pendudukGolonganDarah()
     {
         $daftar_darah = DB::table('penduduk')->select('golongan_darah', DB::raw('count(*) as total'))->groupBy('golongan_darah')->get();
-        return view('beranda/penduduk-golongan-darah', compact('daftar_darah'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-golongan-darah', compact('daftar_darah', 'update_terakhir'));
     }
     public function pendudukMenikah()
     {
         $daftar_menikah = DB::table('penduduk')->select('status_menikah', DB::raw('count(*) as total'))->groupBy('status_menikah')->get();
-        return view('beranda/penduduk-menikah', compact('daftar_menikah'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-menikah', compact('daftar_menikah', 'update_terakhir'));
     }
     public function pendudukAgama()
     {
         $daftar_agama = DB::table('penduduk')->select('agama', DB::raw('count(*) as total'))->groupBy('agama')->get();
-        return view('beranda/penduduk-agama', compact('daftar_agama'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-agama', compact('daftar_agama', 'update_terakhir'));
     }
     public function pendudukJenisKelamin()
     {
         $daftar_jk = DB::table('penduduk')->select('jenis_kelamin', DB::raw('count(*) as total'))->groupBy('jenis_kelamin')->get();
-        return view('beranda/penduduk-jenis-kelamin', compact('daftar_jk'));
+        $update_terakhir = \App\Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('beranda/penduduk-jenis-kelamin', compact('daftar_jk', 'update_terakhir'));
     }
 
     // dokumen
     public function dokumen(){
-        $daftar_dokumen = \App\Dokumen::all();
-        return view('beranda/dokumen', compact('daftar_dokumen'));
+        $daftar_dokumen = \App\Dokumen::paginate(25);
+        $update_terakhir = \App\Dokumen::orderBy('updated_at', 'desc')->first();
+        return view('beranda/dokumen', compact('daftar_dokumen', 'update_terakhir'));
     }
 
     // pelayanan
     public function pelayanan(){
         $daftar_pelayanan = \App\Pelayanan::all();
-        return view('beranda/pelayanan', compact('daftar_pelayanan'));
+        $update_terakhir = \App\Pelayanan::orderBy('updated_at', 'desc')->first();
+        return view('beranda/pelayanan', compact('daftar_pelayanan', 'update_terakhir'));
     }
     
     // artikel

@@ -9,19 +9,27 @@ class FasilitasPemerintahanTableSeeder extends Seeder
         $data = [
             [
                 'jenis_fasilitas_pemerintahan' => 'Kantor Desa', 
-                'keterangan_fasilitas_pemerintahan' => '1'
+                'keterangan_fasilitas_pemerintahan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_pemerintahan' => 'Kantor BPD', 
-                'keterangan_fasilitas_pemerintahan' => '1'
+                'keterangan_fasilitas_pemerintahan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_pemerintahan' => 'Karang Taruna', 
-                'keterangan_fasilitas_pemerintahan' => '1'
+                'keterangan_fasilitas_pemerintahan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_pemerintahan' => 'PKK', 
-                'keterangan_fasilitas_pemerintahan' => '1'
+                'keterangan_fasilitas_pemerintahan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
         ];
 

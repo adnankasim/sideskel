@@ -15,8 +15,14 @@
                                 <a href="{{ url('pelayanan/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
-                                <span> TOTAL DATA :
+                                <span class="float-left"> Total Data :
                                     <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_pelayanan->count() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
                                 </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
@@ -31,8 +37,8 @@
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>{{ $pelayanan->nama }}</td>
-                                        <td>{{ $pelayanan->created_at }}</td>
-                                        <td>{{ $pelayanan->updated_at }}</td>
+                                        <td>{{ $pelayanan->created_at->diffForHumans() }}</td>
+                                        <td>{{ $pelayanan->updated_at->diffForHumans() }}</td>
                                         <td>
                                             <a href="{{ url('pelayanan/'. $pelayanan->id) }}" class="btn btn-primary btn-sm d-block my-1">DETAIL</a>
                                             <a href="{{ url('pelayanan/'. $pelayanan->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>

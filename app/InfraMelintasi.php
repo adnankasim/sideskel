@@ -8,8 +8,6 @@ class InfraMelintasi extends Model
 {
     protected $table = 'infra_melintasi';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'uraian_infra_melintasi', 'panjang_infra_melintasi', 'lebar_infra_melintasi'
     ];

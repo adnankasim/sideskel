@@ -12,6 +12,7 @@ class CreateFasilitasPendidikan extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_pendidikan', 100);
             $table->string('keterangan_fasilitas_pendidikan', 50);
+            $table->timestamps();
         });
     }
 

@@ -8,6 +8,15 @@
                                 2018</strong></h2>
 
                         <div class="non-home p-5 bg-white">
+                            <span class="float-left"> Total Data :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_belanja->count() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
+                                </span>
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
@@ -30,7 +39,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td>TOTAL</td>
+                                        <td colspan="2">TOTAL</td>
                                         <td colspan="2" class="font-weight-bold">Rp. {{ number_format($total, 0, ',', '.') }},-</td>
                                     </tr>
                                 </tfoot>

@@ -12,6 +12,7 @@ class CreateOrbitasiTable extends Migration
             $table->increments('id');
             $table->string('uraian', '300');
             $table->string('keterangan', '300');
+            $table->timestamps();
         });
     }
 

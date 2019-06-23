@@ -7,6 +7,15 @@
                         <h2 class="site-heading text-center text-black mb-5 mt-5 mt-xl-0"><strong>FASILITAS KESEHATAN</strong>
                         </h2>
                         <div class="non-home p-5 bg-white">
+                            <span class="float-left"> Total Data :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_fasilitas_kesehatan->count() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
+                                </span>
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>

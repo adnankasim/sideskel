@@ -12,7 +12,8 @@ class FasilitasEkonomiController extends Controller
     public function index()
     {
         $daftar_fasilitas_ekonomi = FasilitasEkonomi::all();
-        return view('fasilitas-ekonomi.index', compact('daftar_fasilitas_ekonomi'));
+        $update_terakhir = FasilitasEkonomi::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-ekonomi.index', compact('daftar_fasilitas_ekonomi', 'update_terakhir'));
     }
 
     public function create()

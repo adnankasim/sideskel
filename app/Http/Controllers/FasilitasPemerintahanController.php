@@ -12,7 +12,8 @@ class FasilitasPemerintahanController extends Controller
     public function index()
     {
         $daftar_fasilitas_pemerintahan = FasilitasPemerintahan::all();
-        return view('fasilitas-pemerintahan.index', compact('daftar_fasilitas_pemerintahan'));
+        $update_terakhir = FasilitasPemerintahan::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-pemerintahan.index', compact('daftar_fasilitas_pemerintahan', 'update_terakhir'));
     }
 
     public function create()

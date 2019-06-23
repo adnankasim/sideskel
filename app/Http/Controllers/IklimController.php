@@ -12,7 +12,8 @@ class IklimController extends Controller
     public function index()
     {
         $daftar_iklim = Iklim::all();
-        return view('iklim.index', compact('daftar_iklim'));
+        $update_terakhir = Iklim::orderBy('updated_at', 'desc')->first();
+        return view('iklim.index', compact('daftar_iklim', 'update_terakhir'));
     }
 
     public function create()

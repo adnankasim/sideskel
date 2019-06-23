@@ -8,8 +8,8 @@ class ProfilTableSeeder extends Seeder
     {
         $data = [
             [
-                'nama' => 'Desa Kayu Bulan',
-                'alamat' => 'Kec. Limboto, Kab. Gorontalo, Provinsi Gorontalo',
+                'nama' => 'Desa XYZ',
+                'alamat' => 'Kec. ABC, Kab. DEF, Provinsi GHI',
                 'telepon' => '08xx-xxxx-xxxx',
                 'email' => 'contoh@email.com',
                 'deskripsi' => 
@@ -24,15 +24,17 @@ class ProfilTableSeeder extends Seeder
                 Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex. Maecenas sed luctus risus. Nam eu fringilla eros. Quisque interdum pulvinar nisi, eleifend bibendum quam convallis sed. Nulla ultricies massa tellus, nec vehicula eros blandit sed. In malesuada nisi euismod mauris tempus luctus. ',
                 'logo' => 'LOGOKABGOR.png',
                 'visi_misi' => 
-                'VISI : "MENJADIKAN DESA TALANGO DESA YANG BERSINAR“ <br>
+                'VISI : "MENJADIKAN XYZ YANG BERSINAR“ <br>
                 MISI : <br>
-                1. Memperbaiki dan menambah sarana dan prasarana yang dibutuhkan untuk meningkatkan SDM melalui pendidikan formal dan informal. <br>
-                2. Peningkatann pelayanan administrasi <br>
-                3. Peningkatan partisipasi masyarakat <br>
-                4. Peningkatan peran serta kaum perempuan dalam segala bidang <br>
-                5. Meningkatkan pelayanan kesehatan <br>
-                6. Meningkatkan kemitraan dalam pembangunan lembaga-lembaga di desa Bongo <br>
-                7. Menciptakan Masyarakat Mandiri Dan Bermartabat serta beriman dan bertaqwa kepada Tuhan Yang Maha Esa <br>'
+                1. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex. <br>
+                2. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                3. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                4. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                5. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                6. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>
+                7. Nunc vehicula ornare purus in vulputate. Sed congue justo ligula, a fermentum neque ullamcorper vel. Etiam a aliquet mi, vel consectetur ex <br>',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

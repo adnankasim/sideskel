@@ -13,7 +13,8 @@ class KegiatanController extends Controller
     public function index()
     {
         $daftar_kegiatan = Kegiatan::orderBy('id', 'desc')->paginate(25);
-        return view('kegiatan.index', compact('daftar_kegiatan'));
+        $update_terakhir = Kegiatan::orderBy('updated_at', 'desc')->first();
+        return view('kegiatan.index', compact('daftar_kegiatan', 'update_terakhir'));
     }
 
     public function create()
@@ -71,7 +72,9 @@ class KegiatanController extends Controller
           $query = Kegiatan::where('nama_kegiatan', 'like', '%' . $nama_kegiatan . '%');
           $daftar_kegiatan = $query->paginate(25);
           $pagination = $daftar_kegiatan->appends($request->except('page'));
-          return view('kegiatan.index', compact('daftar_kegiatan', 'nama_kegiatan', 'pagination'));
+          $update_terakhir = Kegiatan::orderBy('updated_at', 'desc')->first();
+
+          return view('kegiatan.index', compact('daftar_kegiatan', 'nama_kegiatan', 'pagination', 'update_terakhir'));
         }
         return redirect('kegiatan');
     }

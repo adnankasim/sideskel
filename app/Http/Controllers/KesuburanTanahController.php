@@ -12,7 +12,8 @@ class KesuburanTanahController extends Controller
     public function index()
     {
         $daftar_kesuburan_tanah = KesuburanTanah::all();
-        return view('kesuburan-tanah.index', compact('daftar_kesuburan_tanah'));
+        $update_terakhir = KesuburanTanah::orderBy('updated_at', 'desc')->first();
+        return view('kesuburan-tanah.index', compact('daftar_kesuburan_tanah', 'update_terakhir'));
     }
 
     public function create()

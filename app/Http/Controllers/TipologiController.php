@@ -12,7 +12,8 @@ class TipologiController extends Controller
     public function index()
     {
         $daftar_tipologi = Tipologi::all();
-        return view('tipologi.index', compact('daftar_tipologi'));
+        $update_terakhir = Tipologi::orderBy('updated_at', 'desc')->first();
+        return view('tipologi.index', compact('daftar_tipologi', 'update_terakhir'));
     }
 
     public function create()

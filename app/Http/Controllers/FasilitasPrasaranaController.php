@@ -12,7 +12,8 @@ class FasilitasPrasaranaController extends Controller
     public function index()
     {
         $daftar_fasilitas_prasarana = FasilitasPrasarana::all();
-        return view('fasilitas-prasarana.index', compact('daftar_fasilitas_prasarana'));
+        $update_terakhir = FasilitasPrasarana::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-prasarana.index', compact('daftar_fasilitas_prasarana', 'update_terakhir'));
     }
 
     public function create()

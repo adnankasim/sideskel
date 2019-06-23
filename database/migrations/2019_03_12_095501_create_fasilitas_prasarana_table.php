@@ -12,6 +12,7 @@ class CreateFasilitasPrasaranaTable extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_prasarana', 100);
             $table->string('keterangan_fasilitas_prasarana', 50);
+            $table->timestamps();
         });
     }
 

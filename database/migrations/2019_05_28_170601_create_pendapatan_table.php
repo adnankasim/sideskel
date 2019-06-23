@@ -13,6 +13,7 @@ class CreatePendapatanTable extends Migration
             $table->string('uraian_pendapatan', 300);
             $table->string('nominal_pendapatan', 300);
             $table->string('tahun', 4);
+            $table->timestamps();
         });
     }
 

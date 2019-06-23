@@ -9,19 +9,27 @@ class TipologiTableSeeder extends Seeder
         $data = [
             [
                 'uraian_tipologi' => 'Desa Sekitar Hutan', 
-                'keterangan_tipologi' => 'tidak'
+                'keterangan_tipologi' => 'tidak',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_tipologi' => 'Desa Terisolasi', 
-                'keterangan_tipologi' => 'tidak'
+                'keterangan_tipologi' => 'tidak',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_tipologi' => 'Desa Perbatasan Kabupaten Lain', 
-                'keterangan_tipologi' => 'tidak'
+                'keterangan_tipologi' => 'tidak',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_tipologi' => 'Desa Perbatasan Kecamatan Lain', 
-                'keterangan_tipologi' => 'tidak'
+                'keterangan_tipologi' => 'tidak',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

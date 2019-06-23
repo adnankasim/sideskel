@@ -17,8 +17,14 @@
                                 <a href="{{ url('artikel/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
-                                <span> TOTAL DATA :
+                                <span class="float-left"> Total Data :
                                     <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_artikel->total() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
                                 </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
@@ -34,7 +40,7 @@
                                     <tr>
                                         <td class="text-center">{{ $i }}</td>
                                         <td>{{ $artikel->judul_artikel }}</td>
-                                        <td>{{ $artikel->created_at }} WITA</td>
+                                        <td>{{ $artikel->created_at->diffForHumans() }}</td>
                                         <td>{{ $artikel->pengguna->nama_pengguna }}</td>
                                         <td class="text-center">
                                             @if($artikel->is_valid === 'tidak')

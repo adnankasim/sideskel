@@ -8,6 +8,12 @@
                         <h3 class="text-center">BERDASARKAN USIA</h3>
 
                         <div class="non-home p-5 bg-white">
+                            <span class="float-right"> 
+                                Update Terakhir :
+                                <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                    {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                </strong>
+                            </span>
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
@@ -75,7 +81,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="3" class="font-weight-bold">TOTAL (JIWA)</td>
+                                        <td colspan="3" class="font-weight-bold">Total (Jiwa)</td>
                                         <td class="font-weight-bold"> {{ $manula+$lansia_akhir+$lansia_awal+$dewasa_akhir+$dewasa_awal+$remaja_akhir+$remaja_awal+$balita+$kanak_kanak }} </td>
                                     </tr>
                                 </tfoot>

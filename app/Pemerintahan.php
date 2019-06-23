@@ -8,7 +8,5 @@ class Pemerintahan extends Model
 {
     protected $table = 'pemerintahan';
 
-    public $timestamps = false;
-
     protected $fillable = ['nama_pemerintahan', 'jabatan_pemerintahan', 'foto_pemerintahan'];
 }

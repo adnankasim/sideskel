@@ -12,6 +12,7 @@ class CreateFasilitasEkonomiTable extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_ekonomi', 100);
             $table->string('keterangan_fasilitas_ekonomi', 50);
+            $table->timestamps();
         });
     }
 

@@ -11,7 +11,7 @@
                             </a>
                             <div class="text-center m-3">
                                 <i class="text-muted d-inline-block fa fa-calendar"></i>
-                                <span>{{ $kegiatan->waktu_kegiatan }}</span>
+                                <span>{{ $kegiatan->created_at->diffForHumans() }}</span>
                             </div>
                                 {!! $kegiatan->deskripsi_kegiatan !!}
                         </div>

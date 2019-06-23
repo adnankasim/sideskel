@@ -12,7 +12,8 @@ class AdminController extends Controller
     public function index()
     {
         $daftar_admin = Admin::paginate(25);
-        return view('admin.index', compact('daftar_admin'));
+        $update_terakhir = Admin::orderBy('updated_at', 'desc')->first();
+        return view('admin.index', compact('daftar_admin', 'update_terakhir'));
     }
 
     public function create()

@@ -13,7 +13,8 @@ class ArtikelController extends Controller
     public function index()
     {
         $daftar_artikel = Artikel::orderBy('id', 'desc')->paginate(25);
-        return view('artikel.index', compact('daftar_artikel'));
+        $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
+        return view('artikel.index', compact('daftar_artikel', 'update_terakhir'));
     }
 
     public function create()
@@ -71,7 +72,9 @@ class ArtikelController extends Controller
           $query = Artikel::where('judul_artikel', 'like', '%' . $judul_artikel . '%');
           $daftar_artikel = $query->paginate(25);
           $pagination = $daftar_artikel->appends($request->except('page'));
-          return view('artikel.index', compact('daftar_artikel', 'judul_artikel', 'pagination'));
+          $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
+
+          return view('artikel.index', compact('daftar_artikel', 'judul_artikel', 'pagination', 'update_terakhir'));
         }
         return redirect('artikel');
 

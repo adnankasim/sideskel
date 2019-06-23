@@ -8,6 +8,12 @@
                         <h3 class="text-center">BERDASARKAN GOLONGAN DARAH</h3>
 
                         <div class="non-home p-5 bg-white">
+                            <span class="float-right"> 
+                                Update Terakhir :
+                                <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                    {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                </strong>
+                            </span>
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>

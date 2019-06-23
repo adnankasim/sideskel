@@ -10,12 +10,16 @@ class PendapatanTableSeeder extends Seeder
             [
                 'uraian_pendapatan' => 'Piutang Barang ABC', 
                 'nominal_pendapatan' => '5000000',
-                'tahun' => '2019'
+                'tahun' => '2019',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'uraian_pendapatan' => 'Putang Barang ABC', 
                 'nominal_pendapatan' => '5000000',
-                'tahun' => '2018'
+                'tahun' => '2018',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ];
 

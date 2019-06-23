@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatAdminTable extends Migration
+class CreateAdminTable extends Migration
 {
     public function up()
     {
@@ -15,6 +15,7 @@ class CreatAdminTable extends Migration
             $table->string('password_admin', 100);
             $table->enum('jenis_kelamin', ['perempuan', 'laki-laki']);
             $table->string('no_hp', 15);
+            $table->timestamps();
         });
     }
 

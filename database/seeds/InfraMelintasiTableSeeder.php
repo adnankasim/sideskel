@@ -10,17 +10,23 @@ class InfraMelintasiTableSeeder extends Seeder
             [
                 'uraian_infra_melintasi' => 'Sungai', 
                 'panjang_infra_melintasi' => '1.300 M',
-                'lebar_infra_melintasi' => '5 M'
+                'lebar_infra_melintasi' => '5 M',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_infra_melintasi' => 'Jalan Kecamatan', 
                 'panjang_infra_melintasi' => '1.500 M',
-                'lebar_infra_melintasi' => '6 M'
+                'lebar_infra_melintasi' => '6 M',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_infra_melintasi' => 'Jalan Kabupaten', 
                 'panjang_infra_melintasi' => '1.800 M',
-                'lebar_infra_melintasi' => '6 M'
+                'lebar_infra_melintasi' => '6 M',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

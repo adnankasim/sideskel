@@ -13,6 +13,7 @@ class CreatePemerintahanTable extends Migration
             $table->string('nama_pemerintahan', 300);
             $table->string('jabatan_pemerintahan', 300);
             $table->string('foto_pemerintahan', 100);
+            $table->timestamps();
         });
     }
 

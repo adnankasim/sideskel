@@ -9,43 +9,63 @@ class PenggunaanTanahTableSeeder extends Seeder
         $data = [
             [
                 'uraian_penggunaan_tanah' => 'Sawah Irigasi Teknis', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Sawah Irigasi Semi Teknis', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Sawah Tadah Hujan', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Tegal / Ladang', 
-                'keterangan_penggunaan_tanah' => '20 HA'
+                'keterangan_penggunaan_tanah' => '20 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Pemukiman', 
-                'keterangan_penggunaan_tanah' => '30 HA'
+                'keterangan_penggunaan_tanah' => '30 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Tanah Perkebunan Rakyat', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Tanah Perkebunan Swasta', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Tanah Kas Desa', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Lapangan', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_penggunaan_tanah' => 'Perkantoran Pemerintah', 
-                'keterangan_penggunaan_tanah' => '2 HA'
+                'keterangan_penggunaan_tanah' => '2 HA',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

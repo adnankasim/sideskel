@@ -9,23 +9,33 @@ class IklimTableSeeder extends Seeder
         $data = [
             [
                 'uraian_iklim' => 'Tinggi Kelerengan / Tempat', 
-                'keterangan_iklim' => '10 M'
+                'keterangan_iklim' => '10 M',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_iklim' => 'Curah Hujan', 
-                'keterangan_iklim' => 'Rendah'
+                'keterangan_iklim' => 'Rendah',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_iklim' => 'Suhu Rata-Rata Harian', 
-                'keterangan_iklim' => '-'
+                'keterangan_iklim' => '-',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_iklim' => 'Jumlah Bulan Hujan', 
-                'keterangan_iklim' => '6'
+                'keterangan_iklim' => '6',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_iklim' => 'Bentang Wilayah', 
-                'keterangan_iklim' => 'Dataran / Lautan'
+                'keterangan_iklim' => 'Dataran / Lautan',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

@@ -12,6 +12,7 @@ class CreateBatasTable extends Migration
             $table->increments('id');
             $table->string('mata_angin', 300);
             $table->string('uraian', 300);
+            $table->timestamps();
         });
     }
 

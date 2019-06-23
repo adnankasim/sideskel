@@ -55,6 +55,12 @@
                                             {!! $profil->visi_misi !!}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th class="text-center">UPDATE TERAKHIR</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"> {{ $profil->updated_at->diffForHumans() }} </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>

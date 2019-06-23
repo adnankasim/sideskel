@@ -9,19 +9,27 @@ class FasilitasPeribadatanTableSeeder extends Seeder
         $data = [
             [
                 'jenis_fasilitas_peribadatan' => 'Masjid', 
-                'keterangan_fasilitas_peribadatan' => '1'
+                'keterangan_fasilitas_peribadatan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_peribadatan' => 'Mushola', 
-                'keterangan_fasilitas_peribadatan' => '1'
+                'keterangan_fasilitas_peribadatan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_peribadatan' => 'Pura', 
-                'keterangan_fasilitas_peribadatan' => '1'
+                'keterangan_fasilitas_peribadatan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'jenis_fasilitas_peribadatan' => 'Gereja', 
-                'keterangan_fasilitas_peribadatan' => '1'
+                'keterangan_fasilitas_peribadatan' => '1',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

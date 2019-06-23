@@ -12,7 +12,8 @@ class FasilitasPemukimanController extends Controller
     public function index()
     {
         $daftar_fasilitas_pemukiman = FasilitasPemukiman::all();
-        return view('fasilitas-pemukiman.index', compact('daftar_fasilitas_pemukiman'));
+        $update_terakhir = FasilitasPemukiman::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-pemukiman.index', compact('daftar_fasilitas_pemukiman', 'update_terakhir'));
     }
 
     public function create()

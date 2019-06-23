@@ -13,7 +13,8 @@ class PendapatanController extends Controller
     {
         $daftar_tahun = Pendapatan::distinct('tahun')->pluck('tahun', 'tahun');
         $daftar_pendapatan = Pendapatan::orderBy('tahun', 'desc')->paginate(25);
-        return view('pendapatan.index', compact('daftar_pendapatan', 'daftar_tahun'));
+        $update_terakhir = Pendapatan::orderBy('updated_at', 'desc')->first();
+        return view('pendapatan.index', compact('daftar_pendapatan', 'daftar_tahun', 'update_terakhir'));
     }
 
     public function create()
@@ -52,6 +53,7 @@ class PendapatanController extends Controller
         $daftar_pendapatan = Pendapatan::where('tahun', $request->input('tahun'))->orderBy('nominal_pendapatan', 'asc')->get();
         $total = $daftar_pendapatan->sum('nominal_pendapatan');
         $daftar_tahun = Pendapatan::distinct('tahun')->pluck('tahun', 'tahun');
-        return view('pendapatan.urutkan', compact('daftar_pendapatan', 'total', 'daftar_tahun'));
+        $update_terakhir = Pendapatan::where('tahun', $request->input('tahun'))->orderBy('updated_at', 'desc')->first();
+        return view('pendapatan.urutkan', compact('daftar_pendapatan', 'total', 'daftar_tahun', 'update_terakhir'));
     }
 }

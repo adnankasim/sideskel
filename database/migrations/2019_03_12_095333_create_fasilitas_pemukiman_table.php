@@ -13,6 +13,7 @@ class CreateFasilitasPemukimanTable extends Migration
             $table->string('uraian_fasilitas_pemukiman', 100);
             $table->string('jumlah_fasilitas_pemukiman', 50);
             $table->string('pengguna_fasilitas_pemukiman', 50);
+            $table->timestamps();
         });
     }
 

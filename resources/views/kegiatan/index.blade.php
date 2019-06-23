@@ -18,8 +18,14 @@
                                 <a href="{{ url('kegiatan/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
-                                <span> TOTAL DATA :
+                                <span class="float-left"> Total Data :
                                     <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_kegiatan->total() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
                                 </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
@@ -34,8 +40,8 @@
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>{{ $kegiatan->nama_kegiatan }}</td>
-                                        <td>{{ $kegiatan->created_at }} WITA</td>
-                                        <td>{{ $kegiatan->updated_at }} WITA</td>
+                                        <td>{{ $kegiatan->created_at->diffForHumans() }}</td>
+                                        <td>{{ $kegiatan->updated_at->diffForHumans() }}</td>
                                         <td>
                                             <a href="{{ url('kegiatan/'. $kegiatan->id) }}" class="btn btn-primary btn-sm d-block my-1">DETAIL</a>                           
                                             <a href="{{ url('kegiatan/'. $kegiatan->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>

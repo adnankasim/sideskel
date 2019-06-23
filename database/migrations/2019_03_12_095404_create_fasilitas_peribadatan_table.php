@@ -12,6 +12,7 @@ class CreateFasilitasPeribadatanTable extends Migration
             $table->increments('id');
             $table->string('jenis_fasilitas_peribadatan', 100);
             $table->string('keterangan_fasilitas_peribadatan', 50);
+            $table->timestamps();
         });
     }
 

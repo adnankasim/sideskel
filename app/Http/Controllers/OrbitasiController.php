@@ -12,7 +12,8 @@ class OrbitasiController extends Controller
     public function index()
     {
         $daftar_orbitasi = Orbitasi::all();
-        return view('orbitasi.index', compact('daftar_orbitasi'));
+        $update_terakhir = Orbitasi::orderBy('updated_at', 'desc')->first();
+        return view('orbitasi.index', compact('daftar_orbitasi', 'update_terakhir'));
     }
 
     public function create()

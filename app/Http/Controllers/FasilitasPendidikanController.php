@@ -12,7 +12,8 @@ class FasilitasPendidikanController extends Controller
     public function index()
     {
         $daftar_fasilitas_pendidikan = FasilitasPendidikan::all();
-        return view('fasilitas-pendidikan.index', compact('daftar_fasilitas_pendidikan'));
+        $update_terakhir = FasilitasPendidikan::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-pendidikan.index', compact('daftar_fasilitas_pendidikan', 'update_terakhir'));
     }
 
     public function create()

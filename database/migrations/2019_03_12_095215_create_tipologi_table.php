@@ -12,6 +12,7 @@ class CreateTipologiTable extends Migration
             $table->increments('id');
             $table->string('uraian_tipologi', 300);
             $table->string('keterangan_tipologi', 100);
+            $table->timestamps();
         });
     }
 

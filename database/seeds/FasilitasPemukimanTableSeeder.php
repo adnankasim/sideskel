@@ -10,22 +10,30 @@ class FasilitasPemukimanTableSeeder extends Seeder
             [
                 'uraian_fasilitas_pemukiman' => 'Sumur Gali', 
                 'jumlah_fasilitas_pemukiman' => '1',
-                'pengguna_fasilitas_pemukiman' => '10 KK'
+                'pengguna_fasilitas_pemukiman' => '10 KK',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_fasilitas_pemukiman' => 'Perpipaan', 
                 'jumlah_fasilitas_pemukiman' => '1',
-                'pengguna_fasilitas_pemukiman' => '10 KK'
+                'pengguna_fasilitas_pemukiman' => '10 KK',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_fasilitas_pemukiman' => 'Air Sungai', 
                 'jumlah_fasilitas_pemukiman' => '1',
-                'pengguna_fasilitas_pemukiman' => '10 KK'
+                'pengguna_fasilitas_pemukiman' => '10 KK',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_fasilitas_pemukiman' => 'HIPAM', 
                 'jumlah_fasilitas_pemukiman' => '1',
-                'pengguna_fasilitas_pemukiman' => '10 KK'
+                'pengguna_fasilitas_pemukiman' => '10 KK',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

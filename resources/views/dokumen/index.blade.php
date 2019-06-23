@@ -15,8 +15,14 @@
                                 <a href="{{ url('dokumen/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
                             </div>
                             <div class="card-body">
-                                <span> TOTAL DATA :
+                                <span class="float-left"> Total Data :
                                     <strong class="font-weight-bold d-inline-block mb-1"> {{ $daftar_dokumen->total() }}  </strong>
+                                </span>
+                                <span class="float-right"> 
+                                    Update Terakhir :
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize"> 
+                                        {{ $update_terakhir->updated_at->diffForHumans() }}  
+                                    </strong>
                                 </span>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <tr>
@@ -33,8 +39,8 @@
                                         <td>{{ $i }}</td>
                                         <td> <a href="{{ asset('assets-beranda/dokumen/'.$dokumen->file) }}"> {{ $dokumen->file }} </a> </td>
                                         <td>{{ $dokumen->keterangan }}</td>
-                                        <td>{{ $dokumen->created_at }}</td>
-                                        <td>{{ $dokumen->updated_at }}</td>
+                                        <td>{{ $dokumen->created_at->diffForHumans() }}</td>
+                                        <td>{{ $dokumen->updated_at->diffForHumans() }}</td>
                                         <td>
                                             <a href="{{ url('dokumen/'. $dokumen->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>
                                             <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}">HAPUS</a>

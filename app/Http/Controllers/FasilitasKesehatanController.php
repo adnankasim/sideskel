@@ -12,7 +12,8 @@ class FasilitasKesehatanController extends Controller
     public function index()
     {
         $daftar_fasilitas_kesehatan = FasilitasKesehatan::all();
-        return view('fasilitas-kesehatan.index', compact('daftar_fasilitas_kesehatan'));
+        $update_terakhir = FasilitasKesehatan::orderBy('updated_at', 'desc')->first();
+        return view('fasilitas-kesehatan.index', compact('daftar_fasilitas_kesehatan', 'update_terakhir'));
     }
 
     public function create()

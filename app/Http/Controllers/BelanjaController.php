@@ -13,7 +13,8 @@ class BelanjaController extends Controller
     {
         $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');
         $daftar_belanja = Belanja::orderBy('tahun', 'desc')->paginate(25);
-        return view('belanja.index', compact('daftar_belanja', 'daftar_tahun'));
+        $update_terakhir = Belanja::orderBy('updated_at', 'desc')->first();
+        return view('belanja.index', compact('daftar_belanja', 'daftar_tahun', 'update_terakhir'));
     }
 
     public function create()
@@ -52,7 +53,8 @@ class BelanjaController extends Controller
         $daftar_belanja = Belanja::where('tahun', $request->input('tahun'))->orderBy('nominal_belanja', 'asc')->get();
         $total = $daftar_belanja->sum('nominal_belanja');
         $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');
-        return view('belanja.urutkan', compact('daftar_belanja', 'total', 'daftar_tahun'));
+        $update_terakhir = Belanja::where('tahun', $request->input('tahun'))->orderBy('updated_at', 'desc')->first();
+        return view('belanja.urutkan', compact('daftar_belanja', 'total', 'daftar_tahun', 'update_terakhir'));
     }
     
 }

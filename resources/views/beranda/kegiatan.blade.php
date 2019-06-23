@@ -24,7 +24,7 @@
                             <img src="{{ asset('assets-beranda/images/'.$kegiatan->poster_kegiatan) }}" class="img-fluid">
                         </a>
                         <i class="text-muted d-inline-block fa fa-calendar"></i>
-                        <span> {{ $kegiatan->waktu_kegiatan }} </span>
+                        <span> {{ $kegiatan->created_at->diffForHumans() }} </span>
                         
                         <h3><a href="{{ url('beranda/kegiatan/'.$kegiatan->slug_kegiatan) }}"> {{ $kegiatan->nama_kegiatan }} </a></h3>
                     </div>

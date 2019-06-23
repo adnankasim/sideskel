@@ -17,6 +17,7 @@ class CreateProfilTable extends Migration
             $table->text('deskripsi');
             $table->text('logo', 100)->nullable();
             $table->text('visi_misi');
+            $table->timestamps();
         });
     }
 

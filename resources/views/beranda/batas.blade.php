@@ -8,6 +8,18 @@
 
                         <div class="non-home p-5 bg-white">
                             <table class="table table-hover table-striped">
+                                <span class="float-left"> 
+                                    Total Data :
+                                    <strong class="font-weight-bold d-inline-block mb-1"> 
+                                        {{ $daftar_batas->count() }}  
+                                    </strong>
+                                </span>
+                                <span class="float-right">
+                                    Update Terakhir : 
+                                    <strong class="font-weight-bold d-inline-block mb-1 text-capitalize">
+                                    {{ $update_terakhir->updated_at->diffForHumans() }}
+                                    </strong>
+                                </span>
                                 <thead>
                                     <tr>
                                         <td class="font-weight-bold">NO</td>

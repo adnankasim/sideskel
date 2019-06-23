@@ -12,7 +12,8 @@ class PendudukController extends Controller
     public function index()
     {
         $daftar_penduduk = Penduduk::orderBy('id', 'desc')->paginate(25);
-        return view('penduduk.index', compact('daftar_penduduk'));
+        $update_terakhir = Penduduk::orderBy('updated_at', 'desc')->first();
+        return view('penduduk.index', compact('daftar_penduduk', 'update_terakhir'));
     }
 
     public function create()
@@ -112,7 +113,9 @@ class PendudukController extends Controller
           $pagination = (!empty($jenis_kelamin)) ? $daftar_penduduk->appends(['jenis_kelamin' => $jenis_kelamin]) : '';
           $pagination = $daftar_penduduk->appends($request->except('page'));
 
-          return view('penduduk.index', compact('daftar_penduduk', 'nama_penduduk', 'pagination', 'pekerjaan', 'jenis_kelamin', 'agama', 'golongan_darah'));
+          $update_terakhir = Penduduk::orderBy('updated_at', 'desc')->first();
+
+          return view('penduduk.index', compact('daftar_penduduk', 'nama_penduduk', 'pagination', 'pekerjaan', 'jenis_kelamin', 'agama', 'golongan_darah', 'update_terakhir'));
         }
         return redirect('penduduk');
 

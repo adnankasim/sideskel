@@ -10,22 +10,30 @@ class KesuburanTanahTableSeeder extends Seeder
             [
                 'uraian_kesuburan_tanah' => 'Sangat Subur', 
                 'luas_ha' => '-',
-                'keterangan_kesuburan_tanah' => '-'
+                'keterangan_kesuburan_tanah' => '-',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_kesuburan_tanah' => 'Subur', 
                 'luas_ha' => '65,084',
-                'keterangan_kesuburan_tanah' => 'Tadah Hujan'
+                'keterangan_kesuburan_tanah' => 'Tadah Hujan',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_kesuburan_tanah' => 'Sedang', 
                 'luas_ha' => '95,390',
-                'keterangan_kesuburan_tanah' => 'Tadah Hujan'
+                'keterangan_kesuburan_tanah' => 'Tadah Hujan',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'uraian_kesuburan_tanah' => 'Lahan Kritis', 
                 'luas_ha' => '-',
-                'keterangan_kesuburan_tanah' => '-'
+                'keterangan_kesuburan_tanah' => '-',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 

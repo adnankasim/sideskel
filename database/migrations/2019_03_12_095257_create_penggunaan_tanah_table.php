@@ -12,6 +12,7 @@ class CreatePenggunaanTanahTable extends Migration
             $table->increments('id');
             $table->string('uraian_penggunaan_tanah', 300);
             $table->string('keterangan_penggunaan_tanah', 50);
+            $table->timestamps();
         });
     }
 
