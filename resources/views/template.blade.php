@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/style.css') }}">
     <script src="{{ asset('assets-dashboard/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets-dashboard/js/Chart.bundle.min.js') }}"></script>
     <script>
         tinymce.init({
             selector: '.editor',
@@ -49,14 +50,14 @@
                     <li class="menu-item-has-children dropdown">
 @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>TENTANG</a>
+                            aria-expanded="false"> <i class="menu-icon fa fa-home fa-lg"></i>TENTANG</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-info"></i><a href="{{ url('profil') }}">PROFIL</a></li>
                             <li><i class="fa fa-map-marker"></i><a href="{{ url('batas') }}">BATAS WILAYAH</a></li>
                             <li><i class="fa fa-leaf"></i><a href="{{ url('tanaman-komoditas') }}">TANAMAN KOMODITAS</a></li>
                             <li><i class="fa fa-car"></i><a href="{{ url('orbitasi') }}">ORBITASI</a></li>
                             <li><i class="fa fa-pagelines"></i><a href="{{ url('tipologi') }}">TIPOLOGI</a></li>
-                            <li><i class="fa fa-info"></i><a href="{{ url('iklim') }}">IKLIM</a></li>
+                            <li><i class="fa fa-cloud"></i><a href="{{ url('iklim') }}">IKLIM</a></li>
                             <li><i class="fa fa-square"></i><a href="{{ url('kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
                             <li><i class="fa fa-book"></i><a href="{{ url('penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
                             <li><i class="fa fa-binoculars"></i><a href="{{ url('infrastruktur-melintasi') }}">INFRASTRUKTUR</a></li>
@@ -101,10 +102,17 @@
                     </li>
 
 @if(Request::segment(1) === 'penduduk')
-                    <li class="active"><a href="{{ url('penduduk') }}"><i class="menu-icon fa fa-users"></i>PENDUDUK</a></li>
+                    <li class="menu-item-has-children dropdown active">
 @else
-                    <li><a href="{{ url('penduduk') }}"><i class="menu-icon fa fa-users"></i>PENDUDUK</a></li>
+                    <li class="menu-item-has-children dropdown">
 @endif
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fa fa-users"></i>PENDUDUK</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-users"></i><a href="{{ url('penduduk') }}">MASTER</a></li>
+                            <li><i class="fa fa-bar-chart"></i><a href="{{ url('penduduk/presentasi') }}">PRESENTASI</a></li>
+                        </ul>
+                    </li>
 
 @if(Request::segment(1) === 'artikel')
                     <li class="active"><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL</a></li>
@@ -156,6 +164,5 @@
     <script src="{{ asset('assets-dashboard/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets-dashboard/js/jquery.matchHeight.min.js') }}"></script>
     <script src="{{ asset('assets-dashboard/js/main.js') }}"></script>
-
 </body>
 </html>

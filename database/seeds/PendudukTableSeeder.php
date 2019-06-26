@@ -8,7 +8,7 @@ class PendudukTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach(range(1, 100) as $index){
+        foreach(range(1, 10000) as $index){
             DB::insert('insert into penduduk (nik, nama_penduduk, alamat_penduduk, status_menikah, jenis_kelamin, tempat_lahir, tanggal_lahir, foto_penduduk, pendidikan_terakhir, golongan_darah, agama, pekerjaan, created_at, updated_at) values (:nik, :nama_penduduk, :alamat_penduduk, :status_menikah, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :foto_penduduk, :pendidikan_terakhir, :golongan_darah, :agama, :pekerjaan, :created_at, :updated_at)',
             [
               'nik' => mt_rand(0000000000000001, 6666666666666666),

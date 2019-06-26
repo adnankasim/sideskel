@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <h2 class="site-heading text-center text-black mb-5 mt-5 mt-xl-0"><strong>KESUBURAN TANAH</strong></h2>
+                        <h2 class="site-heading text-center text-black mb-2 mt-5 mt-md-2 mt-xl-0"><strong>KESUBURAN TANAH</strong></h2>
                         <div class="non-home p-5 bg-white">
                             <span class="float-left"> Total Data :
                                 <strong class="font-weight-bold d-inline-block mb-1"> {{$daftar_kesuburan_tanah->count() }}  </strong>

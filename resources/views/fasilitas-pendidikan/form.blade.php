@@ -11,5 +11,7 @@
         {!! Form::text('keterangan_fasilitas_pendidikan', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 3 Buah']) !!}
 </div>                             
 <div>
-    {!!Form::submit('SUBMIT', ['class' => 'btn btn-primary'])!!}
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-paper-plane"></i>  SUBMIT
+    </button>
 </div>

@@ -23,5 +23,7 @@
         {!! Form::number('no_hp', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 082293427693']) !!}
 </div>                                                 
 <div>
-    {!!Form::submit('SUBMIT', ['class' => 'btn btn-primary'])!!}
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-paper-plane"></i>  SUBMIT
+    </button>
 </div>

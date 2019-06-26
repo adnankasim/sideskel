@@ -27,5 +27,5 @@ class Penduduk extends Model
     public function scopeJenisKelamin($query, $kelamin){
       return $query->where('jenis_kelamin', $kelamin);
     }
-    
+
 }

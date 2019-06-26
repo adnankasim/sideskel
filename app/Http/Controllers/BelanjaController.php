@@ -50,6 +50,8 @@ class BelanjaController extends Controller
 
     public function urutkan(Request $request)
     {
+        if(empty($request->input('tahun'))) return redirect('belanja');
+
         $daftar_belanja = Belanja::where('tahun', $request->input('tahun'))->orderBy('nominal_belanja', 'asc')->get();
         $total = $daftar_belanja->sum('nominal_belanja');
         $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');

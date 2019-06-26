@@ -238,17 +238,18 @@ class BerandaController extends Controller
     
     // artikel
     public function artikel(){
-        $daftar_artikel = \App\Artikel::paginate(25);
+        $daftar_artikel = \App\Artikel::where('is_valid', 'ya')->paginate(25);
         return view('beranda/artikel', compact('daftar_artikel'));
     }
     public function artikelDetail($slug){
-        $artikel = \App\Artikel::where('slug_artikel', $slug)->first();
+        $artikel = \App\Artikel::where('slug_artikel', $slug)->where('is_valid', 'ya')->first();
+        if(empty($artikel)) return redirect('beranda/artikel');
         return view('beranda/artikel-detail', compact('artikel'));
     }
 
     public function artikelCari(Request $request){
         $judul = $request->get('judul');
-        $daftar_artikel = \App\Artikel::where('judul_artikel', 'like', '%' . $judul . '%')->paginate(25);
+        $daftar_artikel = \App\Artikel::where('judul_artikel', 'like', '%' . $judul . '%')->where('is_valid', 'ya')->paginate(25);
         return view('beranda/artikel-cari', compact('daftar_artikel', 'judul'));
     }
 

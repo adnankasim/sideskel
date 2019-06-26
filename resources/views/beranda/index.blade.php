@@ -8,11 +8,24 @@
     <meta name="author" content="{{ $profil->nama }}">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900"> 
-    <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
+    
+    <!-- <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}"> -->
+
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/flaticon/font/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}">
+
   </head>
   <body>
   
@@ -29,70 +42,71 @@
     
     <div class="site-navbar-wrap">
       <div class="site-navbar">
+
         <div class="container-fluid py-1">
           <div class="row align-items-center">
-            <div class="col-2 text-center">
+            <div class="col-1 text-center">
               <a href="{{ url('/') }}">
                 <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" style="display: inline-block;" width="40">
               </a>
             </div>
-            <div class="col-10">
+            <div class="col-11">
               <nav class="site-navigation text-right" role="navigation">
-                <div class="container">
+                <div class="container-fluid">
                   <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 
                   <ul class="site-menu js-clone-nav d-none d-xl-block text-center">
                     <li class="has-children">
-                      <a href="#">TENTANG</a>
+                      <a href="#"> <i class="fa fa-home"></i> TENTANG</a>
                       <ul class="dropdown arrow-top">
-                        <li><a href="{{ url('beranda/profil') }}">PROFIL</a></li>
-                        <li><a href="{{ url('beranda/batas') }}">BATAS WILAYAH</a></li>
-                        <li><a href="{{ url('beranda/tanaman-komoditas') }}">TANAMAN KOMODITAS</a></li>
-                        <li><a href="{{ url('beranda/orbitasi') }}">ORBITASI</a></li>
-                        <li><a href="{{ url('beranda/tipologi') }}">TIPOLOGI</a></li>
-                        <li><a href="{{ url('beranda/iklim') }}">IKLIM</a></li>
-                        <li><a href="{{ url('beranda/kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
-                        <li><a href="{{ url('beranda/penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
-                        <li><a href="{{ url('beranda/infrastruktur-melintasi') }}">INFRASTRUKTUR MELINTASI</a></li>
+                        <li><a href="{{ url('beranda/profil') }}"> <i class="fa fa-info"></i> PROFIL</a></li>
+                        <li><a href="{{ url('beranda/batas') }}"><i class="fa fa-map-marker"></i> BATAS WILAYAH</a></li>
+                        <li><a href="{{ url('beranda/tanaman-komoditas') }}"><i class="fa fa-leaf"></i> TANAMAN KOMODITAS</a></li>
+                        <li><a href="{{ url('beranda/orbitasi') }}"><i class="fa fa-car"></i> ORBITASI</a></li>
+                        <li><a href="{{ url('beranda/tipologi') }}"><i class="fa fa-pagelines"></i> TIPOLOGI</a></li>
+                        <li><a href="{{ url('beranda/iklim') }}"><i class="fa fa-cloud"></i> IKLIM</a></li>
+                        <li><a href="{{ url('beranda/kesuburan-tanah') }}"><i class="fa fa-square"></i> KESUBURAN TANAH</a></li>
+                        <li><a href="{{ url('beranda/penggunaan-tanah') }}"><i class="fa fa-book"></i> PENGGUNAAN TANAH</a></li>
+                        <li><a href="{{ url('beranda/infrastruktur-melintasi') }}"><i class="fa fa-binoculars"></i> INFRASTRUKTUR MELINTASI</a></li>
                       </ul>
                     </li>
-                    <li><a href="{{ url('beranda/pemerintahan') }}">PEMERINTAH</a></li>
+                    <li><a href="{{ url('beranda/pemerintahan') }}"><i class="fa fa-bank"></i> PEMERINTAH</a></li>
                     <li class="has-children">
-                      <a href="#">FASILITAS</a>
+                      <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
                       <ul class="dropdown arrow-top">
-                        <li><a href="{{ url('beranda/fasilitas-pemukiman') }}">PEMUKIMAN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}">PEMERINTAHAN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-peribadatan') }}">PERIBADATAN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-kesehatan') }}">KESEHATAN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-ekonomi') }}">EKONOMI</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-prasarana') }}">PRA-SARANA</a></li>
-                        <li><a href="{{ url('beranda/fasilitas-pendidikan') }}">PENDIDIKAN</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children">
-                      <a href="#">KEUANGAN</a>
-                      <ul class="dropdown arrow-top">
-                        <li><a href="{{ url('beranda/belanja') }}">BELANJA</a></li>
-                        <li><a href="{{ url('beranda/pendapatan') }}">PENDAPATAN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-peribadatan') }}"><i class="fa fa-moon-o"></i> PERIBADATAN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-kesehatan') }}"><i class="fa fa-heart"></i> KESEHATAN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-ekonomi') }}"><i class="fa fa-dollar"></i> EKONOMI</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-prasarana') }}"><i class="fa fa-wifi"></i> PRA-SARANA</a></li>
+                        <li><a href="{{ url('beranda/fasilitas-pendidikan') }}"><i class="fa fa-book"></i> PENDIDIKAN</a></li>
                       </ul>
                     </li>
                     <li class="has-children">
-                      <a href="#">PENDUDUK</a>
+                      <a href="#"><i class="fa fa-money"></i> KEUANGAN</a>
                       <ul class="dropdown arrow-top">
-                        <li><a href="{{ url('beranda/penduduk-usia') }}">USIA</a></li>
-                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}">PEKERJAAN</a></li>
-                        <li><a href="{{ url('beranda/penduduk-pendidikan') }}">PENDIDIKAN</a></li>
-                        <li><a href="{{ url('beranda/penduduk-golongan-darah') }}">GOL. DARAH</a></li>
-                        <li><a href="{{ url('beranda/penduduk-menikah') }}">MENIKAH</a></li>
-                        <li><a href="{{ url('beranda/penduduk-agama') }}">AGAMA</a></li>
-                        <li><a href="{{ url('beranda/penduduk-jenis-kelamin') }}">JENIS KELAMIN</a></li>
+                        <li><a href="{{ url('beranda/belanja') }}"><i class="fa fa-credit-card"></i> BELANJA</a></li>
+                        <li><a href="{{ url('beranda/pendapatan') }}"><i class="fa fa-leaf"></i> PENDAPATAN</a></li>
                       </ul>
                     </li>
-                    <li><a href="{{ url('beranda/dokumen') }}">DOKUMEN</a></li>
-                    <li><a href="{{ url('beranda/pelayanan') }}">PELAYANAN</a></li>
-                    <li><a href="{{ url('beranda/artikel') }}">ARTIKEL</a></li>
-                    <li><a href="{{ url('beranda/kegiatan') }}">KEGIATAN</a></li>
-                    <li><a href="{{ url('masuk') }}">MASUK</a></li>
+                    <li class="has-children">
+                      <a href="#"><i class="fa fa-users"></i> PENDUDUK</a>
+                      <ul class="dropdown arrow-top">
+                        <li><a href="{{ url('beranda/penduduk-usia') }}"><i class="fa fa-calendar"></i> USIA</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-dollar"></i> PEKERJAAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pendidikan') }}"><i class="fa fa-graduation-cap"></i> PENDIDIKAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-golongan-darah') }}"><i class="fa fa-tint"></i> GOL. DARAH</a></li>
+                        <li><a href="{{ url('beranda/penduduk-menikah') }}"><i class="fa fa-female"></i><i class="fa fa-male"></i> MENIKAH</a></li>
+                        <li><a href="{{ url('beranda/penduduk-agama') }}"><i class="fa fa-moon-o"></i> AGAMA</a></li>
+                        <li><a href="{{ url('beranda/penduduk-jenis-kelamin') }}"> <i class="fa fa-male"></i> JENIS KELAMIN</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
+                    <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
+                    <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
+                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
+                    <li><a href="{{ url('masuk') }}"><i class="fa fa-sign-in"></i> MASUK</a></li>
                   </ul>
                 </div>
               </nav>
@@ -303,10 +317,24 @@
     </footer>
   </div>
 
-  <script src="{{ asset('assets-beranda/js/jquery-3.3.1.min.js') }}"></script>
+  <!-- <script src="{{ asset('assets-beranda/js/jquery-3.3.1.min.js') }}"></script>
   <script src="{{ asset('assets-beranda/js/popper.min.js') }}"></script>
   <script src="{{ asset('assets-beranda/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets-beranda/js/aos.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/main.js') }}"></script> -->
+
+  <script src="{{ asset('assets-beranda/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/jquery-ui.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/popper.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/jquery.countdown.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('assets-beranda/js/aos.js') }}"></script>
   <script src="{{ asset('assets-beranda/js/main.js') }}"></script>
+
   </body>
 </html>

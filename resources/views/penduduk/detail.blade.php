@@ -9,10 +9,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">PENDUDUK</strong>
-                                <a href="#" class="btn btn-danger btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete">HAPUS</a>
-                                <a href="{{ url('penduduk/'.$penduduk->id.'/edit') }}" class="btn btn-info btn-sm float-right mx-1"> EDIT </a>
-                                <a href="{{ url('penduduk/create') }}" class="btn btn-primary btn-sm float-right mx-1"> TAMBAH </a>
-                                <a href="{{ url('penduduk') }}" class="btn btn-secondary btn-sm float-right mx-1"> KEMBALI </a>
+                                <a href="#" class="btn btn-danger btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i> HAPUS</a>
+                                <a href="{{ url('penduduk/'.$penduduk->id.'/edit') }}" class="btn btn-info btn-sm float-right mx-1"><i class="fa fa-edit"></i> EDIT </a>
+                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print"></i> CETAK </a>
+                                <a href="{{ url('penduduk') }}" class="btn btn-secondary btn-sm float-right mx-1"><i class="fa fa-arrow-left"></i> KEMBALI </a>
 
 <div class="modal fade text-danger" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -26,9 +26,11 @@
                 *) Data yang sudah dihapus tidak bisa dikembalikan lagi
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
                 {!! Form::open(['url' => 'penduduk/'.$penduduk->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
-                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                    <button type="submit" class="btn btn-danger btn-sm">
+                         <i class="fa fa-trash"></i> HAPUS
+                    </button>
                 {!! Form::close() !!}
             </div>
         </div>

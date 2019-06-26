@@ -1,11 +1,59 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b53eef22f458e4e6d8bc3a038d936e26",
+    "content-hash": "f3a5ad0197acc0da5ee19f1e16598c68",
     "packages": [
+        {
+            "name": "crabbly/fpdf-laravel",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/crabbly/fpdf-laravel.git",
+                "reference": "adcdeab60df5076b2ca214c5fdfe42296f3e710d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/crabbly/fpdf-laravel/zipball/adcdeab60df5076b2ca214c5fdfe42296f3e710d",
+                "reference": "adcdeab60df5076b2ca214c5fdfe42296f3e710d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.1.0",
+                "illuminate/support": ">=5.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Crabbly\\FPDF\\FpdfServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Crabbly\\FPDF\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Vieira",
+                    "email": "rodrigo@crabbly.com"
+                }
+            ],
+            "description": "Laravel package for FPDF.",
+            "keywords": [
+                "fpdf",
+                "laravel"
+            ],
+            "time": "2018-01-08T17:13:24+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

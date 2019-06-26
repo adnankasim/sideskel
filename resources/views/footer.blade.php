@@ -3,7 +3,7 @@
         <div class="footer-inner bg-white">
             <div class="row">
                 <div class="col-sm-4">
-                    Copyright &copy; <script>document.write(new Date().getFullYear());</script> Desa KayuBulan, Gorontalo
+                    Copyright &copy; <script>document.write(new Date().getFullYear());</script> {{ $profil->nama }}
                 </div>
                 <div class="col-sm-4 text-center">
                     SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>

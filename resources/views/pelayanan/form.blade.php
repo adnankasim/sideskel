@@ -11,5 +11,7 @@
         {!! Form::textarea('keterangan', null, ['class' => 'form-control editor', 'rows' => '8']) !!}
 </div>                             
 <div>
-    {!!Form::submit('SUBMIT', ['class' => 'btn btn-primary'])!!}
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-paper-plane"></i>  SUBMIT
+    </button>
 </div>

@@ -7443,7 +7443,7 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid #edf0f5 !important; }
 
 .site-footer {
-  padding: 1em 0;
+  padding: 4em 0;
   background: #333333; }
   .site-footer p {
     color: #737373; }
@@ -7525,9 +7525,9 @@ h1, h2, h3, h4, h5, h6 {
       display: inline-block; }
     .site-navbar .site-navigation .site-menu > li {
       display: inline-block;
-      padding: 3px 3px; }
+      padding: 10px 0; }
       .site-navbar .site-navigation .site-menu > li > a {
-        padding: 3px 3px;
+        padding: 10px 5px;
         color: rgba(255, 255, 255, 0.6);
         font-size: 15px;
         text-decoration: none !important; }
@@ -7763,8 +7763,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-blocks-cover {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top; 
-}
+  background-position: top; }
   .site-blocks-cover.overlay {
     position: relative; }
     .site-blocks-cover.overlay:before {
@@ -7774,16 +7773,13 @@ h1, h2, h3, h4, h5, h6 {
       bottom: 0;
       right: 0;
       top: 0;
-      background: rgba(0, 0, 0, 0.4); 
-    }
-
+      background: rgba(0, 0, 0, 0.4); }
   .site-blocks-cover, .site-blocks-cover .row {
     min-height: 600px;
     height: calc(100vh); }
   .site-blocks-cover.inner-page, .site-blocks-cover.inner-page .row {
     min-height: 600px;
-    height: calc(80vh); 
-  }
+    height: calc(80vh); }
   .site-blocks-cover .sub-text {
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -7827,7 +7823,7 @@ h1, h2, h3, h4, h5, h6 {
       -ms-transform: translateY(-100%);
       transform: translateY(-100%); } }
 
-.site-block-appointment form, .bg-light form, .bg-light .non-home {
+.site-block-appointment form, .bg-light form {
   -webkit-box-shadow: 0 5px 20px -2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 5px 20px -2px rgba(0, 0, 0, 0.1); }
 

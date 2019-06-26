@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">PROFIL</strong>
-                                <a href="{{ url('profil/1/edit') }}" class="btn btn-primary btn-sm float-right"> EDIT </a>
+                                <a href="{{ url('profil/1/edit') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-edit"></i> EDIT </a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table">

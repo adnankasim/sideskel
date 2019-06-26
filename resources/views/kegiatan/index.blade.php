@@ -15,7 +15,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">KEGIATAN</strong>
-                                <a href="{{ url('kegiatan/create') }}" class="btn btn-primary btn-sm float-right"> TAMBAH </a>
+                                <a href="{{ url('kegiatan/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> TAMBAH </a>
                             </div>
                             <div class="card-body">
                                 <span class="float-left"> Total Data :
@@ -43,9 +43,9 @@
                                         <td>{{ $kegiatan->created_at->diffForHumans() }}</td>
                                         <td>{{ $kegiatan->updated_at->diffForHumans() }}</td>
                                         <td>
-                                            <a href="{{ url('kegiatan/'. $kegiatan->id) }}" class="btn btn-primary btn-sm d-block my-1">DETAIL</a>                           
-                                            <a href="{{ url('kegiatan/'. $kegiatan->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1">EDIT</a>
-                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}">HAPUS</a>
+                                            <a href="{{ url('kegiatan/'. $kegiatan->id) }}" class="btn btn-primary btn-sm d-block my-1"> <i class="fa fa-eye"></i> DETAIL</a>                           
+                                            <a href="{{ url('kegiatan/'. $kegiatan->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1"> <i class="fa fa-edit"></i> EDIT</a>
+                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"> <i class="fa fa-trash"></i> HAPUS</a>
 
 <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -59,9 +59,11 @@
                 *) Data yang sudah dihapus tidak bisa dikembalikan lagi
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
                 {!! Form::open(['url' => 'kegiatan/'.$kegiatan->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
-                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                    <button type="submit" class="btn btn-danger btn-sm">
+                         <i class="fa fa-trash"></i> HAPUS
+                    </button>
                 {!! Form::close() !!}
             </div>
         </div>

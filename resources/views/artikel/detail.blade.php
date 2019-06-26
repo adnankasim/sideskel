@@ -9,10 +9,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">ARTIKEL</strong>
-                                <a href="{{ url('artikel/' . $artikel->id . '/edit') }}" class="btn btn-secondary btn-sm float-right mx-1"> EDIT </a>
+                                <a href="{{ url('artikel/' . $artikel->id . '/edit') }}" class="btn btn-secondary btn-sm float-right mx-1"><i class="fa fa-edit"></i> EDIT </a>
 @if($artikel->is_valid === 'tidak')
-                                <a href="#" class="btn btn-primary btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete">VALIDASI</a>
-                                <a href="{{ url('artikel') }}" class="btn btn-info btn-sm float-right mx-1"> KEMBALI </a>
+                                <a href="#" class="btn btn-primary btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-check"></i> VALIDASI</a>
+                                <a href="{{ url('artikel') }}" class="btn btn-info btn-sm float-right mx-1">  <i class="fa fa-arrow-left"></i> KEMBALI </a>
 
 <div class="modal fade text-primary" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -24,9 +24,11 @@
                 APAKAH YAKIN DATA INI VALID? 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">BATAL</button>
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
                 {!! Form::open(['url' => 'artikel/validasi/'.$artikel->id, 'class' => 'd-inline']) !!}
-                    {!! Form::submit('VALID', ['class' => 'btn btn-primary btn-sm']) !!}
+                    <button type="submit" class="btn btn-primary btn-sm">
+                         <i class="fa fa-check"></i> VALID
+                    </button>
                 {!! Form::close() !!}
             </div>
         </div>

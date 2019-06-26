@@ -81,36 +81,71 @@ Route::get('dashboard', 'DashboardController@index');
 
 // tentang
 Route::resource('profil', 'ProfilController');
+
+Route::get('batas/cetak', 'BatasController@cetak');
 Route::resource('batas', 'BatasController');
+
+Route::get('tanaman-komoditas/cetak', 'TanamanKomoditasController@cetakk');
 Route::get('tanaman-komoditas/urutkan', 'TanamanKomoditasController@urutkan');
 Route::resource('tanaman-komoditas', 'TanamanKomoditasController');
+
+Route::get('orbitasi/cetak', 'OrbitasiController@cetak');
 Route::resource('orbitasi', 'OrbitasiController');
+
+Route::get('tipologi/cetak', 'TipologiController@cetak');
 Route::resource('tipologi', 'TipologiController');
+
+Route::get('iklim/cetak', 'IklimController@cetak');
 Route::resource('iklim', 'IklimController');
+
+Route::get('kesuburan-tanah/cetak', 'KesuburanTanahController@cetak');
 Route::resource('kesuburan-tanah', 'KesuburanTanahController');
+
+Route::get('penggunaan-tanah/cetak', 'PenggunaanTanahController@cetak');
 Route::resource('penggunaan-tanah', 'PenggunaanTanahController');
+
+Route::get('infrastruktur-melintasi/cetak', 'InfraMelintasiController@cetak');
 Route::resource('infrastruktur-melintasi', 'InfraMelintasiController');
 
 // pemerintahan
 Route::resource('pemerintahan', 'PemerintahanController');
 
 // fasilitas
+Route::get('fasilitas-ekonomi/cetak', 'FasilitasEkonomiController@cetak');
 Route::resource('fasilitas-ekonomi', 'FasilitasEkonomiController');
+
+Route::get('fasilitas-kesehatan/cetak', 'FasilitasKesehatanController@cetak');
 Route::resource('fasilitas-kesehatan', 'FasilitasKesehatanController');
+
+Route::get('fasilitas-pemerintahan/cetak', 'FasilitasPemerintahanController@cetak');
 Route::resource('fasilitas-pemerintahan', 'FasilitasPemerintahanController');
+
+Route::get('fasilitas-pemukiman/cetak', 'FasilitasPemukimanController@cetak');
 Route::resource('fasilitas-pemukiman', 'FasilitasPemukimanController');
+
+Route::get('fasilitas-pendidikan/cetak', 'FasilitasPendidikanController@cetak');
 Route::resource('fasilitas-pendidikan', 'FasilitasPendidikanController');
+
+Route::get('fasilitas-peribadatan/cetak', 'FasilitasPeribadatanController@cetak');
 Route::resource('fasilitas-peribadatan', 'FasilitasPeribadatanController');
+
+Route::get('fasilitas-prasarana/cetak', 'FasilitasPrasaranaController@cetak');
 Route::resource('fasilitas-prasarana', 'FasilitasPrasaranaController');
 
 // keuangan
+Route::get('belanja/cetak', 'BelanjaController@cetak');
+Route::get('belanja/cari', 'BelanjaController@cari');
 Route::get('belanja/urutkan', 'BelanjaController@urutkan');
 Route::resource('belanja', 'BelanjaController');
 
+Route::get('pendapatan/cetak', 'PendapatanController@cetak');
+Route::get('pendapatan/cari', 'PendapatanController@cari');
 Route::get('pendapatan/urutkan', 'PendapatanController@urutkan');
 Route::resource('pendapatan', 'PendapatanController');
 
 // penduduk
+Route::get('penduduk/presentasi', 'PendudukController@presentasi');
+Route::get('penduduk/cetak', 'PendudukController@cetak');
 Route::get('penduduk/cari', 'PendudukController@cari');
 Route::resource('penduduk', 'PendudukController');
 
@@ -130,7 +165,9 @@ Route::resource('dokumen', 'DokumenController');
 Route::resource('pelayanan', 'PelayananController');
 
 // pengguna
+Route::get('pengguna/cetak', 'PenggunaController@cetak');
 Route::resource('pengguna', 'PenggunaController');
 
 // admin
+Route::get('admin/cetak', 'AdminController@cetak');
 Route::resource('admin', 'AdminController');

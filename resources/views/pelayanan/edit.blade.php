@@ -13,7 +13,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">EDIT PELAYANAN</strong>
-                                <a href="{{ url('pelayanan') }}" class="btn btn-info btn-sm float-right"> KEMBALI </a>
+                                <a href="{{ url('pelayanan') }}" class="btn btn-info btn-sm float-right"> 
+                                <i class="fa fa-arrow-left"></i> KEMBALI </a>
                             </div>
                             <div class="card-body">
                                 <div class="card-body" style="padding-top: 0">

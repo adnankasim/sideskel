@@ -15,5 +15,7 @@
         {!! Form::text('keterangan_kesuburan_tanah', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Tadah Hujan']) !!}
 </div>                             
 <div>
-    {!!Form::submit('SUBMIT', ['class' => 'btn btn-primary'])!!}
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-paper-plane"></i>  SUBMIT
+    </button>
 </div>

@@ -50,6 +50,8 @@ class PendapatanController extends Controller
 
     public function urutkan(Request $request)
     {
+        if(empty($request->input('tahun'))) return redirect('pendapatan');
+        
         $daftar_pendapatan = Pendapatan::where('tahun', $request->input('tahun'))->orderBy('nominal_pendapatan', 'asc')->get();
         $total = $daftar_pendapatan->sum('nominal_pendapatan');
         $daftar_tahun = Pendapatan::distinct('tahun')->pluck('tahun', 'tahun');

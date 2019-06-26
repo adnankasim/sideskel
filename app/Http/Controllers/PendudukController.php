@@ -6,6 +6,7 @@ use App\Penduduk;
 use Illuminate\Http\Request;
 use App\Http\Requests\PendudukRequest;
 use Session;
+use DB;
 
 class PendudukController extends Controller
 {
@@ -13,6 +14,7 @@ class PendudukController extends Controller
     {
         $daftar_penduduk = Penduduk::orderBy('id', 'desc')->paginate(25);
         $update_terakhir = Penduduk::orderBy('updated_at', 'desc')->first();
+       
         return view('penduduk.index', compact('daftar_penduduk', 'update_terakhir'));
     }
 
@@ -147,4 +149,64 @@ class PendudukController extends Controller
         }
       }
 
+      public function presentasi()
+      {
+        // manusia usia lanjut
+        $enampuluhenam_tahun = \Carbon\Carbon::today()->subYears(66)->format('Y-m-d');
+        $manula = \App\Penduduk::where('tanggal_lahir', '<=', $enampuluhenam_tahun)->count();
+
+        // lanjut usia akhir
+        $limapuluhenam_tahun = \Carbon\Carbon::today()->subYears(56)->format('Y-m-d');
+        $lansia_akhir = \App\Penduduk::where('tanggal_lahir', '>', $enampuluhenam_tahun)->where('tanggal_lahir', '<=', $limapuluhenam_tahun)->count();
+
+        // lanjut usia awal
+        $empatpuluhenam_tahun = \Carbon\Carbon::today()->subYears(46)->format('Y-m-d');
+        $lansia_awal = \App\Penduduk::where('tanggal_lahir', '>', $limapuluhenam_tahun)->where('tanggal_lahir', '<=', $empatpuluhenam_tahun)->count();
+
+        // dewasa akhir
+        $tigapuluhenam_tahun = \Carbon\Carbon::today()->subYears(36)->format('Y-m-d');
+        $dewasa_akhir = \App\Penduduk::where('tanggal_lahir', '>', $empatpuluhenam_tahun)->where('tanggal_lahir', '<=', $tigapuluhenam_tahun)->count();
+        
+        // dewasa awal
+        $duapuluhenam_tahun = \Carbon\Carbon::today()->subYears(26)->format('Y-m-d');
+        $dewasa_awal = \App\Penduduk::where('tanggal_lahir', '>', $tigapuluhenam_tahun)->where('tanggal_lahir', '<=', $duapuluhenam_tahun)->count();
+
+        // remaja akhir
+        $tujuhbelas_tahun = \Carbon\Carbon::today()->subYears(17)->format('Y-m-d');
+        $remaja_akhir = \App\Penduduk::where('tanggal_lahir', '>', $duapuluhenam_tahun)->where('tanggal_lahir', '<=', $tujuhbelas_tahun)->count();
+
+        // remaja awal
+        $duabelas_tahun = \Carbon\Carbon::today()->subYears(12)->format('Y-m-d');
+        $remaja_awal = \App\Penduduk::where('tanggal_lahir', '>', $tujuhbelas_tahun)->where('tanggal_lahir', '<=', $duabelas_tahun)->count();
+
+        // kanak kanak
+        $enam_tahun = \Carbon\Carbon::today()->subYears(6)->format('Y-m-d');
+        $kanak_kanak = \App\Penduduk::where('tanggal_lahir', '>', $duabelas_tahun)->where('tanggal_lahir', '<=', $enam_tahun)->count();
+
+        // bawah lima tahun
+        $nol_tahun = \Carbon\Carbon::today()->subYears(0)->format('Y-m-d');
+        $balita = \App\Penduduk::where('tanggal_lahir', '>', $enam_tahun)->where('tanggal_lahir', '<=', $nol_tahun)->count();
+
+        // penduduk pekerjaan
+        $daftar_pekerjaan = DB::table('penduduk')->select('pekerjaan', DB::raw('count(*) as total'))->groupBy('pekerjaan')->get();
+
+        // penduduk pendidikan
+        $daftar_pendidikan = DB::table('penduduk')->select('pendidikan_terakhir', DB::raw('count(*) as total'))->groupBy('pendidikan_terakhir')->get();
+
+        // penduduk golongan darah
+        $daftar_darah = DB::table('penduduk')->select('golongan_darah', DB::raw('count(*) as total'))->groupBy('golongan_darah')->get();
+       
+        // menikah
+        $daftar_menikah = DB::table('penduduk')->select('status_menikah', DB::raw('count(*) as total'))->groupBy('status_menikah')->get();
+
+        // agama
+        $daftar_agama = DB::table('penduduk')->select('agama', DB::raw('count(*) as total'))->groupBy('agama')->get();
+
+        // jenis kelamin
+        $daftar_jk = DB::table('penduduk')->select('jenis_kelamin', DB::raw('count(*) as total'))->groupBy('jenis_kelamin')->get();
+
+        return view('penduduk.presentasi', compact(
+          'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_pekerjaan', 'daftar_pendidikan', 'daftar_darah', 'daftar_menikah', 'daftar_agama', 'daftar_jk'
+        ));
+      }
 }

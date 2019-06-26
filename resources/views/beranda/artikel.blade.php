@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h3 class="font-weight-bold text-black mb-3 mt-5 mt-xl-0">ARTIKEL</h3>
+                        <h3 class="font-weight-bold text-black mb-2 mt-5 mt-md-2 mt-xl-0">ARTIKEL</h3>
                         {!! Form::open(['url' => 'beranda/artikel/cari', 'method' => 'get', 'class' => 'bg-white']) !!}
                             <div class="input-group mb-3">
                                 {!! Form::text('judul', null, ['class' => 'form-control', 'placeholder' => 'Lorem Ipsum Dolor Sit Amet']) !!}
