@@ -11,10 +11,6 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900"> 
     
-    <!-- <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}"> -->
-
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/magnific-popup.css') }}">
@@ -316,12 +312,6 @@
       </div>
     </footer>
   </div>
-
-  <!-- <script src="{{ asset('assets-beranda/js/jquery-3.3.1.min.js') }}"></script>
-  <script src="{{ asset('assets-beranda/js/popper.min.js') }}"></script>
-  <script src="{{ asset('assets-beranda/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('assets-beranda/js/aos.js') }}"></script>
-  <script src="{{ asset('assets-beranda/js/main.js') }}"></script> -->
 
   <script src="{{ asset('assets-beranda/js/jquery-3.3.1.min.js') }}"></script>
   <script src="{{ asset('assets-beranda/js/jquery-migrate-3.0.1.min.js') }}"></script>
