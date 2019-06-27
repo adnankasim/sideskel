@@ -40,7 +40,7 @@
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Golongan Darah</label>
-    {!! Form::select('golongan_darah', ['a' => 'A', 'b' => 'B', 'ab' => 'AB', 'o' => 'O'], null, ['placeholder' => '-- Golongan Darah --', 'class' => 'form-control']) !!}
+    {!! Form::select('golongan_darah', ['a' => 'A', 'b' => 'B', 'ab' => 'AB', 'o' => 'O'], null, ['placeholder' => 'TIDAK DIKETAHUI', 'class' => 'form-control']) !!}
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Jenis Kelamin</label>
@@ -57,6 +57,6 @@
 </div>
 <div>
     <button type="submit" class="btn btn-primary btn-sm">
-      <i class="fa fa-paper-plane"></i>  SUBMIT
+      <i class="fa fa-paper-plane fa-lg"></i> 
     </button>
 </div>

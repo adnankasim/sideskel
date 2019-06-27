@@ -12,8 +12,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">TAMBAH BELANJA</strong>
-                                <a href="{{ url('belanja') }}" class="btn btn-info btn-sm float-right"><i class="fa fa-arrow-left"></i> KEMBALI </a>
+                                <strong class="card-title"><i class="fa fa-credit-card"></i>&nbsp; TAMBAH BELANJA</strong>
+                                <a href="{{ url('belanja') }}" class="btn btn-info btn-sm float-right"><i class="fa fa-arrow-left fa-lg"></i> </a>
                             </div>
                             <div class="card-body">
                                 

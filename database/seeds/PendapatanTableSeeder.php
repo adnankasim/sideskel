@@ -15,6 +15,27 @@ class PendapatanTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'uraian_pendapatan' => 'Pajak Pasar', 
+                'nominal_pendapatan' => '12500000',
+                'tahun' => '2019',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'uraian_pendapatan' => 'Piutang PT. Lorem Ipsum', 
+                'nominal_pendapatan' => '19750000',
+                'tahun' => '2019',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'uraian_pendapatan' => 'Pajak Jalan Tol', 
+                'nominal_pendapatan' => '12250000',
+                'tahun' => '2019',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'uraian_pendapatan' => 'Putang Barang ABC', 
                 'nominal_pendapatan' => '5000000',
                 'tahun' => '2018',

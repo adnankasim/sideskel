@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/flaticon/font/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}">
+    <script src="{{ asset('assets-dashboard/js/Chart.bundle.min.js') }}"></script>
 
   </head>
   <body>
@@ -112,7 +113,7 @@
       </div>
     </div>
 
-    <div class="site-blocks-cover overlay" style="background-image: url({{ asset('assets-beranda/images/bg1.jpg') }});" data-aos="fade-up" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url({{ asset('assets-beranda/images/' . $pengaturan->gambar) }});" data-aos="fade-up" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center text-center justify-content-center">
           <div class="col-md-12">
@@ -147,13 +148,113 @@
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
-            <a href="#">
-              <h2 class="font-weight-bold text-black mb-5">ARTIKEL</h2>
+            <a href="{{ url('beranda/penduduk-usia') }}">
+              <h2 class="font-weight-bold text-black mb-5"> <i class="fa fa-users"></i> PENDUDUK</h2>
             </a>
           </div>
         </div>
         
-        <div class="row mb-5">
+        <div class="row">
+                
+                <div class="col-lg-6 col-md-12 p-2">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="pendudukPendidikan"></canvas>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 p-2">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="pendudukUsia"></canvas>
+                    </div>
+                </div>
+                </div>
+                
+                <script>
+                      var ctx = document.getElementById( "pendudukPendidikan" );
+                      ctx.height = 200;
+                      var myChart = new Chart( ctx, {
+                          type: 'bar',
+                          data: {
+                              labels: [ 
+                              @foreach($daftar_pendidikan as $pendidikan)
+                                  "{{ strtoupper($pendidikan->pendidikan_terakhir) }}",
+                              @endforeach
+                              ],
+                              datasets: [
+                                  {
+                                      label: "PENDUDUK BERDASARKAN PENDIDIKAN TERAKHIR",
+                                      data: [ 
+                              @foreach($daftar_pendidikan as $pendidikan)
+                                  " {{ $pendidikan->total }} ",
+                              @endforeach             
+                                          ],
+                                      borderColor: "rgba(0, 194, 146, 0.9)",
+                                      borderWidth: "0",
+                                      backgroundColor: "rgba(0, 194, 146, 0.5)"
+                                              }
+                                          ]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [ {
+                                      ticks: {
+                                          beginAtZero: true
+                                      }
+                                                  } ]
+                              }
+                          }
+                      } );
+                </script>
+                
+                <script>
+                    var ctx = document.getElementById( "pendudukUsia" );
+                    ctx.height = 200;
+                    var myChart = new Chart( ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['0-5', '6-11', '12-16', '17-25', '26-35', '36-45', '46-55', '56-65', '65 Keatas']  ,
+                            datasets: [
+                                {
+                                    label: "PENDUDUK BERDASARKAN USIA",
+                                    data: [ 
+                                        {{ $balita }}, {{ $kanak_kanak }}, {{ $remaja_awal }}, {{ $remaja_akhir }}, {{ $dewasa_awal }}, {{ $dewasa_akhir }}, {{ $lansia_awal }}, {{ $lansia_akhir }}, {{ $manula }} ],
+                                    borderColor: "rgba(241, 196, 15,1.0)",
+                                    borderWidth: "0",
+                                    backgroundColor: "rgba(241, 196, 15,1.0)"
+                                            }
+                                        ]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [ {
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                                } ]
+                            }
+                        }
+                    } );
+                </script>
+
+        </div>  
+    
+      </div>
+    </div>
+
+    <div class="site-section border" data-aos="zoom-out">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="{{ url('beranda/artikel') }}">
+              <h2 class="font-weight-bold text-black mb-5"> <i class="fa fa-newspaper-o"></i> ARTIKEL</h2>
+            </a>
+          </div>
+        </div>
+        
+        <div class="row">
           
           @foreach($daftar_artikel as $artikel)
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
@@ -161,7 +262,7 @@
               <img src="{{ asset('assets-beranda/images/'.$artikel->gambar_artikel) }}" alt="Image" class="img-fluid">
             </a>
             <i class="text-muted d-inline-block fa fa-calendar"></i>
-            <span> {{ $artikel->waktu_artikel }} </span>
+            <span> {{ $artikel->created_at->diffForHumans() }} </span>
             <i class="d-inline-block ml-3 fa fa-user"></i>
             <span> {{ $artikel->pengguna->nama_pengguna }} </span>
             <h3><a href="{{ url('beranda/artikel/'.$artikel->slug_artikel) }}">  {{ $artikel->judul_artikel }} </a></h3>
@@ -170,7 +271,7 @@
     
         </div>
 
-        <div class="row mt-5 text-center">
+        <div class="row mt-2 text-center">
           <div class="col-12">
             <p><a href="{{ url('beranda/artikel') }}" class="btn btn-primary btn-lg rounded-0">Lihat Semua Artikel</a></p>
           </div>
@@ -178,14 +279,13 @@
       </div>
     </div>
 
-
     <div class="site-section bg-info" data-aos="flip-right">
       <div class="container">
         <div class="row">
           
           <div class="col-lg-12 col-md-12 mb-12 mb-lg-0 mb-3 text-center">
               <span class="fa fa-building-o fa-3x text-light mb-3"></span>
-              <h3 class="text-light">FASILITAS</h3>
+              <h3 class="text-light"> FASILITAS</h3>
           </div>
 
           <div class="col-lg-3 col-md-auto my-1 text-center">
@@ -270,10 +370,56 @@
     </div>
 
     <div class="site-section" data-aos="zoom-in">
+      <div class="container" >
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="{{ url('beranda/belanja') }}"><h2 class="font-weight-bold text-black mb-5"><i class="fa fa-money"></i> KEUANGAN</h2></a>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
+                          <div class="card">
+                            <div class="card-body bg-primary">
+                                    <div class="d-inline-block">
+                                        <i class="fa fa-leaf fa-4x text-white"></i>
+                                    </div>
+                                    <div class="d-inline-block mx-2">
+                                        <div class="text-left dib">
+                                            <h2 class="text-white"> TOTAL  Rp. {{ number_format($total_pendapatan, 0, ',', '.') }},- </h2>
+                                            <h3 class="text-white">PENDAPATAN TAHUN {{ date('Y') }}</h3>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
+                          <div class="card">
+                            <div class="card-body bg-primary">
+                                    <div class="d-inline-block">
+                                        <i class="fa fa-credit-card fa-4x text-white"></i>
+                                    </div>
+                                    <div class="d-inline-block mx-2">
+                                        <div class="text-left dib">
+                                            <h2 class="text-white"> TOTAL  Rp. {{ number_format($total_belanja, 0, ',', '.') }},- </h2>
+                                            <h3 class="text-white">BELANJA TAHUN {{ date('Y') }}</h3>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="site-section" data-aos="zoom-in">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
-            <a href="#"><h2 class="font-weight-bold text-black mb-5">KEGIATAN</h2></a>
+            <a href="{{ url('beranda/kegiatan') }}"><h2 class="font-weight-bold text-black mb-5"><i class="fa fa-feed"></i> KEGIATAN</h2></a>
           </div>
         </div>
         <div class="row mb-5">
@@ -283,7 +429,7 @@
             <a href="{{ url('beranda/kegiatan'.$kegiatan->slug_kegiatan) }}" class="d-block figure">
               <img src="{{ asset('assets-beranda/images/'.$kegiatan->poster_kegiatan) }}" alt="Image" class="img-fluid">
             </a>
-            <span class="text-muted d-block mb-2"> {{ $kegiatan->waktu_kegiatan }} </span>
+            <span class="text-muted d-block mb-2"> <i class="fa fa-calendar"></i> {{ $kegiatan->created_at->diffForHumans() }} </span>
             <h3><a href="{{ url('beranda/kegiatan/'.$kegiatan->slug_kegiatan) }}"> {{ $kegiatan->nama_kegiatan }} </a></h3>
           </div>
           @endforeach

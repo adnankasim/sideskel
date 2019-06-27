@@ -52,15 +52,15 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-home fa-lg"></i>TENTANG</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-info"></i><a href="{{ url('profil') }}">PROFIL</a></li>
-                            <li><i class="fa fa-map-marker"></i><a href="{{ url('batas') }}">BATAS WILAYAH</a></li>
-                            <li><i class="fa fa-leaf"></i><a href="{{ url('tanaman-komoditas') }}">TANAMAN KOMODITAS</a></li>
-                            <li><i class="fa fa-car"></i><a href="{{ url('orbitasi') }}">ORBITASI</a></li>
-                            <li><i class="fa fa-pagelines"></i><a href="{{ url('tipologi') }}">TIPOLOGI</a></li>
-                            <li><i class="fa fa-cloud"></i><a href="{{ url('iklim') }}">IKLIM</a></li>
-                            <li><i class="fa fa-square"></i><a href="{{ url('kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
-                            <li><i class="fa fa-book"></i><a href="{{ url('penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
-                            <li><i class="fa fa-binoculars"></i><a href="{{ url('infrastruktur-melintasi') }}">INFRASTRUKTUR</a></li>
+                            <li><i class="fa fa-info"></i> <a href="{{ url('profil') }}">PROFIL</a></li>
+                            <li><i class="fa fa-map-marker"></i> <a href="{{ url('batas') }}">BATAS WILAYAH</a></li>
+                            <li><i class="fa fa-leaf"></i> <a href="{{ url('tanaman-komoditas') }}">TANAMAN KOMODITAS</a></li>
+                            <li><i class="fa fa-car"></i> <a href="{{ url('orbitasi') }}">ORBITASI</a></li>
+                            <li><i class="fa fa-pagelines"></i> <a href="{{ url('tipologi') }}">TIPOLOGI</a></li>
+                            <li><i class="fa fa-cloud"></i> <a href="{{ url('iklim') }}">IKLIM</a></li>
+                            <li><i class="fa fa-square"></i> <a href="{{ url('kesuburan-tanah') }}">KESUBURAN TANAH</a></li>
+                            <li><i class="fa fa-book"></i> <a href="{{ url('penggunaan-tanah') }}">PENGGUNAAN TANAH</a></li>
+                            <li><i class="fa fa-binoculars"></i> <a href="{{ url('infrastruktur-melintasi') }}">INFRASTRUKTUR</a></li>
                         </ul>
                     </li>
 
@@ -96,7 +96,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-money"></i>KEUANGAN</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-credit-card"></i><a href="{{ url('belanja') }}">BELANJA</a></li>
+                            <li><i class="fa fa-credit-card"></i> <a href="{{ url('belanja') }}">BELANJA</a></li>
                             <li><i class="fa fa-leaf"></i><a href="{{ url('pendapatan') }}">PENDAPATAN</a></li>
                         </ul>
                     </li>
@@ -115,9 +115,10 @@
                     </li>
 
 @if(Request::segment(1) === 'artikel')
-                    <li class="active"><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL</a></li>
+                    <li class="active"><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL &nbsp;<span class="badge badge-primary">{{ $artikel_invalid->count() }} </span>
+                    </a></li>
 @else
-                    <li><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL</a></li>
+                    <li><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL &nbsp;<span class="badge badge-primary"> {{ $artikel_invalid->count() }} </span></a></li>
 @endif
 
 @if(Request::segment(1) === 'kegiatan')
@@ -127,9 +128,9 @@
 @endif
 
 @if(Request::segment(1) === 'dokumen')
-                    <li class="active"><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file-pdf-o"></i>DOKUMEN</a></li>
+                    <li class="active"><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file"></i>DOKUMEN</a></li>
 @else
-                    <li><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file-pdf-o"></i>DOKUMEN</a></li>
+                    <li><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file"></i>DOKUMEN</a></li>
 @endif
 
 @if(Request::segment(1) === 'pelayanan')
@@ -148,6 +149,12 @@
                     <li class="active"><a href="{{ url('admin') }}"><i class="menu-icon fa fa-user-secret"></i>ADMIN</a></li>
 @else
                     <li><a href="{{ url('admin') }}"><i class="menu-icon fa fa-user-secret"></i>ADMIN</a></li>
+@endif
+
+@if(Request::segment(1) === 'pengaturan')
+                    <li class="active"><a href="{{ url('pengaturan') }}"><i class="menu-icon fa fa-wrench"></i>PENGATURAN</a></li>
+@else
+                    <li><a href="{{ url('pengaturan') }}"><i class="menu-icon fa fa-wrench"></i>PENGATURAN</a></li>
 @endif
 
                     <li><a href="{{ url('keluar') }}"><i class="menu-icon fa fa-sign-out"></i>KELUAR</a></li>

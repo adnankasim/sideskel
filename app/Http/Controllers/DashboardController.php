@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Session;
 
 class DashboardController extends Controller
 {
@@ -115,4 +116,54 @@ class DashboardController extends Controller
             'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_darah'        
         ));
     }
+
+    public function pengaturan()
+    {
+        return view('pengaturan');
+    }
+
+    public function gantiGambarLatar(Request $request, $id = 1)
+    {
+        $input = $request->all();
+
+        $pengaturan = \App\Pengaturan::findOrFail($id);
+        
+        if($request->hasFile('gambar')){ 
+            $input['gambar'] = $this->uploadGambar($request);
+            $pengaturan->gambar = $input['gambar'];
+        } else $pengaturan->gambar = 'bg2.jpg';
+
+        $pengaturan->save();
+
+        Session::flash('pesan', 'Gambar Latar Beranda Berhasil Diupdate');
+        return redirect('pengaturan');
+    }
+
+    public function gantiWarnaNavbar(Request $request, $id = 1)
+    {
+        $pengaturan = \App\Pengaturan::findOrFail($id);
+        
+        if(empty($request->input('warna'))) $pengaturan->warna = '#3498db';
+        else $pengaturan->warna = $request->input('warna');
+        
+        $pengaturan->save();
+
+        Session::flash('pesan', 'Warna Latar Navbar Beranda Berhasil Diupdate');
+        return redirect('pengaturan');
+    }
+
+    private function uploadGambar(Request $request){
+        $gambar = $request->file('gambar');
+        $ext = $gambar->getClientOriginalExtension();
+
+        if($request->file('gambar')->isValid()){
+          $gambar_name = date('YmdHis').".$ext";
+          $upload_path = 'assets-beranda/images';
+          $request->file('gambar')->move($upload_path, $gambar_name);
+
+          return $gambar_name;
+        }
+        return false;
+      }
+
 }

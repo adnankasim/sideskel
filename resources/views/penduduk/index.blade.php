@@ -6,15 +6,43 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                    @include('penduduk.cari')
                     @include('pesan.pesan_info')
+
+                    @include('penduduk.cari')
+
+@if(Request::get('nama_penduduk') || Request::get('pekerjaan') || Request::get('golongan_darah') || Request::get('agama') || Request::get('jenis_kelamin'))
+<div class="col-md-12 mb-3 mt-1">
+    <h5>FILTER :
+
+    @if(Request::get('nama_penduduk'))
+    NAMA / NIK : <strong>{{ Request::get('nama_penduduk') }}</strong> &nbsp; 
+    @endif
+
+    @if(Request::get('pekerjaan'))
+    PEKERJAAN : <strong>{{ Request::get('pekerjaan') }}</strong> &nbsp;
+    @endif
+    
+    @if(Request::get('golongan_darah'))
+    GOLONGAN DARAH : <strong>{{ Request::get('golongan_darah') }}</strong> &nbsp;
+    @endif
+    
+    @if(Request::get('agama'))
+    AGAMA : <strong>{{ Request::get('agama') }}</strong> &nbsp;
+    @endif
+    
+    @if(Request::get('jenis_kelamin'))
+    JENIS KELAMIN : <strong>{{ Request::get('jenis_kelamin') }}</strong> &nbsp;
+    @endif 
+    </h5>
+</div>
+@endif
 
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">PENDUDUK</strong>
-                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"> <i class="fa fa-print"></i> CETAK </a>
-                                <a href="{{ url('penduduk/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> TAMBAH </a>
+                                <strong class="card-title"><i class="fa fa-users"></i>&nbsp; PENDUDUK</strong>
+                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"> <i class="fa fa-print fa-lg"></i> </a>
+                                <a href="{{ url('penduduk/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus fa-lg"></i>  </a>
                             </div>
                             <div class="card-body">
                                 <span class="float-left"> Total Data :
@@ -45,11 +73,18 @@
                                         <td>{{ $penduduk->nama_penduduk }}</td>
                                         <td class="text-capitalize">{{ $penduduk->pekerjaan }}</td>
                                         <td class="text-uppercase">{{ $penduduk->golongan_darah }}</td>
-                                        <td class="text-capitalize">{{ $penduduk->agama }}</td>
-                                        <td class="text-capitalize">{{ $penduduk->jenis_kelamin }}</td>
+                                        <td class="text-uppercase">{{ $penduduk->agama }}</td>
+                                        <td class="text-capitalize text-center">
+                                        @if($penduduk->jenis_kelamin == 'laki-laki')
+                                            <i class="fa fa-male fa-lg text-secondary"></i>
+                                        @else
+                                            <i class="fa fa-female fa-lg"></i>
+                                        @endif
+                                        </td>
                                         <td>
-                                            <a href="{{ url('penduduk/'. $penduduk->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1"><i class="fa fa-edit"></i> EDIT</a>
-                                            <a href="{{ url('penduduk/'. $penduduk->id) }}" class="btn btn-primary btn-sm d-block my-1"><i class="fa fa-eye"></i> DETAIL</a>                                <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"><i class="fa fa-trash"></i> HAPUS</a>
+                                            <a href="{{ url('penduduk/'. $penduduk->id) }}" class="btn btn-info btn-sm my-1 d-block"><i class="fa fa-eye fa-lg"></i> </a>                                
+                                            <a href="{{ url('penduduk/'. $penduduk->id .'/edit') }}" class="btn btn-success btn-sm my-1 d-block"><i class="fa fa-edit fa-lg"></i> </a>
+                                            <a href="#" class="btn btn-danger btn-sm my-1 d-block" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"><i class="fa fa-trash fa-lg"></i> </a>
 
 <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -63,10 +98,10 @@
                 *) Data yang sudah dihapus tidak bisa dikembalikan lagi
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i> </button>
                 {!! Form::open(['url' => 'penduduk/'.$penduduk->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
                     <button type="submit" class="btn btn-danger btn-sm">
-                         <i class="fa fa-trash"></i> HAPUS
+                         <i class="fa fa-trash fa-lg"></i>
                     </button>
                 {!! Form::close() !!}
             </div>

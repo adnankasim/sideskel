@@ -3,15 +3,58 @@ Route::get('/', function () {
     $daftar_artikel = App\Artikel::take(3)->get();
     $daftar_kegiatan = App\Kegiatan::take(3)->get();
 
-    return view('beranda/index', compact('daftar_artikel', 'daftar_kegiatan'));
+    $daftar_pendidikan = DB::table('penduduk')->select('pendidikan_terakhir', DB::raw('count(*) as total'))->groupBy('pendidikan_terakhir')->get();
+
+    // manusia usia lanjut
+        $enampuluhenam_tahun = \Carbon\Carbon::today()->subYears(66)->format('Y-m-d');
+        $manula = \App\Penduduk::where('tanggal_lahir', '<=', $enampuluhenam_tahun)->count();
+
+        // lanjut usia akhir
+        $limapuluhenam_tahun = \Carbon\Carbon::today()->subYears(56)->format('Y-m-d');
+        $lansia_akhir = \App\Penduduk::where('tanggal_lahir', '>', $enampuluhenam_tahun)->where('tanggal_lahir', '<=', $limapuluhenam_tahun)->count();
+
+        // lanjut usia awal
+        $empatpuluhenam_tahun = \Carbon\Carbon::today()->subYears(46)->format('Y-m-d');
+        $lansia_awal = \App\Penduduk::where('tanggal_lahir', '>', $limapuluhenam_tahun)->where('tanggal_lahir', '<=', $empatpuluhenam_tahun)->count();
+
+        // dewasa akhir
+        $tigapuluhenam_tahun = \Carbon\Carbon::today()->subYears(36)->format('Y-m-d');
+        $dewasa_akhir = \App\Penduduk::where('tanggal_lahir', '>', $empatpuluhenam_tahun)->where('tanggal_lahir', '<=', $tigapuluhenam_tahun)->count();
+        
+        // dewasa awal
+        $duapuluhenam_tahun = \Carbon\Carbon::today()->subYears(26)->format('Y-m-d');
+        $dewasa_awal = \App\Penduduk::where('tanggal_lahir', '>', $tigapuluhenam_tahun)->where('tanggal_lahir', '<=', $duapuluhenam_tahun)->count();
+
+        // remaja akhir
+        $tujuhbelas_tahun = \Carbon\Carbon::today()->subYears(17)->format('Y-m-d');
+        $remaja_akhir = \App\Penduduk::where('tanggal_lahir', '>', $duapuluhenam_tahun)->where('tanggal_lahir', '<=', $tujuhbelas_tahun)->count();
+
+        // remaja awal
+        $duabelas_tahun = \Carbon\Carbon::today()->subYears(12)->format('Y-m-d');
+        $remaja_awal = \App\Penduduk::where('tanggal_lahir', '>', $tujuhbelas_tahun)->where('tanggal_lahir', '<=', $duabelas_tahun)->count();
+
+        // kanak kanak
+        $enam_tahun = \Carbon\Carbon::today()->subYears(6)->format('Y-m-d');
+        $kanak_kanak = \App\Penduduk::where('tanggal_lahir', '>', $duabelas_tahun)->where('tanggal_lahir', '<=', $enam_tahun)->count();
+
+        // bawah lima tahun
+        $nol_tahun = \Carbon\Carbon::today()->subYears(0)->format('Y-m-d');
+        $balita = \App\Penduduk::where('tanggal_lahir', '>', $enam_tahun)->where('tanggal_lahir', '<=', $nol_tahun)->count();
+
+        // keuangan
+        $daftar_belanja = \App\Belanja::where('tahun', date('Y'))->orderBy('nominal_belanja', 'asc')->get();
+        $total_belanja = $daftar_belanja->sum('nominal_belanja');
+
+        $daftar_pendapatan = \App\Pendapatan::where('tahun', date('Y'))->orderBy('nominal_pendapatan', 'asc')->get();
+        $total_pendapatan = $daftar_pendapatan->sum('nominal_pendapatan');
+
+    return view('beranda/index', compact('daftar_artikel', 'daftar_kegiatan', 'daftar_pendidikan', 'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_belanja', 'daftar_pendapatan', 'total_belanja', 'total_pendapatan'));
 });
 Route::prefix('beranda')->group(function()
 {
     Route::get('/', function ()
     {
-        $daftar_artikel = App\Artikel::take(3)->get();
-        $daftar_kegiatan = App\Kegiatan::take(3)->get();
-        return view('beranda/index', compact('daftar_artikel', 'daftar_kegiatan'));
+        return redirect('/');
     });
 
     // tentang
@@ -171,3 +214,8 @@ Route::resource('pengguna', 'PenggunaController');
 // admin
 Route::get('admin/cetak', 'AdminController@cetak');
 Route::resource('admin', 'AdminController');
+
+// pengaturan
+Route::get('pengaturan', 'DashboardController@pengaturan');
+Route::patch('pengaturan/ganti-gambar-latar/1', 'DashboardController@gantiGambarLatar');
+Route::patch('pengaturan/ganti-warna-navbar/1', 'DashboardController@gantiWarnaNavbar');

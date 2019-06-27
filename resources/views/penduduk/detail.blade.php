@@ -8,11 +8,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">PENDUDUK</strong>
-                                <a href="#" class="btn btn-danger btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i> HAPUS</a>
-                                <a href="{{ url('penduduk/'.$penduduk->id.'/edit') }}" class="btn btn-info btn-sm float-right mx-1"><i class="fa fa-edit"></i> EDIT </a>
-                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print"></i> CETAK </a>
-                                <a href="{{ url('penduduk') }}" class="btn btn-secondary btn-sm float-right mx-1"><i class="fa fa-arrow-left"></i> KEMBALI </a>
+                                <strong class="card-title"><i class="fa fa-users"></i>&nbsp; PENDUDUK</strong>
+                                <a href="#" class="btn btn-danger btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash fa-lg"></i></a>
+                                <a href="{{ url('penduduk/'.$penduduk->id.'/edit') }}" class="btn btn-success btn-sm float-right mx-1"><i class="fa fa-edit fa-lg"></i> </a>
+                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print fa-lg"></i></a>
+                                <a href="{{ url('penduduk') }}" class="btn btn-info btn-sm float-right mx-1"><i class="fa fa-arrow-left fa-lg"></i> </a>
 
 <div class="modal fade text-danger" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

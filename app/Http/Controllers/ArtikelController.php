@@ -13,8 +13,9 @@ class ArtikelController extends Controller
     public function index()
     {
         $daftar_artikel = Artikel::orderBy('id', 'desc')->paginate(25);
+        $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
         $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
-        return view('artikel.index', compact('daftar_artikel', 'update_terakhir'));
+        return view('artikel.index', compact('daftar_artikel', 'update_terakhir', 'daftar_artikel_invalid'));
     }
 
     public function create()
@@ -74,7 +75,9 @@ class ArtikelController extends Controller
           $pagination = $daftar_artikel->appends($request->except('page'));
           $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
 
-          return view('artikel.index', compact('daftar_artikel', 'judul_artikel', 'pagination', 'update_terakhir'));
+          $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
+
+          return view('artikel.index', compact('daftar_artikel', 'judul_artikel', 'pagination', 'update_terakhir', 'daftar_artikel_invalid'));
         }
         return redirect('artikel');
 

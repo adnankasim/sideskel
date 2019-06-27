@@ -11,8 +11,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">PELAYANAN</strong>
-                                <a href="{{ url('pelayanan/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus"></i> TAMBAH </a>
+                                <strong class="card-title"><i class="fa fa-info-circle"></i>&nbsp; PELAYANAN</strong>
+                                <a href="{{ url('pelayanan/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus fa-lg"></i> </a>
                             </div>
                             <div class="card-body">
                                 <span class="float-left"> Total Data :
@@ -40,9 +40,9 @@
                                         <td>{{ $pelayanan->created_at->diffForHumans() }}</td>
                                         <td>{{ $pelayanan->updated_at->diffForHumans() }}</td>
                                         <td>
-                                            <a href="{{ url('pelayanan/'. $pelayanan->id) }}" class="btn btn-primary btn-sm d-block my-1"> <i class="fa fa-eye"></i> DETAIL</a>
-                                            <a href="{{ url('pelayanan/'. $pelayanan->id .'/edit') }}" class="btn btn-info btn-sm d-block my-1"> <i class="fa fa-edit"></i> EDIT</a>
-                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"> <i class="fa fa-trash"></i> HAPUS</a>
+                                            <a href="{{ url('pelayanan/'. $pelayanan->id) }}" class="btn btn-info btn-sm d-block my-1"> <i class="fa fa-eye fa-lg"></i> </a>
+                                            <a href="{{ url('pelayanan/'. $pelayanan->id .'/edit') }}" class="btn btn-success btn-sm d-block my-1"> <i class="fa fa-edit fa-lg"></i> </a>
+                                            <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"> <i class="fa fa-trash fa-lg"></i> </a>
 <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -56,10 +56,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">
-                <i class="fa fa-times-circle"></i> BATAL</button>
+                <i class="fa fa-times-circle fa-lg"></i> </button>
                 {!! Form::open(['url' => 'pelayanan/'.$pelayanan->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
                     <button type="submit" class="btn btn-danger btn-sm">
-                         <i class="fa fa-trash"></i> HAPUS
+                         <i class="fa fa-trash fa-lg"></i>
                     </button>
                 {!! Form::close() !!}
             </div>

@@ -10,8 +10,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">PROFIL</strong>
-                                <a href="{{ url('profil/1/edit') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-edit"></i> EDIT </a>
+                                <strong class="card-title"><i class="fa fa-info fa-lg"></i>&nbsp; PROFIL</strong>
+                                <a href="{{ url('profil/1/edit') }}" class="btn btn-success btn-sm float-right"><i class="fa fa-edit fa-lg"></i></a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table">
@@ -39,11 +39,15 @@
                                         <td>Email</td>
                                         <th>{{ $profil->email }}</th>
                                     </tr>
+                                </table>
+                                <table class="table">
                                     <tr>
                                         <td>Deskripsi</td>
-                                        <th>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             {!! $profil->deskripsi !!}
-                                        </th>
+                                        </td>
                                     </tr>
                                 </table>
                                 <table class="table">

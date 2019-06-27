@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Profil;
 use App\Penduduk;
+use App\Pengaturan;
+use App\Artikel;
 
 class ProfilServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,14 @@ class ProfilServiceProvider extends ServiceProvider
 
         view()->composer('penduduk.cari', function($view){
             $view->with('daftar_agama', Penduduk::distinct('agama')->pluck('agama', 'agama'));
+        });
+
+        view()->composer('beranda.*', function($view){
+            $view->with('pengaturan', Pengaturan::findOrFail(1));
+        });
+
+        view()->composer('*', function($view){
+            $view->with('artikel_invalid', Artikel::where('is_valid', 'tidak'));
         });
     }
 }

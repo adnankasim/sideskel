@@ -36,5 +36,7 @@
     </div>
 </div>
 <div>
-    {!!Form::submit('SUBMIT', ['class' => 'btn btn-primary'])!!}
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-paper-plane fa-lg"></i> 
+    </button>
 </div>

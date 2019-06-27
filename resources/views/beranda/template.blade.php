@@ -46,6 +46,8 @@
             cursor: pointer;
         }
     </style>
+    <script src="{{ asset('assets-dashboard/js/Chart.bundle.min.js') }}"></script>
+
 </head>
 <body>
 
@@ -61,7 +63,7 @@
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
     
-    <div class="site-navbar-wrap" data-aos="fade-up" style="background-color: steelblue">
+    <div class="site-navbar-wrap" data-aos="fade-up" style="background-color: {{ $pengaturan->warna }};">
             <div class="site-navbar">
                 <div class="container-fluid py-1">
                     <div class="row align-items-center">

@@ -12,8 +12,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">EDIT INFRASTRUKTUR MELINTASI</strong>
-                                <a href="{{ url('infrastruktur-melintasi') }}" class="btn btn-info btn-sm float-right"><i class="fa fa-arrow-left"></i> KEMBALI </a>
+                                <strong class="card-title"><i class="fa fa-binoculars"></i>&nbsp; EDIT INFRASTRUKTUR MELINTASI</strong>
+                                <a href="{{ url('infrastruktur-melintasi') }}" class="btn btn-info btn-sm float-right"><i class="fa fa-arrow-left fa-lg"></i> </a>
                             </div>
                             <div class="card-body">
                                 <div class="card-body" style="padding-top: 0">

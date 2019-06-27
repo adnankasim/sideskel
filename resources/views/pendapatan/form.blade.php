@@ -16,6 +16,6 @@
 </div>                             
 <div>
     <button type="submit" class="btn btn-primary btn-sm">
-      <i class="fa fa-paper-plane"></i>  SUBMIT
+      <i class="fa fa-paper-plane fa-lg"></i>  
     </button>
 </div>

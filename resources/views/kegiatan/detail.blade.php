@@ -8,9 +8,9 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">KEGIATAN</strong>
-                                <a href="{{ url('kegiatan/' . $kegiatan->id . '/edit') }}" class="btn btn-secondary btn-sm float-right mx-1">  <i class="fa fa-edit"></i> EDIT </a>
-                                <a href="{{ url('kegiatan') }}" class="btn btn-info btn-sm float-right mx-1"> <i class="fa fa-arrow-left"></i>  KEMBALI </a>
+                                <strong class="card-title"><i class="fa fa-feed"></i>&nbsp; KEGIATAN</strong>
+                                <a href="{{ url('kegiatan/' . $kegiatan->id . '/edit') }}" class="btn btn-success btn-sm float-right mx-1">  <i class="fa fa-edit fa-lg"></i> </a>
+                                <a href="{{ url('kegiatan') }}" class="btn btn-info btn-sm float-right mx-1"> <i class="fa fa-arrow-left fa-lg"></i></a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table">

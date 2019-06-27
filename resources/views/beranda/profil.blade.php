@@ -36,9 +36,13 @@
                                     <td>Email</td>
                                     <td class="font-weight-bold"> {{ $profil->email }} </td>
                                 </tr>
+                            </table>
+                            <table class="table">
                                 <tr>
                                     <td>Deskripsi</td>
-                                    <td class="font-weight-bold text-justify"> {!! $profil->deskripsi !!} </td>
+                                </tr>
+                                <tr>
+                                    <td> {!! $profil->deskripsi !!} </td>
                                 </tr>
                             </table>
                             <table class="table">

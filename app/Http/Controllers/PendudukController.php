@@ -26,6 +26,9 @@ class PendudukController extends Controller
     public function store(PendudukRequest $request)
     {
         $input = $request->all();
+
+        if(empty($input['golongan_darah'])) $input['golongan_darah'] = 'tidak diketahui';
+
         if($request->hasFile('foto_penduduk')){
           $input['foto_penduduk'] = $this->uploadFoto($request);
         }
@@ -47,6 +50,9 @@ class PendudukController extends Controller
     public function update(PendudukRequest $request, Penduduk $penduduk)
     {
         $input = $request->all();
+
+        if(empty($input['golongan_darah'])) $input['golongan_darah'] = 'tidak diketahui';
+        
         if($request->hasFile('foto_penduduk')){
           $this->hapusFoto($penduduk);
           $input['foto_penduduk'] = $this->uploadFoto($request);
@@ -74,8 +80,8 @@ class PendudukController extends Controller
 
       if(!empty($nama_penduduk) || !empty($pekerjaan) || !empty($jenis_kelamin) || !empty($agama) || !empty($golongan_darah)){
 
-          if(!empty($penduduk)){
-            $query = Penduduk::where('nama_penduduk', 'like', '%' . $nama_penduduk . '%');
+          if(!empty($nama_penduduk)){
+            $query = Penduduk::where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%');
             (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
             (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
             (!empty($agama)) ? $query->Agama($agama) : '';
