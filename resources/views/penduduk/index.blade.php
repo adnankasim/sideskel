@@ -41,7 +41,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-users"></i>&nbsp; PENDUDUK</strong>
-                                <a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"> <i class="fa fa-print fa-lg"></i> </a>
+@if(Request::get('nama_penduduk') || Request::get('pekerjaan') || Request::get('golongan_darah') || Request::get('agama') || Request::get('jenis_kelamin'))
+<a href="{{ url('penduduk/cetak?nama_penduduk='. Request::get('nama_penduduk') .'&pekerjaan=' . Request::get('pekerjaan') .'&golongan_darah='. Request::get('golongan_darah') .'&agama='. Request::get('agama') .'&jenis_kelamin='. Request::get('jenis_kelamin')) }}" class="btn btn-warning btn-sm float-right mx-1"> <i class="fa fa-print fa-lg"></i> </a>
+@else
+<a href="{{ url('penduduk/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"> <i class="fa fa-print fa-lg"></i> </a>
+@endif
                                 <a href="{{ url('penduduk/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus fa-lg"></i>  </a>
                             </div>
                             <div class="card-body">

@@ -20,7 +20,7 @@ class CreatePendudukTable extends Migration
             $table->string('foto_penduduk', 100)->nullable();
             $table->string('pekerjaan', 200);
             $table->string('agama', 100);
-            $table->enum('pendidikan_terakhir', ['tidak-sekolah', 'tk', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']);
+            $table->enum('pendidikan_terakhir', ['tidak sekolah', 'tk', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']);
             $table->enum('golongan_darah', ['o', 'a', 'b', 'ab', 'tidak diketahui'])->nullable();
             $table->timestamps();
         });

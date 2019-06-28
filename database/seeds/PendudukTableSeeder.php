@@ -19,7 +19,7 @@ class PendudukTableSeeder extends Seeder
               'tempat_lahir' => $faker->city,
               'tanggal_lahir' => $faker->date(),
               'foto_penduduk' => 'default.jpg',
-              'pendidikan_terakhir' => $faker->randomElement(['tidak-sekolah', 'tk', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']),
+              'pendidikan_terakhir' => $faker->randomElement(['tidak sekolah', 'tk', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']),
               'golongan_darah' => $faker->randomElement(['o', 'a', 'b', 'ab', 'tidak diketahui']),              
               'agama' => $faker->randomElement(['islam', 'katolik', 'hindu', 'budha', 'protestan', 'kong hu cu']),
               'pekerjaan' => $faker->randomElement(['Guru', 'Karyawan Swasta', 'PNS', 'Pengemudi Bentor', 'Nelayan', 'Petani']),

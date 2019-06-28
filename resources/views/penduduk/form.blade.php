@@ -36,7 +36,7 @@
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Pendidikan Terakhir</label>
-    {!! Form::select('pendidikan_terakhir', ['tidak-sekolah' => 'Tidak Sekolah', 'tk' => 'TK', 'sd' => 'SD', 'smp' => 'SMP', 'sma' => 'SMA', 'd1' => 'D1', 'd2' => 'D2', 'd3' => 'D3', 's1' => 'S1', 's2' => 'S2', 's3' => 'S3'], null, ['placeholder' => '-- Pendidikan Terakhir --', 'class' => 'form-control']) !!}
+    {!! Form::select('pendidikan_terakhir', ['tidak sekolah' => 'Tidak Sekolah', 'tk' => 'TK', 'sd' => 'SD', 'smp' => 'SMP', 'sma' => 'SMA', 'd1' => 'D1', 'd2' => 'D2', 'd3' => 'D3', 's1' => 'S1', 's2' => 'S2', 's3' => 'S3'], null, ['placeholder' => '-- Pendidikan Terakhir --', 'class' => 'form-control']) !!}
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Golongan Darah</label>

@@ -27,7 +27,7 @@ class PendudukRequest extends FormRequest
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'foto_penduduk' => $gambar_rule,
-            'pendidikan_terakhir' => 'required|in:tidak-sekolah,tk,sd,smp,sma,d1,d2,d3,s1,s2,s3',
+            'pendidikan_terakhir' => 'required|in:tidak sekolah,tk,sd,smp,sma,d1,d2,d3,s1,s2,s3',
             'agama' => 'required|string',
             'pekerjaan' => 'required|string'
         ];

@@ -88,25 +88,25 @@ class PendudukController extends Controller
             (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
           }elseif(!empty($pekerjaan)){
             $query = Penduduk::Pekerjaan($pekerjaan);
-            (!empty($penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
             (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
             (!empty($agama)) ? $query->Agama($agama) : '';
             (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
           }elseif(!empty($golongan_darah)){
             $query = Penduduk::GolonganDarah($golongan_darah);
-            (!empty($penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
             (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
             (!empty($agama)) ? $query->Agama($agama) : '';
             (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
           }elseif(!empty($agama)){
             $query = Penduduk::Agama($agama);
-            (!empty($penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
             (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
             (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
             (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
           }elseif(!empty($jenis_kelamin)){
             $query = Penduduk::JenisKelamin($jenis_kelamin);
-            (!empty($penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
             (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
             (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
             (!empty($agama)) ? $query->Agama($agama) : '';
@@ -215,4 +215,240 @@ class PendudukController extends Controller
           'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_pekerjaan', 'daftar_pendidikan', 'daftar_darah', 'daftar_menikah', 'daftar_agama', 'daftar_jk'
         ));
       }
+
+      public function cetak(Request $request)
+      {
+        $profil = \App\Profil::findOrFail(1);
+
+        $pdf = app('FPDF');
+        $pdf->AddPage('L', 'A4');
+        
+        // header
+        $pdf->SetFont('Arial', 'B', 15);
+        $pdf->Image(asset('assets-dashboard/images/' . $profil->logo), 140, null, 20);
+        $pdf->Cell(0, 10, "SISTEM INFORMASI DESA & KELURAHAN", 0, 2, 'C');
+        $pdf->Cell(0, 10, $profil->nama, 0, 2, 'C');
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 10, "Alamat : ".$profil->alamat." | Telepon : ".$profil->telepon." | Email : ".$profil->email, 'B', 2, 'C');
+        $pdf->Ln();
+
+        $nama_penduduk = trim($request->input('nama_penduduk'));
+        $pekerjaan = trim($request->input('pekerjaan'));
+        $jenis_kelamin = trim($request->input('jenis_kelamin'));
+        $agama = trim($request->input('agama'));
+        $golongan_darah = trim($request->input('golongan_darah'));
+
+        // main
+        $pdf->SetFont('Arial', 'B', 13);
+        $pdf->Cell(0, 7, "LAPORAN PENDUDUK", 0, 2, 'C');
+        
+        $pdf->SetFont('Arial', 'B', 11);
+        if(!empty($nama_penduduk) || !empty($pekerjaan) || !empty($jenis_kelamin) || !empty($agama) || !empty($golongan_darah)){
+          $pdf->Cell(0, 7, "Berdasarkan Nama/NIK : ". $nama_penduduk .", Pekerjaan : " . $pekerjaan . " , Jenis Kelamin : ". $jenis_kelamin . " , Agama : ". $agama . " , Golongan Darah : " . $golongan_darah, 0, 2, 'C');
+        }
+
+        $pdf->SetFont('Arial', 'B', 8);
+        $pdf->Cell(17, 10, "NO", 1, 0, 'C');
+        $pdf->Cell(59, 10, "NAMA", 1, 0, 'C');
+        $pdf->Cell(20, 10, "MENIKAH", 1, 0, 'C');
+        $pdf->Cell(25, 10, "GENDER", 1, 0, 'C');
+        $pdf->Cell(55, 10, "TEMPAT & TANGGAL LAHIR", 1, 0, 'C');
+        $pdf->Cell(45, 10, "PEKERJAAN", 1, 0, 'C');
+        $pdf->Cell(20, 10, "AGAMA", 1, 0, 'C');
+        $pdf->Cell(20, 10, "PENDIDIKAN", 1, 0, 'C');
+        $pdf->Cell(15, 10, "DARAH", 1, 0, 'C');
+        $pdf->Ln();
+        
+        $pdf->SetFont('Arial', '', 8);
+
+        if(!empty($nama_penduduk) || !empty($pekerjaan) || !empty($jenis_kelamin) || !empty($agama) || !empty($golongan_darah)){
+          if(!empty($nama_penduduk)){
+            $query = Penduduk::where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%');
+            (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
+            (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
+            (!empty($agama)) ? $query->Agama($agama) : '';
+            (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
+          }elseif(!empty($pekerjaan)){
+            $query = Penduduk::Pekerjaan($pekerjaan);
+            (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
+            (!empty($agama)) ? $query->Agama($agama) : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
+          }elseif(!empty($golongan_darah)){
+            $query = Penduduk::GolonganDarah($golongan_darah);
+            (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
+            (!empty($agama)) ? $query->Agama($agama) : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
+          }elseif(!empty($agama)){
+            $query = Penduduk::Agama($agama);
+            (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
+            (!empty($jenis_kelamin)) ? $query->JenisKelamin($jenis_kelamin) : '';
+          }elseif(!empty($jenis_kelamin)){
+            $query = Penduduk::JenisKelamin($jenis_kelamin);
+            (!empty($nama_penduduk)) ? $query->where('nama_penduduk', 'like', '%' . $nama_penduduk . '%')->orWhere('nik', 'like', '%' . $nama_penduduk . '%') : '';
+            (!empty($pekerjaan)) ? $query->Pekerjaan($pekerjaan) : '';
+            (!empty($golongan_darah)) ? $query->GolonganDarah($golongan_darah) : '';
+            (!empty($agama)) ? $query->Agama($agama) : '';
+          }
+          $daftar_penduduk = $query->get();
+        }else{
+          $daftar_penduduk = Penduduk::orderBy('nama_penduduk', 'asc')->get();
+        }
+        $i = 1;
+
+        foreach($daftar_penduduk as $penduduk)
+        {
+          $pdf->Cell(17, 10, $i++, 1, 0, 'C');
+          $pdf->Cell(59, 10, strtoupper($penduduk->nama_penduduk), 1, 0, 'C');
+          $pdf->Cell(20, 10, strtoupper($penduduk->status_menikah), 1, 0, 'C');
+          $pdf->Cell(25, 10, strtoupper($penduduk->jenis_kelamin), 1, 0, 'C');
+          $pdf->Cell(55, 10, strtoupper($penduduk->tempat_lahir) . ', '. $penduduk->tanggal_lahir, 1, 0, 'C');
+          $pdf->Cell(45, 10, strtoupper($penduduk->pekerjaan), 1, 0, 'C');
+          $pdf->Cell(20, 10, strtoupper($penduduk->agama), 1, 0, 'C');
+          if($penduduk->pendidikan_terakhir == 'tidak sekolah'){
+            $pdf->Cell(20, 10, '-', 1, 0, 'C');
+          }else{
+            $pdf->Cell(20, 10, strtoupper($penduduk->pendidikan_terakhir), 1, 0, 'C');
+          }
+          if($penduduk->golongan_darah == 'tidak diketahui'){
+            $pdf->Cell(15, 10, '-', 1, 0, 'C');
+          }else{
+            $pdf->Cell(15, 10, strtoupper($penduduk->golongan_darah), 1, 0, 'C');
+          }
+          $pdf->Ln();
+        }
+
+        // footer
+        $pdf->SetY(179);
+        $pdf->SetX(0);
+        $pdf->SetFont('Arial','I',8);
+        $pdf->Cell(105,10,"Dicetak Oleh Admin : John Doe Pada ".date("d-m-Y H:i:s")
+        ." WITA",0,0,'C');
+        $pdf->Ln();
+
+        $pdf->SetY(179);
+        $pdf->SetX(200);
+        $pdf->SetFont('Arial','I',8);
+        $pdf->Cell(0,10,"Signature : ". md5(date("d-m-Y H:i:s")),0,0,'C');
+
+        // save
+        Session::flash('pesan', 'Laporan Berhasil Diunduh');
+        $pdf->Output('D', "Laporan Penduduk ".date('d-m-Y').".pdf");
+        return redirect('penduduk');
+      }
+
+      public function cetakDetailPenduduk($id)
+      {
+        $profil = \App\Profil::findOrFail(1);
+
+        $pdf = app('FPDF');
+        $pdf->AddPage('P', 'A4');
+        
+        // header
+        $pdf->SetFont('Arial', 'B', 13);
+        $pdf->Image(asset('assets-dashboard/images/' . $profil->logo), 100, null, 15);
+        $pdf->Cell(0, 10, "SISTEM INFORMASI DESA & KELURAHAN", 0, 2, 'C');
+        $pdf->Cell(0, 7, $profil->nama, 0, 2, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(0, 7, "Alamat : ".$profil->alamat." | Telepon : ".$profil->telepon." | Email : ".$profil->email, 'B', 2, 'C');
+        $pdf->Ln();
+
+        $penduduk = Penduduk::findOrFail($id);
+
+        // main
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 7, "BIODATA PENDUDUK", 0, 2, 'C');
+
+        $pdf->Image(asset('assets-dashboard/images/' . $penduduk->foto_penduduk), 55, null, 100);
+        $pdf->Ln();
+        
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "NOMOR INDUK KEPENDUDUKAN", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->nik), 0, 0, 'L');
+        $pdf->Ln();
+        
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "NAMA LENGKAP", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->nama_penduduk), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "ALAMAT RUMAH", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->alamat_penduduk), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "STATUS MENIKAH", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->status_menikah), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "JENIS KELAMIN", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->jenis_kelamin), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "TEMPAT LAHIR", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->tempat_lahir), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "TANGGAL LAHIR", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->tanggal_lahir), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "PEKERJAAN", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->pekerjaan), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "AGAMA", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->agama), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "PENDIDIKAN TERAKHIR", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->pendidikan_terakhir), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "GOLONGAN DARAH", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->golongan_darah), 0, 0, 'L');
+        $pdf->Ln();
+
+        
+        // footer
+        $pdf->SetY(265);
+        $pdf->SetX(0);
+        $pdf->SetFont('Arial','I',8);
+        $pdf->Cell(105,10,"Dicetak Oleh Admin : John Doe Pada ".date("d-m-Y H:i:s")
+        ." WITA",0,0,'C');
+        $pdf->Ln();
+
+        $pdf->SetY(265);
+        $pdf->SetX(140);
+        $pdf->SetFont('Arial','I',8);
+        $pdf->Cell(0,10,"Signature : ". md5(date("d-m-Y H:i:s")),0,0,'C');
+
+        // save
+        Session::flash('pesan', 'Laporan Berhasil Diunduh');
+        $pdf->Output('D', "Biodata $penduduk->nama_penduduk .pdf");
+        return redirect('penduduk');
+      }
+
 }
