@@ -27,7 +27,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-leaf"></i>&nbsp; TANAMAN KOMODITAS</strong>
-                                <a href="{{ url('tanaman-komoditas/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print fa-lg"></i> </a>
+                                <a href="{{ url('tanaman-komoditas/cetak?tahun=' . Request::get('tahun') ) }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print fa-lg"></i> </a>
                                 <a href="{{ url('tanaman-komoditas/create') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus fa-lg"></i> </a>
                             </div>
                             <div class="card-body">

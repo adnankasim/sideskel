@@ -23,7 +23,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-credit-card"></i>&nbsp; BELANJA</strong>
-                                <a href="{{ url('belanja/cetak') }}" class="btn btn-warning btn-sm float-right mx-1"><i class="fa fa-print fa-lg"></i> </a>
                                 <a href="{{ url('belanja/create') }}" class="btn btn-primary btn-sm float-right"> <i class="fa fa-plus fa-lg"></i> </a>
                             </div>
                             <div class="card-body">

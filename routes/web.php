@@ -127,7 +127,7 @@ Route::resource('profil', 'ProfilController');
 
 Route::resource('batas', 'BatasController');
 
-Route::get('tanaman-komoditas/cetak', 'TanamanKomoditasController@cetakk');
+Route::get('tanaman-komoditas/cetak', 'TanamanKomoditasController@cetak');
 Route::get('tanaman-komoditas/urutkan', 'TanamanKomoditasController@urutkan');
 Route::resource('tanaman-komoditas', 'TanamanKomoditasController');
 
