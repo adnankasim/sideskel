@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
 
+    <link rel="icon" type="image/png" href="{{ asset('assets-dashboard/images/logo-sideskel.png') }}">
+
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/bootstrap41.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-dashboard/css/font-awesome.min.css') }}">
 
@@ -33,9 +35,10 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-title text-center border-bottom">
+                        <img src="{{ asset('assets-dashboard/images/logo-sideskel.png') }}" width="45" class="mb-2">
                         <h3 class="font-weight-bold py-3 d-inline-block">SIDESKEL</h3> 
                         <h5 class="font-weight-bold py-3 d-inline-block">v. 1</h5> 
-                        <small> (2019.6)</small>
+                        <!-- <small> (2019.6)</small> -->
                     </li>
 
 @if(Request::segment(1) === 'dashboard')

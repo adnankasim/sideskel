@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>{{ $profil->nama }} &mdash; Sistem Informasi Desa & Kelurahan</title>
-    
+    <link rel="icon" type="image/png" href="{{ asset('assets-dashboard/images/'.$profil->logo) }}">
+
     @if(Request::segment(2) === 'profil')
         <meta name="keywords" content="Profil {{ $profil->nama }}">
     @elseif(Request::segment(2) === 'batas')
