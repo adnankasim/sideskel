@@ -9,6 +9,10 @@ use Session;
 
 class FasilitasPemerintahanController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_fasilitas_pemerintahan = FasilitasPemerintahan::all();

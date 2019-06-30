@@ -10,6 +10,10 @@ use Illuminate\Support\Str;
 
 class KegiatanController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $daftar_kegiatan = Kegiatan::orderBy('id', 'desc')->paginate(25);

@@ -9,6 +9,10 @@ use Session;
 
 class InfraMelintasiController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_infrastruktur = InfraMelintasi::all();

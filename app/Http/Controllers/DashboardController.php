@@ -8,6 +8,10 @@ use Session;
 
 class DashboardController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         // batas
@@ -165,5 +169,7 @@ class DashboardController extends Controller
         }
         return false;
       }
+
+      
 
 }

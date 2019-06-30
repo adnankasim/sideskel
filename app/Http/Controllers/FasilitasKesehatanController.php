@@ -9,6 +9,10 @@ use Session;
 
 class FasilitasKesehatanController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_fasilitas_kesehatan = FasilitasKesehatan::all();

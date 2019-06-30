@@ -9,6 +9,10 @@ use Session;
 
 class PenggunaanTanahController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_penggunaan_tanah = PenggunaanTanah::all();

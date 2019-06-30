@@ -9,6 +9,10 @@ use Session;
 
 class PenggunaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_pengguna = Pengguna::paginate(25);

@@ -1,58 +1,83 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> Masuk {{ $profil->nama }} | Sistem Informasi Desa & Kelurahan </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Masuk, masuk, login, Login {{ $profil->nama }}">
-<meta name="description" content="Masuk ke SIDESKEL {{ $profil->nama }}">
-<meta name="author" content="{{ $profil->nama }}"> 
-<link href="{{ asset('assets-beranda/css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
-<link href="{{ asset('assets-beranda/css/style-login.css') }}" rel='stylesheet' type='text/css' />
-<link href="{{ asset('assets-beranda/css/font-awesome.css') }}" rel="stylesheet"> 
-<script src="{{ asset('assets-beranda/js/jquery.min.js') }}"> </script>
-<script src="{{ asset('assets-beranda/js/bootstrap.min.js') }}"> </script>
+	<title>Masuk SIDESKEL | Sistem Informasi Desa & Kelurahan</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{{ asset('assets-dashboard/images/logo-sideskel.png') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/animate/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/css-hamburgers/hamburgers.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/animsition/css/animsition.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/select2/select2.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/vendor/daterangepicker/daterangepicker.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets-beranda/assets/css/main.css') }}">
 </head>
 <body>
-	<div class="login">
-		<h1 class="text-uppercase">SIDESKEL {{ $profil->nama }}</h1>
-		<h5 class="text-center">SISTEM INFORMASI DESA & KELURAHAN</h5>
-		<div class="login-bottom">
-			<h2>MASUK</h2>
-			<form>
-			<div class="col-md-6">
-				<div class="login-mail">
-					<input type="text" placeholder="Email" required="">
-					<i class="fa fa-envelope"></i>
-				</div>
-				<div class="login-mail">
-					<input type="password" placeholder="Password" required="">
-					<i class="fa fa-lock"></i>
-				</div>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-title p-b-26">
+						MASUK SIDESKEL
+					</span>
+					<span class="login100-form-title p-b-48">
+                        <img src="{{ asset('assets-dashboard/images/logo-sideskel.png') }}" class="image" width="100">
+					</span>
+					@if($errors->any())
+					<div class="content text-center">
+					  @foreach($errors->all() as $error)
+					   <p class="alert alert-danger text-center">{{$error}}</p>
+					  @endforeach
+					</div>
+					@endif
+
+					@if (session('pesan'))
+    				<div class="alert alert-danger text-center">
+    				    {{ session('pesan') }}
+    				</div>
+					@endif
+
+					@if (session('info'))
+    				<div class="alert alert-primary text-center">
+    				    {{ session('info') }}
+    				</div>
+					@endif
+
+                    {!! Form::open(['url' => 'masuk', 'class' => 'login100-form validate-form']) !!}
+					<div class="wrap-input100 validate-input">
+                    {!! Form::text('email', null, ['class' => 'input100']) !!}
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+                    {!! Form::password('password', ['class' => 'input100']) !!}
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+
+				{!! Form::close() !!}
+
+                <a href="{{ url('daftar') }}" class="btn btn-outline-info btn-block mt-2">Daftar</a>
+
 			</div>
-			<div class="col-md-6 login-do">
-				<label class="hvr-shutter-in-horizontal login-sub">
-					<input type="submit" value="MASUK">
-					</label>
-					<p>Belum Punya Akun? Ayo Daftar!</p>
-				<a href="{{ url('daftar') }}" class="hvr-shutter-in-horizontal">DAFTAR</a>
-                <a href="{{ url('beranda') }}" class="btn btn-primary" style="margin-top:5px">BERANDA</a>
-			</div>
-			
-			<div class="clearfix"> </div>
-			</form>
 		</div>
 	</div>
-		<!---->
-	<div class="copy-right">
-		<p> 
-			&copy; <script>document.write(new Date().getFullYear());</script> {{ $profil->nama }}
-			<br> SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong> Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> 
-		</p>	    
-	</div>  
-<!---->
-<!--scrolling js-->
-	<script src="{{ asset('assets-beranda/js/scripts-login.js') }}"></script>
-	<!--//scrolling js-->
+	
+
+	<div id="dropDownSelect1"></div>
+	<script src="{{ asset('assets-beranda/assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/animsition/js/animsition.min.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/select2/select2.min.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/vendor/countdowntime/countdowntime.js') }}"></script>
+	<script src="{{ asset('assets-beranda/assets/js/main.js') }}"></script>
 </body>
 </html>

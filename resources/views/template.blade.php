@@ -41,17 +41,18 @@
                         <!-- <small> (2019.6)</small> -->
                     </li>
 
-@if(Request::segment(1) === 'dashboard')
+@if(Session::has('admin'))
+                @if(Request::segment(1) === 'dashboard')
                     <li class="active"><a href="{{ url('dashboard') }}"><i class="menu-icon fa fa-dashboard"></i>DASHBOARD </a></li>
-@else
+                @else
                     <li><a href="{{ url('dashboard') }}"><i class="menu-icon fa fa-dashboard"></i> DASHBOARD </a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'profil' || Request::segment(1) === 'batas' || Request::segment(1) === 'tanaman-komoditas' || Request::segment(1) === 'orbitasi' || Request::segment(1) === 'tipologi' || Request::segment(1) === 'iklim' || Request::segment(1) === 'kesuburan-tanah' || Request::segment(1) === 'penggunaan-tanah' || Request::segment(1) === 'infrastruktur-melintasi')
+                @if(Request::segment(1) === 'profil' || Request::segment(1) === 'batas' || Request::segment(1) === 'tanaman-komoditas' || Request::segment(1) === 'orbitasi' || Request::segment(1) === 'tipologi' || Request::segment(1) === 'iklim' || Request::segment(1) === 'kesuburan-tanah' || Request::segment(1) === 'penggunaan-tanah' || Request::segment(1) === 'infrastruktur-melintasi')
                     <li class="menu-item-has-children dropdown active">
-@else
+                @else
                     <li class="menu-item-has-children dropdown">
-@endif
+                @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-home fa-lg"></i>TENTANG</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -67,17 +68,17 @@
                         </ul>
                     </li>
 
-@if(Request::segment(1) === 'pemerintah')
+                @if(Request::segment(1) === 'pemerintah')
                     <li class="active"><a href="{{ url('pemerintahan') }}"><i class="menu-icon fa fa-bank"></i>PEMERINTAH</a></li>
-@else
+                @else
                     <li><a href="{{ url('pemerintahan') }}"><i class="menu-icon fa fa-bank"></i>PEMERINTAH</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'fasilitas-ekonomi' || Request::segment(1) === 'fasilitas-kesehatan' || Request::segment(1) === 'fasilitas-pemerintahan' || Request::segment(1) === 'fasilitas-pemukiman' || Request::segment(1) === 'fasilitas-pendidikan' || Request::segment(1) === 'fasilitas-peribadatan' || Request::segment(1) === 'fasilitas-prasarana')
+                @if(Request::segment(1) === 'fasilitas-ekonomi' || Request::segment(1) === 'fasilitas-kesehatan' || Request::segment(1) === 'fasilitas-pemerintahan' || Request::segment(1) === 'fasilitas-pemukiman' || Request::segment(1) === 'fasilitas-pendidikan' || Request::segment(1) === 'fasilitas-peribadatan' || Request::segment(1) === 'fasilitas-prasarana')
                     <li class="menu-item-has-children dropdown active">
-@else
+                @else
                     <li class="menu-item-has-children dropdown">
-@endif
+                @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-binoculars"></i>FASILITAS</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -91,11 +92,11 @@
                         </ul>
                     </li>
 
-@if(Request::segment(1) === 'belanja' || Request::segment(1) === 'pendapatan')
+                @if(Request::segment(1) === 'belanja' || Request::segment(1) === 'pendapatan')
                     <li class="menu-item-has-children dropdown active">
-@else
+                @else
                     <li class="menu-item-has-children dropdown">
-@endif
+                @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-money"></i>KEUANGAN</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -104,11 +105,11 @@
                         </ul>
                     </li>
 
-@if(Request::segment(1) === 'penduduk')
+                @if(Request::segment(1) === 'penduduk')
                     <li class="menu-item-has-children dropdown active">
-@else
+                @else
                     <li class="menu-item-has-children dropdown">
-@endif
+                @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-users"></i>PENDUDUK</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -116,50 +117,62 @@
                             <li><i class="fa fa-bar-chart"></i><a href="{{ url('penduduk/presentasi') }}">PRESENTASI</a></li>
                         </ul>
                     </li>
+@endif
 
-@if(Request::segment(1) === 'artikel')
-                    <li class="active"><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL &nbsp;<span class="badge badge-primary">{{ $artikel_invalid->count() }} </span>
+                @if(Request::segment(1) === 'artikel')
+                    <li class="active"><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL 
+                    
+                    @if(Session::has('admin'))
+                    &nbsp;<span class="badge badge-primary">{{ $artikel_invalid->count() }} </span>
+                    @endif
+
                     </a></li>
-@else
-                    <li><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL &nbsp;<span class="badge badge-primary"> {{ $artikel_invalid->count() }} </span></a></li>
-@endif
+                @else
+                    <li><a href="{{ url('artikel') }}"><i class="menu-icon fa fa-newspaper-o"></i>ARTIKEL 
+                    
+                    @if(Session::has('admin'))
+                    &nbsp;<span class="badge badge-primary"> {{ $artikel_invalid->count() }} </span>
+                    @endif
+                    </a></li>
+                @endif
 
-@if(Request::segment(1) === 'kegiatan')
+@if(Session::has('admin'))
+                @if(Request::segment(1) === 'kegiatan')
                     <li class="active"><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
-@else
+                @else
                     <li><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'dokumen')
+                @if(Request::segment(1) === 'dokumen')
                     <li class="active"><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file"></i>DOKUMEN</a></li>
-@else
+                @else
                     <li><a href="{{ url('dokumen') }}"><i class="menu-icon fa fa-file"></i>DOKUMEN</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'pelayanan')
+                @if(Request::segment(1) === 'pelayanan')
                     <li class="active"><a href="{{ url('pelayanan') }}"><i class="menu-icon fa fa-info-circle"></i>PELAYANAN</a></li>
-@else
+                @else
                     <li><a href="{{ url('pelayanan') }}"><i class="menu-icon fa fa-info-circle"></i>PELAYANAN</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'pengguna')
+                @if(Request::segment(1) === 'pengguna')
                     <li class="active"><a href="{{ url('pengguna') }}"><i class="menu-icon fa fa-user"></i>PENGGUNA</a></li>
-@else
+                @else
                     <li><a href="{{ url('pengguna') }}"><i class="menu-icon fa fa-user"></i>PENGGUNA</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'admin')
+                @if(Request::segment(1) === 'admin')
                     <li class="active"><a href="{{ url('admin') }}"><i class="menu-icon fa fa-user-secret"></i>ADMIN</a></li>
-@else
+                @else
                     <li><a href="{{ url('admin') }}"><i class="menu-icon fa fa-user-secret"></i>ADMIN</a></li>
-@endif
+                @endif
 
-@if(Request::segment(1) === 'pengaturan')
+                @if(Request::segment(1) === 'pengaturan')
                     <li class="active"><a href="{{ url('pengaturan') }}"><i class="menu-icon fa fa-wrench"></i>PENGATURAN</a></li>
-@else
+                @else
                     <li><a href="{{ url('pengaturan') }}"><i class="menu-icon fa fa-wrench"></i>PENGATURAN</a></li>
+                @endif
 @endif
-
                     <li><a href="{{ url('keluar') }}"><i class="menu-icon fa fa-sign-out"></i>KELUAR</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

@@ -9,10 +9,13 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-newspaper-o"></i>&nbsp; ARTIKEL</strong>
+                                
                                 <a href="{{ url('artikel/' . $artikel->id . '/edit') }}" class="btn btn-success btn-sm float-right mx-1"><i class="fa fa-edit fa-lg"></i> </a>
+                                <a href="{{ url('artikel') }}" class="btn btn-info btn-sm float-right mx-1">  <i class="fa fa-arrow-left fa-lg"></i> </a>
+
+@if(Session::has('admin'))
 @if($artikel->is_valid === 'tidak')
                                 <a href="#" class="btn btn-primary btn-sm float-right mx-1" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-check fa-lg"></i> </a>
-                                <a href="{{ url('artikel') }}" class="btn btn-info btn-sm float-right mx-1">  <i class="fa fa-arrow-left fa-lg"></i> </a>
 
 <div class="modal fade text-primary" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -34,6 +37,7 @@
         </div>
     </div>
 </div>
+@endif
 @endif
                             </div>
                             <div class="card-body">

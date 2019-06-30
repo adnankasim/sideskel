@@ -5,36 +5,46 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use Session;
+use Validator;
 
 class BerandaController extends Controller
 {
     // tentang
-    public function profil(){return view('beranda/profil');}
+    public function profil()
+    {
+        return view('beranda/profil');
+    }
 
-    public function batas(){
+    public function batas()
+    {
         $daftar_batas = \App\Batas::all();
         $update_terakhir = \App\Batas::orderBy('updated_at', 'desc')->first();
         return view('beranda/batas', compact('daftar_batas', 'update_terakhir'));
     }
 
-    public function tanamanKomoditas(){
+    public function tanamanKomoditas()
+    {
         $daftar_tahun = \App\TanamanKomoditas::distinct('tahun')->pluck('tahun');
         return view('beranda/tanaman-komoditas', compact('daftar_tahun'));
     }
 
-    public function tanamanKomoditasDetail($tahun){
+    public function tanamanKomoditasDetail($tahun)
+    {
         $daftar_komoditas = \App\TanamanKomoditas::where('tahun', $tahun)->get();
         $update_terakhir = \App\TanamanKomoditas::where('tahun', $tahun)->orderBy('updated_at', 'desc')->first();
         return view('beranda/tanaman-komoditas-detail', compact('daftar_komoditas', 'update_terakhir'));
     }
 
-    public function orbitasi(){
+    public function orbitasi()
+    {
         $daftar_orbitasi = \App\Orbitasi::all();
         $update_terakhir = \App\Orbitasi::orderBy('updated_at', 'desc')->first();
         return view('beranda/orbitasi', compact('daftar_orbitasi', 'update_terakhir'));
     }
     
-    public function tipologi(){
+    public function tipologi()
+    {
         $daftar_tipologi = \App\Tipologi::all();
         $update_terakhir = \App\Tipologi::orderBy('updated_at', 'desc')->first();
         return view('beranda/tipologi', compact('daftar_tipologi', 'update_terakhir'));
@@ -270,21 +280,84 @@ class BerandaController extends Controller
 
     public function masuk()
     {
-        $profil = \App\Profil::find(1);
-        return view('masuk', compact('profil'));
-    }
-    public function CekPengguna()
-    {
-        return 'tes';
+        if(Session::has('pengguna')) return redirect('artikel');
+        elseif(Session::has('admin')) return redirect('dashboard'); 
+        else return view('masuk');
     }
 
     public function daftar()
     {
-        $profil = \App\Profil::find(1);
-        return view('daftar', compact('profil'));
+        if(Session::has('pengguna')) return redirect('artikel');
+        elseif(Session::has('admin')) return redirect('dashboard');
+        else return view('daftar');
     }
-    public function daftarPengguna()
+    
+    public function cekPengguna(Request $request)
     {
-        return 'tes';
+        $req = $request->all();
+        
+        $validasi = Validator::make($req, [
+          'email' => 'required|string|max:100',
+          'password' => 'required|string|max:100',
+        ]);
+
+        if($validasi->fails()){
+          return redirect('masuk')->withInput()->withErrors($validasi);
+        }
+
+        $email = $request->post('email');
+        $password = sha1(md5($request->post('password')));
+
+        if(\App\Pengguna::where('email_pengguna', $email)->where('password_pengguna', $password)->first()){
+            $user = \App\Pengguna::where('email_pengguna', $email)->where('password_pengguna', $password)->first();
+            Session::put('login', true);
+            Session::put('pengguna', true);
+            Session::put('id', $user->id);
+            Session::put('nama', $user->nama_pengguna);
+            return redirect('dashboard');
+        }elseif(\App\Admin::where('email_admin', $email)->where('password_admin', $password)->first()){
+            $user = \App\Admin::where('email_admin', $email)->where('password_admin', $password)->first();
+            Session::put('login', true);
+            Session::put('admin', true);
+            Session::put('id', $user->id);
+            Session::put('nama', $user->nama_admin);
+            return redirect('artikel');
+        }else{
+            return redirect('masuk')->with('pesan', 'Username dan/atau Password Tidak Valid')->withInput();
+        }
     }
+
+    public function daftarPengguna(Request $request)
+    {
+        $req = $request->all();
+        
+        $validasi = Validator::make($req, [
+          'nama_pengguna' => 'required|string|max:100',
+          'email_pengguna' => 'required|string|max:100',
+          'password_pengguna' => 'required|string|max:100',
+          'jenis_kelamin' => 'required|in:perempuan,laki-laki',
+          'no_hp' => 'required|string|max:15',
+        ]);
+
+        if($validasi->fails()){
+          return redirect('daftar')->withInput()->withErrors($validasi);
+        }
+
+        $pengguna = new \App\Pengguna();
+        $pengguna->nama_pengguna = $request->input('nama_pengguna');
+        $pengguna->email_pengguna = $request->input('email_pengguna');
+        $pengguna->password_pengguna = sha1(md5($request->input('password_pengguna')));
+        $pengguna->jenis_kelamin = $request->input('jenis_kelamin');
+        $pengguna->no_hp = $request->input('no_hp');
+        $pengguna->save();
+
+        Session::flash('info', 'Pengguna Berhasil Didaftarkan, silahkan masuk');
+        return redirect('masuk');
+    }
+
+    public function keluar(){
+        Session::flush();
+        return redirect('masuk');
+    }
+
 }

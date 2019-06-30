@@ -9,6 +9,10 @@ use Session;
 
 class TipologiController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $daftar_tipologi = Tipologi::all();

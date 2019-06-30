@@ -10,10 +10,26 @@ use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin', ['only' => [
+            'validasi' 
+        ]]);
+
+        $this->middleware('login', ['except' => [
+            'validasi' 
+        ]]);
+    }
+
     public function index()
     {
-        $daftar_artikel = Artikel::orderBy('id', 'desc')->paginate(25);
-        $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
+        if(Session::has('pengguna')){
+            $daftar_artikel = Artikel::where('id_pengguna', Session::get('id'))->orderBy('id', 'desc')->paginate(25);
+            $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->where('id_pengguna', Session::get('id'))->paginate(25);
+        }else{
+            $daftar_artikel = Artikel::orderBy('id', 'desc')->paginate(25);
+            $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
+        }
+
         $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
         return view('artikel.index', compact('daftar_artikel', 'update_terakhir', 'daftar_artikel_invalid'));
     }
@@ -70,12 +86,16 @@ class ArtikelController extends Controller
     {
       $judul_artikel = trim($request->input('judul_artikel'));
       if(!empty($judul_artikel)){
-          $query = Artikel::where('judul_artikel', 'like', '%' . $judul_artikel . '%');
+          if(Session::has('pengguna')){
+              $query = Artikel::where('judul_artikel', 'like', '%' . $judul_artikel . '%')->where('id_pengguna', Session::get('id'));
+              $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25)->where('id_pengguna', Session::get('id'));
+          }else{
+              $query = Artikel::where('judul_artikel', 'like', '%' . $judul_artikel . '%');
+              $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
+          }
           $daftar_artikel = $query->paginate(25);
           $pagination = $daftar_artikel->appends($request->except('page'));
           $update_terakhir = Artikel::orderBy('updated_at', 'desc')->first();
-
-          $daftar_artikel_invalid = Artikel::where('is_valid', 'tidak')->paginate(25);
 
           return view('artikel.index', compact('daftar_artikel', 'judul_artikel', 'pagination', 'update_terakhir', 'daftar_artikel_invalid'));
         }
@@ -83,7 +103,8 @@ class ArtikelController extends Controller
 
     }
 
-    private function uploadGambar(ArtikelRequest $request){
+    private function uploadGambar(ArtikelRequest $request)
+    {
         $gambar = $request->file('gambar_artikel');
         $ext = $gambar->getClientOriginalExtension();
         if($request->file('gambar_artikel')->isValid()){
@@ -95,18 +116,20 @@ class ArtikelController extends Controller
         return false;
       }
 
-      private function hapusGambar(Artikel $artikel){
-        $gambar = 'assets-dashboard/images/'.$artikel->gambar_artikel;
-        if(file_exists($gambar) && isset($artikel->gambar_artikel)){
-        $delete = unlink($gambar);
-          if($delete){
-            return true;
+      private function hapusGambar(Artikel $artikel)
+      {
+          $gambar = 'assets-dashboard/images/'.$artikel->gambar_artikel;
+          if(file_exists($gambar) && isset($artikel->gambar_artikel)){
+          $delete = unlink($gambar);
+            if($delete){
+              return true;
+            }
+            return false;
           }
-          return false;
-        }
       }
 
-    public function validasi(Artikel $artikel)
+    
+      public function validasi(Artikel $artikel)
     {
         $artikel->is_valid = 'ya';
         $artikel->save();

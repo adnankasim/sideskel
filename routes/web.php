@@ -118,6 +118,7 @@ Route::get('masuk', 'BerandaController@masuk');
 Route::post('masuk', 'BerandaController@cekPengguna');
 Route::get('daftar', 'BerandaController@daftar');
 Route::post('daftar', 'BerandaController@daftarPengguna');
+Route::get('keluar', 'BerandaController@keluar');
 
 // admin dashboard
 Route::get('dashboard', 'DashboardController@index');
@@ -204,3 +205,7 @@ Route::resource('admin', 'AdminController');
 Route::get('pengaturan', 'DashboardController@pengaturan');
 Route::patch('pengaturan/ganti-gambar-latar/1', 'DashboardController@gantiGambarLatar');
 Route::patch('pengaturan/ganti-warna-navbar/1', 'DashboardController@gantiWarnaNavbar');
+
+Route::get('tes', function(){
+    return sha1(md5('321'));
+});

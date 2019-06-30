@@ -9,6 +9,10 @@ use Session;
 
 class OrbitasiController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_orbitasi = Orbitasi::all();

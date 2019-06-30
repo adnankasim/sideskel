@@ -9,6 +9,10 @@ use Session;
 
 class BelanjaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_tahun = Belanja::distinct('tahun')->pluck('tahun', 'tahun');
@@ -99,7 +103,7 @@ class BelanjaController extends Controller
         $pdf->SetY(265);
         $pdf->SetX(0);
         $pdf->SetFont('Arial','I',8);
-        $pdf->Cell(105,10,"Dicetak Oleh Admin : John Doe Pada ".date("d-m-Y H:i:s")
+        $pdf->Cell(105,10,"Dicetak Oleh Admin : ". Session::get('nama') ." Pada ".date("d-m-Y H:i:s")
         ." WITA",0,0,'C');
         $pdf->Ln();
 

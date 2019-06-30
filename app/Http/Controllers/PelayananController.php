@@ -9,6 +9,10 @@ use Session;
 
 class PelayananController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $daftar_pelayanan = Pelayanan::orderBy('id', 'desc')->paginate(25);

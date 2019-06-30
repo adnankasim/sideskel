@@ -9,6 +9,10 @@ use Session;
 
 class DokumenController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $daftar_dokumen = Dokumen::orderBy('created_at', 'desc')->paginate(25);

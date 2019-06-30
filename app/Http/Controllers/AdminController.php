@@ -9,6 +9,10 @@ use Session;
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $daftar_admin = Admin::paginate(25);
@@ -24,7 +28,7 @@ class AdminController extends Controller
     public function store(AdminRequest $request)
     {
         $input = $request->all();
-        $input['password_admin'] = bcrypt($request->input('password_admin'));
+        $input['password_admin'] = sha1(md5($request->input('password_admin')));
         Admin::create($input);
         Session::flash('pesan', '1 Admin Berhasil Disimpan');
         return redirect('admin');
