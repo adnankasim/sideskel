@@ -74,11 +74,20 @@ class BerandaController extends Controller
         return view('beranda/infrastruktur-melintasi', compact('daftar_infra_melintasi', 'update_terakhir'));
     }
     
-    // pemerintahan
-    public function pemerintahan(){
-        $daftar_pemerintahan = \App\Pemerintahan::all();
-        $update_terakhir = \App\Pemerintahan::orderBy('updated_at', 'desc')->first();
-        return view('beranda/pemerintahan', compact('daftar_pemerintahan', 'update_terakhir'));
+    // lembaga
+    public function lembaga()
+    {
+        $daftar_lembaga = \App\Lembaga::all();
+        $update_terakhir = \App\Lembaga::orderBy('updated_at', 'desc')->first();
+        return view('beranda.lembaga', compact('daftar_lembaga', 'update_terakhir'));
+    }
+
+    // detail lembaga
+    public function detailLembaga($id)
+    {
+        $lembaga = \App\Lembaga::findOrFail($id);
+        $update_terakhir = $lembaga->updated_at->diffForHumans();
+        return view('beranda.detail-lembaga', compact('lembaga', 'update_terakhir'));
     }
     
     // fasilitas

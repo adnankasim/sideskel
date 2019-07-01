@@ -69,7 +69,9 @@
                         <li><a href="{{ url('beranda/infrastruktur-melintasi') }}"><i class="fa fa-binoculars"></i> INFRASTRUKTUR MELINTASI</a></li>
                       </ul>
                     </li>
-                    <li><a href="{{ url('beranda/pemerintahan') }}"><i class="fa fa-bank"></i> PEMERINTAH</a></li>
+                    
+                    <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
+
                     <li class="has-children">
                       <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
                       <ul class="dropdown arrow-top">

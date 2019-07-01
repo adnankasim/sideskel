@@ -7,6 +7,7 @@ use App\Profil;
 use App\Penduduk;
 use App\Pengaturan;
 use App\Artikel;
+use App\Lembaga;
 
 class ProfilServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,10 @@ class ProfilServiceProvider extends ServiceProvider
         view()->composer('*', function($view){
             $view->with('artikel_invalid', Artikel::where('is_valid', 'tidak'));
         });
+
+        view()->composer('anggota-lembaga.form', function($view){
+            $view->with('daftar_lembaga', Lembaga::pluck('nama', 'id'));
+        });
+
     }
 }

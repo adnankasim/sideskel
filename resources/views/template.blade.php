@@ -68,11 +68,18 @@
                         </ul>
                     </li>
 
-                @if(Request::segment(1) === 'pemerintah')
-                    <li class="active"><a href="{{ url('pemerintahan') }}"><i class="menu-icon fa fa-bank"></i>PEMERINTAH</a></li>
+                @if(Request::segment(1) === 'lembaga')
+                    <li class="menu-item-has-children dropdown active">
                 @else
-                    <li><a href="{{ url('pemerintahan') }}"><i class="menu-icon fa fa-bank"></i>PEMERINTAH</a></li>
+                    <li class="menu-item-has-children dropdown">
                 @endif
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fa fa-bank"></i>LEMBAGA</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-bank"></i> <a href="{{ url('lembaga') }}">MASTER</a></li>
+                            <li><i class="fa fa-users"></i><a href="{{ url('anggota-lembaga') }}">ANGGOTA</a></li>
+                        </ul>
+                    </li>
 
                 @if(Request::segment(1) === 'fasilitas-ekonomi' || Request::segment(1) === 'fasilitas-kesehatan' || Request::segment(1) === 'fasilitas-pemerintahan' || Request::segment(1) === 'fasilitas-pemukiman' || Request::segment(1) === 'fasilitas-pendidikan' || Request::segment(1) === 'fasilitas-peribadatan' || Request::segment(1) === 'fasilitas-prasarana')
                     <li class="menu-item-has-children dropdown active">

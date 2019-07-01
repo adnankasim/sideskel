@@ -69,8 +69,9 @@ Route::prefix('beranda')->group(function()
     Route::get('penggunaan-tanah', 'BerandaController@penggunaanTanah');
     Route::get('infrastruktur-melintasi', 'BerandaController@infraMelintasi');
 
-    // pemerintahan
-    Route::get('pemerintahan', 'BerandaController@pemerintahan'); 
+    // lembaga
+    Route::get('lembaga', 'BerandaController@lembaga'); 
+    Route::get('lembaga/{id}', 'BerandaController@detailLembaga'); 
 
     // fasilitas
     Route::get('fasilitas-pemukiman', 'BerandaController@fasilitasPemukiman'); 
@@ -144,8 +145,9 @@ Route::resource('penggunaan-tanah', 'PenggunaanTanahController');
 
 Route::resource('infrastruktur-melintasi', 'InfraMelintasiController');
 
-// pemerintahan
-Route::resource('pemerintahan', 'PemerintahanController');
+// lembaga & anggota
+Route::resource('lembaga', 'LembagaController');
+Route::resource('anggota-lembaga', 'AnggotaLembagaController');
 
 // fasilitas
 Route::resource('fasilitas-ekonomi', 'FasilitasEkonomiController');

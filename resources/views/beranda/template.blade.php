@@ -99,10 +99,10 @@
                                                 <li><a href="{{ url('beranda/infrastruktur-melintasi') }}"><i class="fa fa-binoculars"></i> INFRASTRUKTUR MELINTASI</a></li>
                                             </ul>
                                         </li>
-@if(Request::segment(2) === 'pemerintahan')
-                                        <li class="active"><a href="{{ url('beranda/pemerintahan') }}"><i class="fa fa-bank"></i> PEMERINTAH</a></li>
+@if(Request::segment(2) === 'lembaga')
+                                        <li class="active"><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
 @else
-                                        <li><a href="{{ url('beranda/pemerintahan') }}"><i class="fa fa-bank"></i> PEMERINTAH</a></li>
+                                        <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
 @endif
 
 @if(Request::segment(2) === 'fasilitas-pemukiman' || Request::segment(2) === 'fasilitas-pemerintahan' || Request::segment(2) === 'fasilitas-peribadatan' || Request::segment(2) === 'fasilitas-kesehatan' || Request::segment(2) === 'fasilitas-ekonomi' || Request::segment(2) === 'fasilitas-prasarana' || Request::segment(2) === 'fasilitas-pendidikan')

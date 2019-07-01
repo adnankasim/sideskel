@@ -38,8 +38,9 @@ class DashboardController extends Controller
         // infrastruktur melintasi
         $total_infra_melintasi = \App\InfraMelintasi::all()->count();
 
-        // pemerintahan
-        $total_pemerintahan = \App\Pemerintahan::all()->count();
+        // lembaga & anggota
+        $total_lembaga = \App\Lembaga::all()->count();
+        $total_anggota_lembaga = \App\AnggotaLembaga::all()->count();
 
         // fasilitas
         $total_fasilitas_pemukiman = \App\FasilitasPemukiman::all()->count();
@@ -116,7 +117,7 @@ class DashboardController extends Controller
         $daftar_darah = DB::table('penduduk')->select('golongan_darah', DB::raw('count(*) as total'))->groupBy('golongan_darah')->get();
 
         return view('index', compact(
-            'total_batas', 'total_komoditas', 'total_orbitasi', 'total_tipologi', 'total_iklim', 'total_kesuburan_tanah', 'total_penggunaan_tanah', 'total_infra_melintasi', 'total_pemerintahan', 'total_fasilitas_pemukiman', 'total_fasilitas_pemerintahan', 'total_fasilitas_peribadatan', 'total_fasilitas_kesehatan', 'total_fasilitas_ekonomi', 'total_fasilitas_prasarana', 'total_fasilitas_pendidikan', 'total_belanja', 'total_pendapatan', 'total_artikel', 'total_kegiatan', 'total_dokumen', 'total_pelayanan', 'total_admin', 'total_pengguna', 
+            'total_batas', 'total_komoditas', 'total_orbitasi', 'total_tipologi', 'total_iklim', 'total_kesuburan_tanah', 'total_penggunaan_tanah', 'total_infra_melintasi', 'total_lembaga', 'total_anggota_lembaga', 'total_fasilitas_pemukiman', 'total_fasilitas_pemerintahan', 'total_fasilitas_peribadatan', 'total_fasilitas_kesehatan', 'total_fasilitas_ekonomi', 'total_fasilitas_prasarana', 'total_fasilitas_pendidikan', 'total_belanja', 'total_pendapatan', 'total_artikel', 'total_kegiatan', 'total_dokumen', 'total_pelayanan', 'total_admin', 'total_pengguna', 
             'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_darah'        
         ));
     }

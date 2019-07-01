@@ -11,12 +11,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title"><i class="fa fa-bank"></i>&nbsp; PEMERINTAHAN</strong>
-                                <a href="{{ url('pemerintahan/create') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus fa-lg"></i> </a>
+                                <strong class="card-title"><i class="fa fa-bank"></i>&nbsp; ANGGOTA LEMBAGA</strong>
+                                <a href="{{ url('anggota-lembaga/create') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus fa-lg"></i> </a>
                             </div>
                             <div class="card-body">
                                 <span class="float-left"> Total Data :
-                                <strong class="font-weight-bold d-inline-block mb-1"> {{$daftar_pemerintahan->count() }}  </strong>
+                                <strong class="font-weight-bold d-inline-block mb-1"> {{$daftar_anggota_lembaga->count() }}  </strong>
                             </span>
                             <span class="float-right"> 
                                 Update Terakhir :
@@ -29,17 +29,19 @@
                                         <th>NO</th>
                                         <th>NAMA</th>
                                         <th>JABATAN</th>
+                                        <th>LEMBAGA</th>
                                         <th>AKSI</th>
                                     </tr>
                                     <?php $i=1 ?>
-                                    @foreach($daftar_pemerintahan as $pemerintahan)
+                                    @foreach($daftar_anggota_lembaga as $lembaga)
                                     <tr>
                                         <td>{{ $i }}</td>
-                                        <td>{{ $pemerintahan->nama_pemerintahan }}</td>
-                                        <td>{{ $pemerintahan->jabatan_pemerintahan }}</td>
+                                        <td>{{ $lembaga->nama }}</td>
+                                        <td>{{ $lembaga->jabatan }}</td>
+                                        <td>{{ $lembaga->lembaga->nama }}</td>
                                         <td>
-                                            <a href="{{ url('beranda/pemerintahan') }}" class="btn btn-info btn-sm" target="_blank"><i class="fa fa-eye fa-lg"></i> </a>
-                                            <a href="{{ url('pemerintahan/'. $pemerintahan->id .'/edit') }}" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg"></i></a>
+                                            <a href="{{ url('anggota-lembaga/'. $lembaga->id ) }}" class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg"></i> </a>
+                                            <a href="{{ url('anggota-lembaga/'. $lembaga->id .'/edit') }}" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"><i class="fa fa-trash fa-lg"></i> </a>
 <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -55,7 +57,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i></button>
-                {!! Form::open(['url' => 'pemerintahan/'.$pemerintahan->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
+                {!! Form::open(['url' => 'anggota-lembaga/'.$lembaga->id, 'method' => 'delete', 'class' => 'd-inline']) !!}
                     <button type="submit" class="btn btn-danger btn-sm">
                          <i class="fa fa-trash fa-lg"></i> 
                     </button>
@@ -75,7 +77,7 @@
 
                     <div class="col-md-12">
                         <nav aria-label="Page navigation example">
-                            {{ $daftar_pemerintahan->links() }}
+                            {{ $daftar_anggota_lembaga->links() }}
                         </nav>
                     </div>
 

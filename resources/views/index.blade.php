@@ -305,7 +305,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4">
-                    <a href="{{ url('pemerintahan') }}">
+                    <a href="{{ url('lembaga') }}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -314,8 +314,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div>{{ $total_pemerintahan }} PEJABAT</div>
-                                            <div class="stat-heading">PEMERINTAHAN</div>
+                                            <div>TOTAL {{ $total_lembaga }}</div>
+                                            <div class="stat-heading">LEMBAGA</div>
                                         </div>
                                     </div>
                                 </div>
