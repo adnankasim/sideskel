@@ -17,7 +17,7 @@ class CreatePendudukTable extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('tempat_lahir', 255);
             $table->date('tanggal_lahir');
-            $table->string('foto_penduduk', 100)->nullable();
+            $table->string('foto_penduduk', 100)->default('default.jpg');
             $table->string('pekerjaan', 200);
             $table->string('agama', 100);
             $table->enum('pendidikan_terakhir', ['tidak sekolah', 'tk', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']);

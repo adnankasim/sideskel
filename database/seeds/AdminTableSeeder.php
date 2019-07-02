@@ -20,6 +20,17 @@ class AdminTableSeeder extends Seeder
               'updated_at' => now()
             ]);
         }
-        $this->command->info('Berhasil Menambahkan 10 baris di tabel admin');
+
+        DB::table('admin')->insert([
+            'email_admin' => 'admin@gmail.com',
+            'nama_admin' => 'Si Fulan',
+            'password_admin' => '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad',
+            'jenis_kelamin' => 'laki-laki',
+            'no_hp' => '08xxxxxxxxxx',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        $this->command->info('Berhasil Menambahkan 11 baris di tabel admin');
     }
 }

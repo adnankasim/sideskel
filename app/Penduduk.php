@@ -12,6 +12,10 @@ class Penduduk extends Model
         'nik', 'nama_penduduk', 'alamat_penduduk', 'status_menikah', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'foto_penduduk', 'pendidikan_terakhir', 'golongan_darah', 'agama', 'pekerjaan'
     ];
 
+    protected $attributes = [
+        'foto_penduduk' => 'default.jpg',
+    ];
+
     public function scopePekerjaan($query, $pekerjaan){
       return $query->where('pekerjaan', 'like', '%' . $pekerjaan . '%');
     }

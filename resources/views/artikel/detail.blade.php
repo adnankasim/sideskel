@@ -9,8 +9,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-newspaper-o"></i>&nbsp; ARTIKEL</strong>
-                                
+@if(Session::has('pengguna'))
                                 <a href="{{ url('artikel/' . $artikel->id . '/edit') }}" class="btn btn-success btn-sm float-right mx-1"><i class="fa fa-edit fa-lg"></i> </a>
+@endif
                                 <a href="{{ url('artikel') }}" class="btn btn-info btn-sm float-right mx-1">  <i class="fa fa-arrow-left fa-lg"></i> </a>
 
 @if(Session::has('admin'))
@@ -69,6 +70,16 @@
                                     <tr>
                                         <td>Pengguna</td>
                                         <th>{{ $artikel->pengguna->nama_pengguna }}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Validasi</td>
+                                        <th>
+                                        @if($artikel->is_valid == 'tidak') 
+                                            <i class="fa fa-times fa-lg text-danger"></i>
+                                        @else
+                                            <i class="fa fa-check fa-lg text-primary"></i>
+                                        @endif 
+                                        </th>
                                     </tr>
                                 </table>
                                 <table class="table">

@@ -20,6 +20,7 @@
     </div>
 </div>
 <div>
+{!! Form::hidden('id_pengguna', Session::get('id')) !!}
     <button type="submit" class="btn btn-primary btn-sm">
       <i class="fa fa-paper-plane fa-lg"></i> 
     </button>

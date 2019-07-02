@@ -100,6 +100,12 @@
                                             {{ $penduduk->golongan_darah }}
                                         </th>
                                     </tr>
+                                    <tr>
+                                        <td>Jenis Kelamin</td>
+                                        <th class="text-uppercase">
+                                            {{ $penduduk->jenis_kelamin }}
+                                        </th>
+                                    </tr>
                                 </table>
                             </div>
                         </div>

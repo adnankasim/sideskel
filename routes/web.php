@@ -209,5 +209,5 @@ Route::patch('pengaturan/ganti-gambar-latar/1', 'DashboardController@gantiGambar
 Route::patch('pengaturan/ganti-warna-navbar/1', 'DashboardController@gantiWarnaNavbar');
 
 Route::get('tes', function(){
-    return sha1(md5('321'));
+    return sha1(md5('pengguna'));
 });

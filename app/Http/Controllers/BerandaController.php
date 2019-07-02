@@ -323,14 +323,14 @@ class BerandaController extends Controller
             Session::put('pengguna', true);
             Session::put('id', $user->id);
             Session::put('nama', $user->nama_pengguna);
-            return redirect('dashboard');
+            return redirect('artikel');
         }elseif(\App\Admin::where('email_admin', $email)->where('password_admin', $password)->first()){
             $user = \App\Admin::where('email_admin', $email)->where('password_admin', $password)->first();
             Session::put('login', true);
             Session::put('admin', true);
             Session::put('id', $user->id);
             Session::put('nama', $user->nama_admin);
-            return redirect('artikel');
+            return redirect('dashboard');
         }else{
             return redirect('masuk')->with('pesan', 'Username dan/atau Password Tidak Valid')->withInput();
         }

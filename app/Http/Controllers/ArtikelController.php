@@ -18,6 +18,10 @@ class ArtikelController extends Controller
         $this->middleware('login', ['except' => [
             'validasi' 
         ]]);
+
+        $this->middleware('pengguna', ['only' => [
+            'create', 'edit', 'store', 'update'
+        ]]);
     }
 
     public function index()
@@ -43,8 +47,9 @@ class ArtikelController extends Controller
     {
         $input = $request->all();
         $input['slug_artikel'] = Str::slug($input['judul_artikel'], '-');
+
         if($request->hasFile('gambar_artikel')){
-          $input['gambar_artikel'] = $this->uploadGambar($request);
+            $input['gambar_artikel'] = $this->uploadGambar($request);
         }
         Artikel::create($input);
         Session::flash('pesan', 'Artikel Berhasil Ditambah');
@@ -65,6 +70,7 @@ class ArtikelController extends Controller
     {
         $input = $request->all();
         $input['slug_artikel'] = Str::slug($input['judul_artikel'], '-');
+
         if($request->hasFile('gambar_artikel')){
           $this->hapusGambar($artikel);
           $input['gambar_artikel'] = $this->uploadGambar($request);

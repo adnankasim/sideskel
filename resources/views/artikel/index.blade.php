@@ -21,7 +21,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><i class="fa fa-newspaper-o"></i>&nbsp; ARTIKEL</strong>
+@if(Session::has('pengguna'))
                                 <a href="{{ url('artikel/create') }}" class="btn btn-primary btn-sm float-right">  <i class="fa fa-plus fa-lg"></i> </a>
+@endif
                             </div>
                             <div class="card-body">
                                 <span class="float-left"> Total Data :
@@ -57,8 +59,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ url('artikel/'. $artikel->id) }}" class="btn btn-info btn-sm d-block my-1"><i class="fa fa-eye fa-lg"></i> </a>                           
+                                            <a href="{{ url('artikel/'. $artikel->id) }}" class="btn btn-info btn-sm d-block my-1"><i class="fa fa-eye fa-lg"></i> </a>
+@if(Session::has('pengguna'))
                                             <a href="{{ url('artikel/'. $artikel->id .'/edit') }}" class="btn btn-success btn-sm d-block my-1"><i class="fa fa-edit fa-lg"></i> </a>
+@endif
                                             <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"> <i class="fa fa-trash fa-lg"></i> </a>
 
                                             <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog"                                          aria-labelledby="myModalLabel" aria-hidden="true">
@@ -132,8 +136,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ url('artikel/'. $artikel->id) }}" class="btn btn-info btn-sm d-block my-1"><i class="fa fa-eye fa-lg"></i> </a>                           
+                                            <a href="{{ url('artikel/'. $artikel->id) }}" class="btn btn-info btn-sm d-block my-1"><i class="fa fa-eye fa-lg"></i> </a>
+@if(Session::has('pengguna'))
                                             <a href="{{ url('artikel/'. $artikel->id .'/edit') }}" class="btn btn-success btn-sm d-block my-1"><i class="fa fa-edit fa-lg"></i> </a>
+@endif
                                             <a href="#" class="btn btn-danger btn-sm d-block my-1" data-toggle="modal" data-target="#confirm-delete-{{ $i }}"> <i class="fa fa-trash fa-lg"></i></a>
 
                                             <div class="modal fade text-danger" id="confirm-delete-{{ $i++ }}" tabindex="-1" role="dialog"                                          aria-labelledby="myModalLabel" aria-hidden="true">
