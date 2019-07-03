@@ -1,71 +1,23 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center"><img src="logo.png"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Tentang
 
-## About Laravel
+Disetiap kelurahan & desa tentunya punya potensinya masing-masing yang tentunya sangat bermanfaat jika dikembangkan namun kadang informasi mengenai potensi desa/kelurahan tersebut hanya sebatas warga desa/kelurahan saja, padahal jika informasi tersebut sampai ke pihak yang tepat maka ada kemungkinan potensi desa  bisa dikembangkan lebih lagi.
+Selain itu juga mengenai keterbukaan informasi desa/kelurahan di Indonesia sangat minim padahal, keterbukaan informasi desa/kelurahan itu sangat penting untuk menghindari hal-hal yang di dinginkan seperti korupsi dana desa misalnya, kemudian selain itu kondisi demografis penduduk, fasilitas, infrastruktur, sampai dengan sejarah maupun kondisi desa/kelurahan juga bisa di publikasikan dengan jelas kepada masyarakat, sehingga membantu aparat desa untuk mengelola informasi yang menyangkut dengan pengelolaan desa/kelurahan, dengan alasan itulah maka Sistem Informasi Desa/Kelurahan (SIDESKEL) ini dikembangkan. SIDESKEL dikembangkan menggunakan framework Laravel 5.8.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tujuan 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Menjadi platform resmi desa/kelurahan untuk menunjang penyebaran informasi kepada publik secara cepat & akurat. (Tentang, Lembaga, Fasilitas & Dokumen)
+- Memfasilitasi aparat desa/kelurahan dalam hal transparansi keuangan (belanja & pendapatan) desa/kelurahan. (Keuangan)
+- Membantu mempromosikan desa/kelurahan kepada publik lewat artikel yang dipublish oleh masyarakat. (Artikel)
+- Memudahkan aparat desa/kelurahan dalam mengelola data penduduk. (Penduduk)
+- Memudahkan masyarakat mengenai informasi pelayanan yang ada di kantor desa/kelurahan. (Pelayanan)
+- Memfasilitasi desa/kelurahan dalam hal dokumentasi & publikasi kegiatan masyarakat. (Kegiatan)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Mind Mapping
 
-## Learning Laravel
+<p align="center"><img src="scope.jpg"></p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Karena SIDESKEL dikembangkan dengan Laravel 5.8 silahkan jalankan dengan perintah php artisan migrate:fresh --seed pada terminal komputer anda.
