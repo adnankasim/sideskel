@@ -1,4 +1,4 @@
-<p align="center"><img src="logo.png" width="200"></p>
+<p align="center"><img src="logo.png" width="350"></p>
 
 ## Tentang
 
@@ -16,7 +16,15 @@ Selain itu juga mengenai keterbukaan informasi desa/kelurahan di Indonesia sanga
 
 ## Mind Mapping
 
-<p align="center"><img src="scope.jpg"></p>
+<p align="center"><img src="scope.jpg" width="350"></p>
+
+## Use Case Sistem
+User: Pengguna
+<p align="center"><img src="ucpengguna.jpg" width="350"></p>
+
+User: Admin
+<p align="center"><img src="ucadmin.jpg" width="350"></p>
+
 
 ## Instalasi
 
