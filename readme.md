@@ -16,14 +16,14 @@ Selain itu juga mengenai keterbukaan informasi desa/kelurahan di Indonesia sanga
 
 ## Mind Mapping
 
-<p align="center"><img src="scope.jpg" width="350"></p>
+<p align="center"><img src="scope.jpg"></p>
 
 ## Use Case Sistem
 User: Pengguna
-<p align="center"><img src="ucpengguna.jpg" width="350"></p>
+<p align="center"><img src="ucpengguna.jpg"></p>
 
 User: Admin
-<p align="center"><img src="ucadmin.jpg" width="350"></p>
+<p align="center"><img src="ucadmin.jpg"></p>
 
 
 ## Instalasi
