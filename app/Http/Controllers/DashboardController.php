@@ -243,7 +243,7 @@ class DashboardController extends Controller
         $ext = $gambar->getClientOriginalExtension();
         if($request->file('gambar_artikel')->isValid()){
           $gambar_name = date('YmdHis').".$ext";
-          $upload_path = 'assets-dashboard/images';
+          $upload_path = 'assets-beranda/images';
           $request->file('gambar_artikel')->move($upload_path, $gambar_name);
           return $gambar_name;
         }
@@ -252,7 +252,7 @@ class DashboardController extends Controller
 
       private function hapusGambar(Artikel $artikel)
       {
-          $gambar = 'assets-dashboard/images/'.$artikel->gambar_artikel;
+          $gambar = 'assets-beranda/images/'.$artikel->gambar_artikel;
           if(file_exists($gambar) && isset($artikel->gambar_artikel)){
           $delete = unlink($gambar);
             if($delete){

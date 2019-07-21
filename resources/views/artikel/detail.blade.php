@@ -47,7 +47,7 @@
                                         <th class="text-center">Gambar</th>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"> <img src="{{ asset('assets-dashboard/images/' . $artikel->gambar_artikel) }}" width="300"> </td>
+                                        <td class="text-center"> <img src="{{ asset('assets-beranda/images/' . $artikel->gambar_artikel) }}" width="300"> </td>
                                     </tr>
                                 </table>
                                 <table class="table">

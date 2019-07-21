@@ -31,6 +31,7 @@
                                 <tr>
                                     <th class="font-weight-bold text-center">NO</th>
                                     <th class="font-weight-bold text-center">JUDUL</th>
+                                    <th class="font-weight-bold text-center">VALID</th>
                                     <th class="font-weight-bold text-center">AKSI</th>
                                 </tr>
                                 <?php $i=1 ?>
@@ -38,6 +39,13 @@
                                 <tr>
                                     <td class="text-center">{{ $i++ }}</td>
                                     <td class="text-center">{{ $artikel->judul_artikel }}</td>
+                                    <td class="text-center">
+                                        @if($artikel->is_valid === 'ya')
+                                            <i class="fa fa-check fa-lg text-primary"></i>
+                                        @else
+                                             <i class="fa fa-times fa-lg text-danger"></i>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                             <a href="{{ url('beranda/dashboard/'.$artikel->id.'/edit') }}" class="btn btn-success btn-sm d-inline-block my-1"><i class="fa fa-edit fa-lg"></i> </a>
                                             {!! Form::open(['url' => 'beranda/dashboard/'.$artikel->id , 'method' => 'delete', 'class' =>                                          'd-inline']) !!}
