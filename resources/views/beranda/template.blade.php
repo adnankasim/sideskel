@@ -41,7 +41,16 @@
     <link rel="stylesheet" href="{{ asset('assets-beranda/fonts/flaticon/font/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-beranda/css/style.css') }}">
-
+    <script src="{{ asset('assets-dashboard/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: '.editor',
+            plugins: "lists",
+            toolbar: "numlist bullist",
+            theme: 'modern',
+            mobile: { theme: 'mobile' }
+        });
+    </script>
     <style>
         .pelayanan{
             cursor: pointer;
@@ -68,115 +77,76 @@
             <div class="site-navbar">
                 <div class="container-fluid py-1">
                     <div class="row align-items-center">
-                        <div class="col-1 text-center">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" style="display: inline-block" width="40">
-                            </a>
-                        </div>
-                        <div class="col-11">
-                            <nav class="site-navigation text-right" role="navigation">
-                                <div class="container-fluid">
-                                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="#"
-                                            class="site-menu-toggle js-menu-toggle text-white"><span
-                                                class="icon-menu h3"></span></a></div>
+                        
+                        <div class="col-5 text-center">
+              <a href="{{ url('/') }}">
+                <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" style="margin-top: -30px" width="45" class="d-none d-xl-inline-block">
 
-                                    <ul class="site-menu js-clone-nav d-none d-xl-block text-center">
-    @if(Request::segment(2) === 'profil' || Request::segment(2) === 'batas' || Request::segment(2) === 'tanaman-komoditas' || Request::segment(2) === 'orbitasi' || Request::segment(2) === 'tipologi' || Request::segment(2) === 'iklim' || Request::segment(2) === 'kesuburan-tanah' || Request::segment(2) === 'penggunaan-tanah')
-                                        <li class="has-children active">
-    @else
-                                        <li class="has-children">
-    @endif
-                                            <a href="#"> <i class="fa fa-home"></i> TENTANG</a>
-                                            <ul class="dropdown arrow-top">
-                                                <li><a href="{{ url('beranda/profil') }}"> <i class="fa fa-info"></i> PROFIL</a></li>
-                                                <li><a href="{{ url('beranda/batas') }}"><i class="fa fa-map-marker"></i> BATAS WILAYAH</a></li>
-                                                <li><a href="{{ url('beranda/tanaman-komoditas') }}"><i class="fa fa-leaf"></i> TANAMAN KOMODITAS</a></li>
-                                                <li><a href="{{ url('beranda/orbitasi') }}"><i class="fa fa-car"></i> ORBITASI</a></li>
-                                                <li><a href="{{ url('beranda/tipologi') }}"><i class="fa fa-pagelines"></i> TIPOLOGI</a></li>
-                                                <li><a href="{{ url('beranda/iklim') }}"><i class="fa fa-cloud"></i> IKLIM</a></li>
-                                                <li><a href="{{ url('beranda/kesuburan-tanah') }}"><i class="fa fa-square"></i> KESUBURAN TANAH</a></li>
-                                                <li><a href="{{ url('beranda/penggunaan-tanah') }}"><i class="fa fa-book"></i> PENGGUNAAN TANAH</a></li>
-                                                <li><a href="{{ url('beranda/infrastruktur-melintasi') }}"><i class="fa fa-binoculars"></i> INFRASTRUKTUR MELINTASI</a></li>
-                                            </ul>
-                                        </li>
-@if(Request::segment(2) === 'lembaga')
-                                        <li class="active"><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
-@else
-                                        <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
-@endif
+                <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="45" class="d-inline-block d-xl-none">
 
-@if(Request::segment(2) === 'fasilitas-pemukiman' || Request::segment(2) === 'fasilitas-pemerintahan' || Request::segment(2) === 'fasilitas-peribadatan' || Request::segment(2) === 'fasilitas-kesehatan' || Request::segment(2) === 'fasilitas-ekonomi' || Request::segment(2) === 'fasilitas-prasarana' || Request::segment(2) === 'fasilitas-pendidikan')
-                                        <li class="has-children active">
-@else
-                                        <li class="has-children">
-@endif
-                                            <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
-                                            <ul class="dropdown arrow-top">
-                                                <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-peribadatan') }}"><i class="fa fa-moon-o"></i> PERIBADATAN</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-kesehatan') }}"><i class="fa fa-heart"></i> KESEHATAN</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-ekonomi') }}"><i class="fa fa-dollar"></i> EKONOMI</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-prasarana') }}"><i class="fa fa-wifi"></i> PRA-SARANA</a></li>
-                                                <li><a href="{{ url('beranda/fasilitas-pendidikan') }}"><i class="fa fa-book"></i> PENDIDIKAN</a></li>
-                                            </ul>
-                                        </li>
-@if(Request::segment(2) === 'belanja' || Request::segment(2) === 'pendapatan')
-                                        <li class="has-children active">
-@else
-                                        <li class="has-children">
-@endif
-                                            <a href="#"><i class="fa fa-money"></i> KEUANGAN</a>
-                                            <ul class="dropdown arrow-top">
-                                                <li><a href="{{ url('beranda/belanja') }}"><i class="fa fa-credit-card"></i> BELANJA</a></li>
-                                                <li><a href="{{ url('beranda/pendapatan') }}"><i class="fa fa-leaf"></i> PENDAPATAN</a></li>
-                                            </ul>
-                                        </li>
-@if(Request::segment(2) === 'penduduk-usia' || Request::segment(2) === 'penduduk-pekerjaan' || Request::segment(2) === 'penduduk-pendidikan' || Request::segment(2) === 'penduduk-golongan-darah' || Request::segment(2) === 'penduduk-menikah' || Request::segment(2) === 'penduduk-agama' || Request::segment(2) === 'penduduk-jenis-kelamin')
-                                        <li class="has-children active">
-@else
-                                        <li class="has-children">
-@endif
-                                            <a href="#"><i class="fa fa-users"></i> PENDUDUK</a>
-                                            <ul class="dropdown arrow-top">
-                                                <li><a href="{{ url('beranda/penduduk-usia') }}"><i class="fa fa-calendar"></i> USIA</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-dollar"></i> PEKERJAAN</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-pendidikan') }}"><i class="fa fa-graduation-cap"></i> PENDIDIKAN</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-golongan-darah') }}"><i class="fa fa-tint"></i> GOL. DARAH</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-menikah') }}"><i class="fa fa-female"></i><i class="fa fa-male"></i> MENIKAH</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-agama') }}"><i class="fa fa-moon-o"></i> AGAMA</a></li>
-                                                <li><a href="{{ url('beranda/penduduk-jenis-kelamin') }}"><i class="fa fa-male"></i> JENIS KELAMIN</a></li>
-                                            </ul>
-                                        </li>
-@if(Request::segment(2) === 'dokumen')
-                                        <li class="active"><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
-@else
-                                        <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
-@endif
+                <h5 class="ml-2 mt-2 site-logo text-white d-none d-xl-inline-block text-uppercase" style="text-align: left;">
+                PEMERINTAH {{ $profil->nama }}
+                <br>
+                KECAMATAN LIMBOTO, GORONTALO
+                </h5>
+              </a>
+            </div>
+                        
+            <div class="col-7">
+              <nav class="site-navigation text-right" role="navigation">
+                <div class="container-fluid">
+                  <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 
-@if(Request::segment(2) === 'pelayanan')
-                                        <li class="active"><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
+                  <ul class="site-menu js-clone-nav d-none d-xl-block text-center">
+                    <li class="has-children">
+                      <a href="#"> <i class="fa fa-home"></i> TENTANG</a>
+                      <ul class="dropdown arrow-top">
+                        <li><a href="{{ url('beranda/profil') }}"> <i class="fa fa-info"></i> PROFIL</a></li>
+                        <li><a href="{{ url('beranda/tanaman-komoditas') }}"><i class="fa fa-leaf"></i> TANAMAN KOMODITAS</a></li>
+                        <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
+                        <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
+                        <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
+                        <li><a href="{{ url('beranda/fasilitas') }}"><i class="fa fa-binoculars"></i> FASILITAS</a></li>
+                      </ul>
+                    </li>
+                    
+                    <li class="has-children">
+                      <a href="#"><i class="fa fa-money"></i> KEUANGAN</a>
+                      <ul class="dropdown arrow-top">
+                        <li><a href="{{ url('beranda/belanja') }}"><i class="fa fa-credit-card"></i> BELANJA</a></li>
+                        <li><a href="{{ url('beranda/pendapatan') }}"><i class="fa fa-leaf"></i> PENDAPATAN</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-children">
+                      <a href="#"><i class="fa fa-users"></i> PENDUDUK</a>
+                      <ul class="dropdown arrow-top">
+                        <li><a href="{{ url('beranda/penduduk-usia') }}"><i class="fa fa-calendar"></i> USIA</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-dollar"></i> PEKERJAAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pendidikan') }}"><i class="fa fa-graduation-cap"></i> PENDIDIKAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-golongan-darah') }}"><i class="fa fa-tint"></i> GOL. DARAH</a></li>
+                        <li><a href="{{ url('beranda/penduduk-menikah') }}"><i class="fa fa-female"></i><i class="fa fa-male"></i> MENIKAH</a></li>
+                        <li><a href="{{ url('beranda/penduduk-agama') }}"><i class="fa fa-moon-o"></i> AGAMA</a></li>
+                        <li><a href="{{ url('beranda/penduduk-jenis-kelamin') }}"> <i class="fa fa-male"></i> JENIS KELAMIN</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
+                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
+@if(Session::has('pengguna'))
+                    <li class="has-children">
+                      <a href="#"><i class="fa fa-user"></i> PROFIL</a>
+                      <ul class="dropdown arrow-top">
+                        <li><a href="{{ url('beranda/dashboard') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                        <li><a href="{{ url('keluar') }}"><i class="fa fa-sign-out"></i> KELUAR</a></li>
+                      </ul>
+                    </li>
 @else
-                                        <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
+                    <li><a href="{{ url('masuk') }}"><i class="fa fa-sign-in"></i> MASUK</a></li>
 @endif
+                  </ul>
+                </div>
+              </nav>
+            </div>
 
-@if(Request::segment(2) === 'artikel')
-                                        <li class="active"><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
-@else
-                                        <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
-@endif
-
-@if(Request::segment(2) === 'kegiatan')
-                                        <li class="active"><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
-@else
-                                        <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
-@endif
-
-                                        <li><a href="{{ url('masuk') }}"><i class="fa fa-sign-in"></i> MASUK</a></li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -184,22 +154,25 @@
         
     @yield('main-beranda')
 
-        <!-- <footer class="site-footer border-top" data-aos="fade-down"> -->
-        <footer class="site-footer border-top">
-    <div class="container">
-        <div class="row pt-2 text-center">
-            <div class="col-md-12">
-                <p>
-                    Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong> 
-                    <br> SIDESKEL Development by. <strong> <a href="https://facebook.com/adnan.indrakasim" target="_blank">Adnan Kasim</a></strong>
-                    <br> and This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                </p>
-            </div>
-
+        <footer class="site-footer border-top" data-aos="fade-down">
+      <div class="container">
+        <div class="row pt-2 text-left">
+          <div class="col-md-6">
+            <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="75" class="my-2">
+            <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>  
+            <br> SIDESKEL Development by. <strong> TIM IT KKN-PPM UGM, UNG, UMGo</strong>
+            <br> and This template is made by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            </p>
+          </div>
+          
+          <div class="col-md-6">
+            <h5>ALAMAT </h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63833.414100565715!2d122.9484132327109!3d0.61513371305782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32792e74a1a437d1%3A0xf71f75fa36a24350!2sKayubulan%2C+Limboto%2C+Gorontalo!5e0!3m2!1sen!2sid!4v1563680141208!5m2!1sen!2sid" style="width:100%; height:300px;" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-    </div>
-        </footer>
+        </div>
+      </div>
+    </footer>
 
     </div>
 

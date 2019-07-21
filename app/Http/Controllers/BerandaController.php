@@ -13,14 +13,15 @@ class BerandaController extends Controller
     // tentang
     public function profil()
     {
-        return view('beranda/profil');
-    }
-
-    public function batas()
-    {
         $daftar_batas = \App\Batas::all();
-        $update_terakhir = \App\Batas::orderBy('updated_at', 'desc')->first();
-        return view('beranda/batas', compact('daftar_batas', 'update_terakhir'));
+        $daftar_orbitasi = \App\Orbitasi::all();
+        $daftar_tipologi = \App\Tipologi::all();
+        $daftar_iklim = \App\Iklim::all();
+        $daftar_kesuburan_tanah = \App\KesuburanTanah::all();
+        $daftar_penggunaan_tanah = \App\PenggunaanTanah::all();
+        $daftar_infra_melintasi = \App\InfraMelintasi::all();
+
+        return view('beranda/profil', compact('daftar_batas', 'daftar_orbitasi', 'daftar_tipologi', 'daftar_iklim', 'daftar_kesuburan_tanah', 'daftar_penggunaan_tanah', 'daftar_infra_melintasi'));
     }
 
     public function tanamanKomoditas()
@@ -36,44 +37,6 @@ class BerandaController extends Controller
         return view('beranda/tanaman-komoditas-detail', compact('daftar_komoditas', 'update_terakhir'));
     }
 
-    public function orbitasi()
-    {
-        $daftar_orbitasi = \App\Orbitasi::all();
-        $update_terakhir = \App\Orbitasi::orderBy('updated_at', 'desc')->first();
-        return view('beranda/orbitasi', compact('daftar_orbitasi', 'update_terakhir'));
-    }
-    
-    public function tipologi()
-    {
-        $daftar_tipologi = \App\Tipologi::all();
-        $update_terakhir = \App\Tipologi::orderBy('updated_at', 'desc')->first();
-        return view('beranda/tipologi', compact('daftar_tipologi', 'update_terakhir'));
-    }
-    
-    public function iklim(){
-        $daftar_iklim = \App\Iklim::all();
-        $update_terakhir = \App\Iklim::orderBy('updated_at', 'desc')->first();
-        return view('beranda/iklim', compact('daftar_iklim', 'update_terakhir'));
-    }
-    
-    public function kesuburanTanah(){
-        $daftar_kesuburan_tanah = \App\KesuburanTanah::all();
-        $update_terakhir = \App\KesuburanTanah::orderBy('updated_at', 'desc')->first();
-        return view('beranda/kesuburan-tanah', compact('daftar_kesuburan_tanah', 'update_terakhir'));
-    }
-    
-    public function penggunaanTanah(){
-        $daftar_penggunaan_tanah = \App\PenggunaanTanah::all();
-        $update_terakhir = \App\PenggunaanTanah::orderBy('updated_at', 'desc')->first();
-        return view('beranda/penggunaan-tanah', compact('daftar_penggunaan_tanah', 'update_terakhir'));
-    }
-
-    public function infraMelintasi(){
-        $daftar_infra_melintasi = \App\InfraMelintasi::all();
-        $update_terakhir = \App\InfraMelintasi::orderBy('updated_at', 'desc')->first();
-        return view('beranda/infrastruktur-melintasi', compact('daftar_infra_melintasi', 'update_terakhir'));
-    }
-    
     // lembaga
     public function lembaga()
     {
@@ -323,7 +286,7 @@ class BerandaController extends Controller
             Session::put('pengguna', true);
             Session::put('id', $user->id);
             Session::put('nama', $user->nama_pengguna);
-            return redirect('artikel');
+            return redirect('beranda/dashboard');
         }elseif(\App\Admin::where('email_admin', $email)->where('password_admin', $password)->first()){
             $user = \App\Admin::where('email_admin', $email)->where('password_admin', $password)->first();
             Session::put('login', true);
@@ -366,7 +329,7 @@ class BerandaController extends Controller
 
     public function keluar(){
         Session::flush();
-        return redirect('masuk');
+        return redirect('/');
     }
 
 }

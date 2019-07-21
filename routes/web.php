@@ -113,6 +113,13 @@ Route::prefix('beranda')->group(function()
     Route::get('kegiatan/cari', 'BerandaController@kegiatanCari');
     Route::get('kegiatan/{slug}', 'BerandaController@kegiatanDetail');
     
+    Route::get('dashboard', 'DashboardController@dashboardPengguna');
+    Route::get('dashboard/tambah', 'DashboardController@tambahArtikel');
+    Route::post('dashboard', 'DashboardController@storeArtikel');
+    Route::get('dashboard/{id}/edit', 'DashboardController@editArtikel');
+    Route::patch('dashboard/{id}', 'DashboardController@updateArtikel');
+    Route::delete('dashboard/{id}', 'DashboardController@destroyArtikel');
+
 });
 
 Route::get('masuk', 'BerandaController@masuk');

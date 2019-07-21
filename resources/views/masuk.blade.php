@@ -21,11 +21,11 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-					<span class="login100-form-title p-b-26">
-						MASUK SIDESKEL
-					</span>
-					<span class="login100-form-title p-b-48">
+					<span class="login100-form-title p-b-20">
                         <img src="{{ asset('assets-dashboard/images/logo-sideskel.png') }}" class="image" width="100">
+					</span>
+					<span class="login100-form-title p-b-26">
+						MASUK
 					</span>
 					@if($errors->any())
 					<div class="content text-center">

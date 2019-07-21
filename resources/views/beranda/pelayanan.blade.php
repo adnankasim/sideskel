@@ -22,7 +22,7 @@
                             <div class="card my-2">
                               <div class="card-body">
                                 <h5 class="card-title pelayanan pelayanan-judul-{{ $i }}">{{ $i }}. {{ $pelayanan->nama }} </h5>
-                                <div class="card-text pelayanan-keterangan-{{ $i }} d-none"> {!! $pelayanan->keterangan !!} </div>
+                                <div class="card-text pelayanan-keterangan-{{ $i }} d-none pl-3"> {!! $pelayanan->keterangan !!} </div>
                               </div>
                             </div>
 

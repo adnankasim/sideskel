@@ -54,15 +54,173 @@
                                         {!! $profil->visi_misi !!}
                                     </td>
                                 </tr>
-                                <tr>
-                                        <th class="text-center">UPDATE TERAKHIR</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                        {{ $profil->updated_at->diffForHumans() }}
-                                        </td>
-                                    </tr>
                             </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    BATAS WILAYAH
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">MATA ANGIN</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1; ?>
+                                    @foreach($daftar_batas as $batas)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $batas->mata_angin }}</td>
+                                        <td>{{ $batas->uraian }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    ORBITASI
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">KETERANGAN</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_orbitasi as $orbitasi)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $orbitasi->uraian }}</td>
+                                        <td>{{ $orbitasi->keterangan }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    TIPOLOGI
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">KETERANGAN</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_tipologi as $tipologi)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $tipologi->uraian_tipologi }}</td>
+                                        <td>{{ $tipologi->keterangan_tipologi }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    IKLIM
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">KETERANGAN</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_iklim as $iklim)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $iklim->uraian_iklim }}</td>
+                                        <td>{{ $iklim->keterangan_iklim }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    KESUBURAN TANAH
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">LUAS (HA)</td>
+                                        <td class="font-weight-bold">KETERANGAN</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_kesuburan_tanah as $kesuburan)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $kesuburan->uraian_kesuburan_tanah }}</td>
+                                        <td>{{ $kesuburan->luas_ha }}</td>
+                                        <td>{{ $kesuburan->keterangan_kesuburan_tanah }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    PENGGUNAAN TANAH
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">KETERANGAN (HA)</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_penggunaan_tanah as $tanah)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $tanah->uraian_penggunaan_tanah }}</td>
+                                        <td>{{ $tanah->keterangan_penggunaan_tanah }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <strong class="float-left"> 
+                                    INFRASTRUKTUR MELINTASI
+                                </strong>
+                                <thead>
+                                    <tr>
+                                        <td class="font-weight-bold">NO</td>
+                                        <td class="font-weight-bold">URAIAN</td>
+                                        <td class="font-weight-bold">PANJANG</td>
+                                        <td class="font-weight-bold">LEBAR</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach($daftar_infra_melintasi as $infra)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $infra->uraian_infra_melintasi }}</td>
+                                        <td>{{ $infra->panjang_infra_melintasi }}</td>
+                                        <td>{{ $infra->lebar_infra_melintasi }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>

@@ -5,11 +5,76 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Http\Requests\ArtikelRequest;
+use Illuminate\Support\Str;
+use App\Artikel;
 
 class DashboardController extends Controller
 {
     public function __construct(){
-        $this->middleware('admin');
+
+        $this->middleware('admin', ['only' => [
+            'index', 'pengaturan', 'gantiGambarLatar', 'gantiWarnaNavbar', 'uploadGambar' 
+        ]]);
+
+        $this->middleware('pengguna', ['only' => [
+            'dashboardPengguna', 'tambahArtikel', 'editArtikel', 'storeArtikel', 'updateArtikel', 'destroyArtikel' 
+        ]]);
+
+    }
+
+    public function dashboardPengguna()
+    {
+        $daftar_artikel = Artikel::where('id_pengguna', Session::get('id'))->get();
+        return view('beranda.dashboard', compact('daftar_artikel'));
+    }
+
+    public function tambahArtikel()
+    {
+        return view('beranda.artikel-tambah');
+    }
+
+    public function editArtikel($id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        return view('beranda.artikel-edit', compact('artikel'));
+    }
+
+    public function storeArtikel(ArtikelRequest $request)
+    {
+        $input = $request->all();
+        $input['slug_artikel'] = Str::slug($input['judul_artikel'], '-');
+
+        if($request->hasFile('gambar_artikel')){
+            $input['gambar_artikel'] = $this->uploadGambarArtikel($request);
+        }
+        Artikel::create($input);
+        Session::flash('pesan', 'Artikel Berhasil Ditambah');
+        return redirect('beranda/dashboard');
+    }
+
+    public function updateArtikel(ArtikelRequest $request, $id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        $input = $request->all();
+        $input['slug_artikel'] = Str::slug($input['judul_artikel'], '-');
+
+        if($request->hasFile('gambar_artikel')){
+          $this->hapusGambar($artikel);
+          $input['gambar_artikel'] = $this->uploadGambar($request);
+        }
+        $artikel->update($input);
+        Session::flash('pesan', 'Artikel Berhasil Diupdate');
+        return redirect('beranda/dashboard');
+    }
+
+    public function destroyArtikel($id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        $this->hapusGambar($artikel);
+        $artikel->delete();
+        Session::flash('pesan', '1 Artikel Berhasil Dihapus');
+        return redirect('beranda/dashboard');
     }
 
     public function index()
@@ -157,7 +222,8 @@ class DashboardController extends Controller
         return redirect('pengaturan');
     }
 
-    private function uploadGambar(Request $request){
+    private function uploadGambar(Request $request)
+    {
         $gambar = $request->file('gambar');
         $ext = $gambar->getClientOriginalExtension();
 
@@ -169,8 +235,31 @@ class DashboardController extends Controller
           return $gambar_name;
         }
         return false;
+    }
+
+    private function uploadGambarArtikel(ArtikelRequest $request)
+    {
+        $gambar = $request->file('gambar_artikel');
+        $ext = $gambar->getClientOriginalExtension();
+        if($request->file('gambar_artikel')->isValid()){
+          $gambar_name = date('YmdHis').".$ext";
+          $upload_path = 'assets-dashboard/images';
+          $request->file('gambar_artikel')->move($upload_path, $gambar_name);
+          return $gambar_name;
+        }
+        return false;
       }
 
-      
+      private function hapusGambar(Artikel $artikel)
+      {
+          $gambar = 'assets-dashboard/images/'.$artikel->gambar_artikel;
+          if(file_exists($gambar) && isset($artikel->gambar_artikel)){
+          $delete = unlink($gambar);
+            if($delete){
+              return true;
+            }
+            return false;
+          }
+      } 
 
 }
