@@ -38,9 +38,8 @@
     <button type="submit" class="btn btn-primary btn-block">
       <i class="fa fa-paper-plane fa-lg"></i> 
     </button>
-    <button type="submit" class="btn btn-secondary btn-block">
-      <i class="fa fa-arrow-left fa-lg"></i> 
-    </button>
+      <a href="{{ url('beranda/dashboard') }}" class="btn btn-secondary btn-block fa fa-arrow-left fa-lg"></a> 
+    
 </div>
 {!! Form::close() !!}
 

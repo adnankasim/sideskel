@@ -77,7 +77,19 @@
                         <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
                         <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas') }}"><i class="fa fa-binoculars"></i> FASILITAS</a></li>
+                        <li class="has-children">
+                          <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
+                          <ul class="dropdown arrow-top">
+                            <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-peribadatan') }}"><i class="fa fa-moon-o"></i> PERIBADATAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-kesehatan') }}"><i class="fa fa-heart"></i> KESEHATAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-ekonomi') }}"><i class="fa fa-dollar"></i> EKONOMI</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-prasarana') }}"><i class="fa fa-wifi"></i> PRA-SARANA</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-pendidikan') }}"><i class="fa fa-book"></i> PENDIDIKAN</a></li>
+                          </ul>
+                        </li>
+
                       </ul>
                     </li>
                     
@@ -389,6 +401,7 @@
         <div class="row">
           
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
+          <a href="{{ url('beranda/pendapatan/'. date('Y') ) }}">
                           <div class="card">
                             <div class="card-body bg-primary">
                                     <div class="d-inline-block">
@@ -396,15 +409,17 @@
                                     </div>
                                     <div class="d-inline-block mx-2">
                                         <div class="text-left dib">
-                                            <h2 class="text-white"> TOTAL  Rp. {{ number_format($total_pendapatan, 0, ',', '.') }},- </h2>
-                                            <h3 class="text-white">PENDAPATAN TAHUN {{ date('Y') }}</h3>
+                                            <h2 class="text-white"> Rp. {{ number_format($total_pendapatan, 0, ',', '.') }},- </h2>
+                                            <h3 class="text-white">TOTAL PENDAPATAN TAHUN {{ date('Y') }}</h3>
                                         </div>
                                     </div>
                             </div>
                         </div>
+          </a>
           </div>
 
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
+          <a href="{{ url('beranda/belanja/'. date('Y') ) }}">
                           <div class="card">
                             <div class="card-body bg-primary">
                                     <div class="d-inline-block">
@@ -412,13 +427,15 @@
                                     </div>
                                     <div class="d-inline-block mx-2">
                                         <div class="text-left dib">
-                                            <h2 class="text-white"> TOTAL  Rp. {{ number_format($total_belanja, 0, ',', '.') }},- </h2>
-                                            <h3 class="text-white">BELANJA TAHUN {{ date('Y') }}</h3>
+                                            <h2 class="text-white">Rp. {{ number_format($total_belanja, 0, ',', '.') }},- </h2>
+                                            <h3 class="text-white">TOTAL BELANJA TAHUN {{ date('Y') }}</h3>
                                         </div>
                                     </div>
                             </div>
                         </div>
+          </a>
           </div>
+          
 
         </div>
         
@@ -457,9 +474,13 @@
       <div class="container">
         <div class="row pt-2 text-left">
           <div class="col-md-6">
-            <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="75" class="my-2">
+            <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="100" class="my-2">
             <p>
             Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>  
+            <br> <br> Alamat: {{ $profil->alamat }} <br>
+            Telepon: {{ $profil->telepon }} <br>   
+            Email: {{ $profil->email }} <br>
+            
             <br> SIDESKEL Development by. <strong> TIM IT KKN-PPM UGM, UNG, UMGo</strong>
             <br> and This template is made by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             </p>

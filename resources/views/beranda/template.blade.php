@@ -55,6 +55,9 @@
         .pelayanan{
             cursor: pointer;
         }
+        *{
+        font-family: sans-serif;
+      }
     </style>
     <script src="{{ asset('assets-dashboard/js/Chart.bundle.min.js') }}"></script>
 
@@ -106,7 +109,20 @@
                         <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
                         <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
-                        <li><a href="{{ url('beranda/fasilitas') }}"><i class="fa fa-binoculars"></i> FASILITAS</a></li>
+                        
+                        <li class="has-children">
+                          <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
+                          <ul class="dropdown arrow-top">
+                            <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-peribadatan') }}"><i class="fa fa-moon-o"></i> PERIBADATAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-kesehatan') }}"><i class="fa fa-heart"></i> KESEHATAN</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-ekonomi') }}"><i class="fa fa-dollar"></i> EKONOMI</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-prasarana') }}"><i class="fa fa-wifi"></i> PRA-SARANA</a></li>
+                            <li><a href="{{ url('beranda/fasilitas-pendidikan') }}"><i class="fa fa-book"></i> PENDIDIKAN</a></li>
+                          </ul>
+                        </li>
+
                       </ul>
                     </li>
                     
@@ -158,16 +174,20 @@
       <div class="container">
         <div class="row pt-2 text-left">
           <div class="col-md-6">
-            <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="75" class="my-2">
+            <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="100" class="my-2">
             <p>
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>  
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>
+            <br> <br> Alamat: {{ $profil->alamat }} <br>
+            Telepon: {{ $profil->telepon }} <br>   
+            Email: {{ $profil->email }} <br>   
+            
             <br> SIDESKEL Development by. <strong> TIM IT KKN-PPM UGM, UNG, UMGo</strong>
             <br> and This template is made by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             </p>
           </div>
           
           <div class="col-md-6">
-            <h5>ALAMAT </h5>
+            <h5>Maps </h5>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63833.414100565715!2d122.9484132327109!3d0.61513371305782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32792e74a1a437d1%3A0xf71f75fa36a24350!2sKayubulan%2C+Limboto%2C+Gorontalo!5e0!3m2!1sen!2sid!4v1563680141208!5m2!1sen!2sid" style="width:100%; height:300px;" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         </div>

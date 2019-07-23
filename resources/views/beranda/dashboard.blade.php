@@ -12,13 +12,47 @@
 
                         @include('pesan.pesan_info')
 
+                            <h5 class="float-left">PROFIL</h5>
+                            <a href="{{ url('beranda/dashboard/edit-pengguna') }}" class="btn btn-success btn-sm d-inline-block my-1 float-right"><i class="fa fa-edit fa-lg"></i></a>
+                            
                             <table class="table">
                                 <tr>
-                                    <td class="font-weight-bold text-center">PROFIL</td>
+                                    <td class="text-center">
+                                        <img src="{{ asset('assets-dashboard/images/'. $pengguna->foto_pengguna ) }}" width="200">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table">
+                                <tr>
+                                    <th class="text-center">
+                                        NAMA
+                                    </th>
+                                    <td class="text-center">
+                                        {{ $pengguna->nama_pengguna }}
+                                    </td>
                                 </tr>
                                 <tr>
+                                    <th class="text-center">
+                                        EMAIL
+                                    </th>
                                     <td class="text-center">
-                                        <img src="{{ asset('assets-dashboard/images/logo-sideskel.png') }}" width="200">
+                                        {{ $pengguna->email_pengguna }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">
+                                        JENIS KELAMIN
+                                    </th>
+                                    <td class="text-center text-uppercase">
+                                        {{ $pengguna->jenis_kelamin }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">
+                                        NO. HP
+                                    </th>
+                                    <td class="text-center">
+                                        {{ $pengguna->no_hp }}
                                     </td>
                                 </tr>
                             </table>

@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Http\Requests\ArtikelRequest;
+use App\Http\Requests\PenggunaRequest;
 use Illuminate\Support\Str;
 use App\Artikel;
+use App\Pengguna;
 
 class DashboardController extends Controller
 {
@@ -25,8 +27,9 @@ class DashboardController extends Controller
 
     public function dashboardPengguna()
     {
+        $pengguna = Pengguna::findOrFail(Session::get('id'));
         $daftar_artikel = Artikel::where('id_pengguna', Session::get('id'))->get();
-        return view('beranda.dashboard', compact('daftar_artikel'));
+        return view('beranda.dashboard', compact('daftar_artikel', 'pengguna'));
     }
 
     public function tambahArtikel()
@@ -76,6 +79,35 @@ class DashboardController extends Controller
         Session::flash('pesan', '1 Artikel Berhasil Dihapus');
         return redirect('beranda/dashboard');
     }
+
+    public function editPengguna()
+    {
+        $pengguna = Pengguna::findOrFail(Session::get('id'));
+        return view('beranda.pengguna-edit', compact('pengguna'));
+    }
+
+    public function updatePengguna(PenggunaRequest $request, $id)
+    {
+        $pengguna = Pengguna::findOrFail($id);
+
+        if($request->hasFile('foto_pengguna')){
+          $this->hapusFoto($pengguna);
+            $pengguna->foto_pengguna = $this->uploadFoto($request);
+        }
+        
+        $pengguna->nama_pengguna = $request->input('nama_pengguna');
+        $pengguna->email_pengguna = $request->input('email_pengguna');
+        $pengguna->jenis_kelamin = $request->input('jenis_kelamin');
+        $pengguna->no_hp = $request->input('no_hp');
+
+        if(!empty($request->password_pengguna)) $pengguna->password_pengguna = $request->input('password_pengguna'); 
+        $pengguna->save();
+
+        Session::flash('pesan', 'Pengguna Berhasil Diupdate');
+        return redirect('beranda/dashboard');
+    }
+
+
 
     public function index()
     {
@@ -237,6 +269,21 @@ class DashboardController extends Controller
         return false;
     }
 
+    private function uploadFoto(Request $request)
+    {
+        $foto_pengguna = $request->file('foto_pengguna');
+        $ext = $foto_pengguna->getClientOriginalExtension();
+
+        if($request->file('foto_pengguna')->isValid()){
+          $foto_name = date('YmdHis').".$ext";
+          $upload_path = 'assets-dashboard/images';
+          $request->file('foto_pengguna')->move($upload_path, $foto_name);
+
+          return $foto_name;
+        }
+        return false;
+    }
+
     private function uploadGambarArtikel(ArtikelRequest $request)
     {
         $gambar = $request->file('gambar_artikel');
@@ -260,6 +307,18 @@ class DashboardController extends Controller
             }
             return false;
           }
-      } 
+      }
+      
+      private function hapusFoto(Pengguna $pengguna)
+      {
+          $foto_pengguna = 'assets-dashboard/images/'.$pengguna->foto_pengguna;
+          if(file_exists($foto_pengguna) && isset($pengguna->foto_pengguna)){
+          $delete = unlink($foto_pengguna);
+            if($delete){
+              return true;
+            }
+            return false;
+          }
+      }
 
 }

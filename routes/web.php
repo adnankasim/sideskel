@@ -119,6 +119,9 @@ Route::prefix('beranda')->group(function()
     Route::get('dashboard/{id}/edit', 'DashboardController@editArtikel');
     Route::patch('dashboard/{id}', 'DashboardController@updateArtikel');
     Route::delete('dashboard/{id}', 'DashboardController@destroyArtikel');
+    
+    Route::get('dashboard/edit-pengguna', 'DashboardController@editPengguna');
+    Route::patch('dashboard/edit-pengguna/{id}', 'DashboardController@updatePengguna');
 
 });
 

@@ -6,7 +6,7 @@
                     Copyright &copy; <script>document.write(new Date().getFullYear());</script> {{ $profil->nama }}
                 </div>
                 <div class="col-sm-4 text-center">
-                    SIDESKEL Development by. <strong> <a href="#">Adnan Kasim</a></strong>
+                    SIDESKEL Development by. <strong> <a href="#">TIM IT KKN-PPM UNG, UGM, UMGo</a></strong>
                 </div>
                 <div class="col-sm-4 text-right">
                     Designed by <a href="https://colorlib.com">Colorlib</a>
