@@ -51,13 +51,14 @@
             mobile: { theme: 'mobile' }
         });
     </script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <style>
         .pelayanan{
             cursor: pointer;
         }
         *{
-        font-family: sans-serif;
-      }
+        font-family: 'Montserrat', sans-serif;
+        }
     </style>
     <script src="{{ asset('assets-dashboard/js/Chart.bundle.min.js') }}"></script>
 
@@ -150,7 +151,7 @@
 
 @if(Session::has('pengguna'))
                     <li class="has-children">
-                      <a href="#"><i class="fa fa-user"></i> {{ substr($pengguna->nama_pengguna, 0, 10) }} </a>
+                      <a href="#"><i class="fa fa-user"></i> {{ substr(Session::get('nama'), 0, 10) }} </a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/dashboard') }}"><i class="fa fa-dashboard"></i> PROFIL</a></li>
                         <li><a href="{{ url('keluar') }}"><i class="fa fa-sign-out"></i> KELUAR</a></li>
@@ -177,18 +178,20 @@
           <div class="col-md-6">
             <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="100" class="my-2">
             <p>
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>
-            <br> <br> Alamat: {{ $profil->alamat }} <br>
+            Alamat: {{ $profil->alamat }} <br>
             Telepon: {{ $profil->telepon }} <br>   
             Email: {{ $profil->email }} <br>   
             
-            <br> SIDESKEL Development by. <strong> TIM IT KKN-PPM UGM, UNG, UMGo</strong>
-            <br> and This template is made by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <br>
+            Copyright &copy; <script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>
+
+            <br> SIDESKEL Dikembangkan oleh <strong class="font-weight-bold">TIM IT KKN-PPM UGM, UNG, UMGo 2019 </strong>
+            <br> Didukung oleh <strong class="font-weight-bold">Dinas Komunikasi dan Informatika Kabupaten Gorontalo </strong>
             </p>
           </div>
           
           <div class="col-md-6">
-            <h5>Maps </h5>
+            <h5>Lokasi </h5>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63833.414100565715!2d122.9484132327109!3d0.61513371305782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32792e74a1a437d1%3A0xf71f75fa36a24350!2sKayubulan%2C+Limboto%2C+Gorontalo!5e0!3m2!1sen!2sid!4v1563680141208!5m2!1sen!2sid" style="width:100%; height:300px;" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         </div>
