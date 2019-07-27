@@ -48,7 +48,8 @@ Route::get('/', function () {
         $daftar_pendapatan = \App\Pendapatan::where('tahun', date('Y'))->orderBy('nominal_pendapatan', 'asc')->get();
         $total_pendapatan = $daftar_pendapatan->sum('nominal_pendapatan');
 
-    return view('beranda/index', compact('daftar_artikel', 'daftar_kegiatan', 'daftar_pendidikan', 'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_belanja', 'daftar_pendapatan', 'total_belanja', 'total_pendapatan'));
+    return view('beranda/indexa', compact('daftar_artikel', 'daftar_kegiatan', 'daftar_pendidikan', 'manula', 'balita', 'kanak_kanak', 'remaja_awal', 'remaja_akhir', 'dewasa_awal', 'dewasa_akhir', 'lansia_akhir', 'lansia_awal', 'daftar_belanja', 'daftar_pendapatan', 'total_belanja', 'total_pendapatan'));
+
 });
 Route::prefix('beranda')->group(function()
 {

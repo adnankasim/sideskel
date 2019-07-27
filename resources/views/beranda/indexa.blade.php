@@ -78,6 +78,7 @@
                         <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
                         <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
+                        
                         <li class="has-children">
                           <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
                           <ul class="dropdown arrow-top">
@@ -115,9 +116,10 @@
                     </li>
                     <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
                     <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
+
 @if(Session::has('pengguna'))
                     <li class="has-children">
-                      <a href="#"><i class="fa fa-user"></i> {{ substr(Session::get('nama'), 0, 10) }}</a>
+                      <a href="#"><i class="fa fa-user"></i> {{ substr(Session::get('nama'), 0, 5) }} </a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/dashboard') }}"><i class="fa fa-dashboard"></i> PROFIL</a></li>
                         <li><a href="{{ url('keluar') }}"><i class="fa fa-sign-out"></i> KELUAR</a></li>
@@ -150,14 +152,31 @@
 
     <div class="site-section border-bottom" data-aos="flip-left">
       <div class="container">
+        
+        <div class="row">
+                <h4 class="mb-4 mt-0 col-12 text-center">VISI & MISI</h4>
+        </div>
+
         <div class="row">
 
-          <div class="col-lg-12 col-md-12 mb-12 mb-lg-0 text-center">
+          <div class="col-lg-6 col-md-12 mb-3 mb-lg-0 text-center">
             <div class="media custom-media">
               <div class="media-body text-center">
-                <span class="fa fa-eye fa-3x"></span>
-                <span class="fa fa-eye fa-3x"></span>
-                <h5 class="mt-3">VISI & MISI</h5>
+                <img src="{{ asset('assets-beranda/images/lurah-kayubulan.jpg') }}" class="img img-responsive" width="300">
+                <h4 class="mt-3 font-weight-bold">
+                    HALID KADIR, S.IP
+                </h4>
+                <hr>
+                <h4 >
+                    LURAH KAYUBULAN
+                </h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12 mb-12 mb-lg-0 text-center">
+            <div class="media custom-media">
+              <div class="media-body text-justify font-weight-bold">
                   {!! $profil->visi_misi !!}
               </div>
             </div>
@@ -167,7 +186,7 @@
       </div>
     </div>
 
-    <div class="site-section border" data-aos="zoom-out">
+    <div class="site-section border bg-info" data-aos="zoom-out">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -442,6 +461,8 @@
         
       </div>
     </div>
+
+    <hr>
 
     <div class="site-section" data-aos="zoom-in">
       <div class="container">

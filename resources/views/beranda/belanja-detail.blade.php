@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
                         <h2 class="site-heading text-center text-black mb-2 mt-5 mt-md-2 mt-xl-0"><strong>BELANJA TAHUN
-                                2018</strong></h2>
+                                {{ Request::segment(3) }}</strong></h2>
 
                         <div class="non-home p-5 bg-white">
                             <span class="float-left"> Total Data :

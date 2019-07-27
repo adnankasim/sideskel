@@ -151,7 +151,7 @@
 
 @if(Session::has('pengguna'))
                     <li class="has-children">
-                      <a href="#"><i class="fa fa-user"></i> {{ substr(Session::get('nama'), 0, 10) }} </a>
+                      <a href="#"><i class="fa fa-user"></i> {{ substr(Session::get('nama'), 0, 5) }} </a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/dashboard') }}"><i class="fa fa-dashboard"></i> PROFIL</a></li>
                         <li><a href="{{ url('keluar') }}"><i class="fa fa-sign-out"></i> KELUAR</a></li>

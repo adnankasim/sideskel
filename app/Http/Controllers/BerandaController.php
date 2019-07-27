@@ -92,7 +92,7 @@ class BerandaController extends Controller
     
     // belanja
     public function belanja(){
-        $daftar_tahun = \App\Belanja::distinct('tahun')->pluck('tahun');
+        $daftar_tahun = \App\Belanja::orderBy('tahun', 'asc')->distinct('tahun')->pluck('tahun');
         return view('beranda/belanja', compact('daftar_tahun'));
     }
     public function belanjaDetail($tahun){
@@ -104,7 +104,7 @@ class BerandaController extends Controller
 
     // pendapatan
     public function pendapatan(){
-        $daftar_tahun = \App\Pendapatan::distinct('tahun')->pluck('tahun');
+        $daftar_tahun = \App\Pendapatan::orderBy('tahun', 'asc')->distinct('tahun')->pluck('tahun');
         return view('beranda/pendapatan', compact('daftar_tahun'));
     }
     public function pendapatanDetail($tahun)
