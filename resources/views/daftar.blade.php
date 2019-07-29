@@ -67,11 +67,11 @@
 				        {!! Form::select('jenis_kelamin', ['perempuan' => 'Perempuan', 'laki-laki' => 'Laki - Laki'], null, ['placeholder' => 'Jenis Kelamin', 'class' => 'form-control']); !!}
 					</div>
 
-                	<button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                	<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-edit"></i> DAFTAR</button>
 				{!! Form::close() !!}
 
-	                <a href="{{ url('masuk') }}" class="btn btn-outline-info btn-block mt-2">Masuk</a>
-
+	                <a href="{{ url('masuk') }}" class="btn btn-outline-info btn-block mt-2 w-50 float-left"> <i class="fa fa-sign-in"></i> MASUK</a>
+					<a href="{{ url('/') }}" class="btn btn-outline-warning d-inline-block mt-2 w-50 float-right"><i class="fa fa-home"></i> BERANDA</a>
 			</div>
 		</div>
 	</div>

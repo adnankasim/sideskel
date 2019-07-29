@@ -112,7 +112,7 @@
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
                         
                         <li class="has-children">
-                          <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
+                          <a href="#"><i class="fa fa-building-o"></i> FASILITAS</a>
                           <ul class="dropdown arrow-top">
                             <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
                             <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
@@ -138,7 +138,7 @@
                       <a href="#"><i class="fa fa-users"></i> PENDUDUK</a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/penduduk-usia') }}"><i class="fa fa-calendar"></i> USIA</a></li>
-                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-dollar"></i> PEKERJAAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-car"></i> PEKERJAAN</a></li>
                         <li><a href="{{ url('beranda/penduduk-pendidikan') }}"><i class="fa fa-graduation-cap"></i> PENDIDIKAN</a></li>
                         <li><a href="{{ url('beranda/penduduk-golongan-darah') }}"><i class="fa fa-tint"></i> GOL. DARAH</a></li>
                         <li><a href="{{ url('beranda/penduduk-menikah') }}"><i class="fa fa-female"></i><i class="fa fa-male"></i> MENIKAH</a></li>
@@ -147,7 +147,7 @@
                       </ul>
                     </li>
                     <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
-                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
+                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-camera"></i> KEGIATAN</a></li>
 
 @if(Session::has('pengguna'))
                     <li class="has-children">

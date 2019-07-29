@@ -80,7 +80,7 @@
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
                         
                         <li class="has-children">
-                          <a href="#"><i class="fa fa-binoculars"></i> FASILITAS</a>
+                          <a href="#"><i class="fa fa-building-o"></i> FASILITAS</a>
                           <ul class="dropdown arrow-top">
                             <li><a href="{{ url('beranda/fasilitas-pemukiman') }}"><i class="fa fa-bed"></i> PEMUKIMAN</a></li>
                             <li><a href="{{ url('beranda/fasilitas-pemerintahan') }}"><i class="fa fa-building"></i> PEMERINTAHAN</a></li>
@@ -106,7 +106,7 @@
                       <a href="#"><i class="fa fa-users"></i> PENDUDUK</a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/penduduk-usia') }}"><i class="fa fa-calendar"></i> USIA</a></li>
-                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-dollar"></i> PEKERJAAN</a></li>
+                        <li><a href="{{ url('beranda/penduduk-pekerjaan') }}"><i class="fa fa-car"></i> PEKERJAAN</a></li>
                         <li><a href="{{ url('beranda/penduduk-pendidikan') }}"><i class="fa fa-graduation-cap"></i> PENDIDIKAN</a></li>
                         <li><a href="{{ url('beranda/penduduk-golongan-darah') }}"><i class="fa fa-tint"></i> GOL. DARAH</a></li>
                         <li><a href="{{ url('beranda/penduduk-menikah') }}"><i class="fa fa-female"></i><i class="fa fa-male"></i> MENIKAH</a></li>
@@ -115,7 +115,7 @@
                       </ul>
                     </li>
                     <li><a href="{{ url('beranda/artikel') }}"><i class="fa fa-newspaper-o"></i> ARTIKEL</a></li>
-                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-feed"></i> KEGIATAN</a></li>
+                    <li><a href="{{ url('beranda/kegiatan') }}"><i class="fa fa-camera"></i> KEGIATAN</a></li>
 
 @if(Session::has('pengguna'))
                     <li class="has-children">
@@ -154,7 +154,9 @@
       <div class="container">
         
         <div class="row">
-                <h4 class="mb-4 mt-0 col-12 text-center">VISI & MISI</h4>
+          <div class="col-12 text-center">
+            <a href="{{ url('beranda/profil') }}"><h2 class="font-weight-bold text-black mb-5"><i class="fa fa-eye"></i><i class="fa fa-eye"></i> VISI MISI</h2></a>
+          </div>
         </div>
 
         <div class="row">
@@ -162,7 +164,7 @@
           <div class="col-lg-6 col-md-12 mb-3 mb-lg-0 text-center">
             <div class="media custom-media">
               <div class="media-body text-center">
-                <img src="{{ asset('assets-beranda/images/lurah-kayubulan.jpg') }}" class="img img-responsive" width="300">
+                <img src="{{ asset('assets-beranda/images/ayah-kayubulan.png') }}" class="img img-responsive" width="300">
                 <h4 class="mt-3 font-weight-bold">
                     HALID KADIR, S.IP
                 </h4>
@@ -423,9 +425,9 @@
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
           <a href="{{ url('beranda/pendapatan/'. date('Y') ) }}">
                           <div class="card">
-                            <div class="card-body bg-primary">
+                            <div class="card-body bg-info" style="background-color:#5edfff">
                                     <div class="d-inline-block">
-                                        <i class="fa fa-leaf fa-4x text-white"></i>
+                                        <i class="fa fa-dollar fa-4x text-white"></i>
                                     </div>
                                     <div class="d-inline-block mx-2">
                                         <div class="text-left dib">
@@ -441,7 +443,7 @@
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
           <a href="{{ url('beranda/belanja/'. date('Y') ) }}">
                           <div class="card">
-                            <div class="card-body bg-primary">
+                            <div class="card-body" style="background-color:#7ecfc0">
                                     <div class="d-inline-block">
                                         <i class="fa fa-credit-card fa-4x text-white"></i>
                                     </div>
@@ -468,7 +470,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
-            <a href="{{ url('beranda/kegiatan') }}"><h2 class="font-weight-bold text-black mb-5"><i class="fa fa-feed"></i> KEGIATAN</h2></a>
+            <a href="{{ url('beranda/kegiatan') }}"><h2 class="font-weight-bold text-black mb-5"><i class="fa fa-camera"></i> KEGIATAN</h2></a>
           </div>
         </div>
         <div class="row mb-5">

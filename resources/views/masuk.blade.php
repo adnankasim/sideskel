@@ -58,11 +58,12 @@
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
-                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                <button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-sign-in"></i> MASUK</button>
 
 				{!! Form::close() !!}
 
-                <a href="{{ url('daftar') }}" class="btn btn-outline-info btn-block mt-2">Daftar</a>
+                <a href="{{ url('daftar') }}" class="btn btn-outline-info d-inline-block mt-2 text-center w-50 float-left"><i class="fa fa-edit"></i> DAFTAR</a>
+                <a href="{{ url('/') }}" class="btn btn-outline-warning d-inline-block mt-2 w-50 float-right"><i class="fa fa-home"></i> BERANDA</a>
 
 			</div>
 		</div>

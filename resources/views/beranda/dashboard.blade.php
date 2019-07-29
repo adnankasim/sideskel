@@ -18,7 +18,11 @@
                             <table class="table">
                                 <tr>
                                     <td class="text-center">
+                                        @if(empty($pengguna->foto_pengguna))
+                                        <img src="{{ asset('assets-dashboard/images/default.jpg') }}" width="200">
+                                        @else
                                         <img src="{{ asset('assets-dashboard/images/'. $pengguna->foto_pengguna ) }}" width="200">
+                                        @endif
                                     </td>
                                 </tr>
                             </table>

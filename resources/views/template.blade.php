@@ -87,7 +87,7 @@
                     <li class="menu-item-has-children dropdown">
                 @endif
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-binoculars"></i>FASILITAS</a>
+                            aria-expanded="false"> <i class="menu-icon fa fa-building-o"></i>FASILITAS</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-bed"></i><a href="{{ url('fasilitas-pemukiman') }}">PEMUKIMAN</a></li>
                             <li><i class="fa fa-building"></i><a href="{{ url('fasilitas-pemerintahan') }}">PEMERINTAHAN</a></li>
@@ -108,7 +108,7 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-money"></i>KEUANGAN</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-credit-card"></i> <a href="{{ url('belanja') }}">BELANJA</a></li>
-                            <li><i class="fa fa-leaf"></i><a href="{{ url('pendapatan') }}">PENDAPATAN</a></li>
+                            <li><i class="fa fa-dollar"></i><a href="{{ url('pendapatan') }}">PENDAPATAN</a></li>
                         </ul>
                     </li>
 
@@ -145,9 +145,9 @@
 
 @if(Session::has('admin'))
                 @if(Request::segment(1) === 'kegiatan')
-                    <li class="active"><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
+                    <li class="active"><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-camera"></i>KEGIATAN</a></li>
                 @else
-                    <li><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-feed"></i>KEGIATAN</a></li>
+                    <li><a href="{{ url('kegiatan') }}"><i class="menu-icon fa fa-camera"></i>KEGIATAN</a></li>
                 @endif
 
                 @if(Request::segment(1) === 'dokumen')

@@ -309,6 +309,7 @@ class BerandaController extends Controller
           'password_pengguna' => 'required|string|max:100',
           'jenis_kelamin' => 'required|in:perempuan,laki-laki',
           'no_hp' => 'required|string|max:15',
+          'foto_pengguna' => 'sometimes',
         ]);
 
         if($validasi->fails()){
