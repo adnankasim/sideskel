@@ -99,7 +99,7 @@
                       <a href="#"><i class="fa fa-money"></i> KEUANGAN</a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/belanja') }}"><i class="fa fa-credit-card"></i> BELANJA</a></li>
-                        <li><a href="{{ url('beranda/pendapatan') }}"><i class="fa fa-leaf"></i> PENDAPATAN</a></li>
+                        <li><a href="{{ url('beranda/pendapatan') }}"><i class="fa fa-dollar"></i> PENDAPATAN</a></li>
                       </ul>
                     </li>
                     <li class="has-children">

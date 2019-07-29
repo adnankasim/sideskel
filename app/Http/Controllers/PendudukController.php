@@ -253,14 +253,12 @@ class PendudukController extends Controller
 
         $pdf->SetFont('Arial', 'B', 8);
         $pdf->Cell(17, 10, "NO", 1, 0, 'C');
+        $pdf->Cell(40, 10, "NIK", 1, 0, 'C');
+        $pdf->Cell(40, 10, "N0 KK", 1, 0, 'C');
         $pdf->Cell(59, 10, "NAMA", 1, 0, 'C');
-        $pdf->Cell(20, 10, "MENIKAH", 1, 0, 'C');
         $pdf->Cell(25, 10, "GENDER", 1, 0, 'C');
         $pdf->Cell(55, 10, "TEMPAT & TANGGAL LAHIR", 1, 0, 'C');
         $pdf->Cell(45, 10, "PEKERJAAN", 1, 0, 'C');
-        $pdf->Cell(20, 10, "AGAMA", 1, 0, 'C');
-        $pdf->Cell(20, 10, "PENDIDIKAN", 1, 0, 'C');
-        $pdf->Cell(15, 10, "DARAH", 1, 0, 'C');
         $pdf->Ln();
         
         $pdf->SetFont('Arial', '', 8);
@@ -306,22 +304,12 @@ class PendudukController extends Controller
         foreach($daftar_penduduk as $penduduk)
         {
           $pdf->Cell(17, 10, $i++, 1, 0, 'C');
+          $pdf->Cell(40, 10, strtoupper($penduduk->nik), 1, 0, 'C');
+          $pdf->Cell(40, 10, strtoupper($penduduk->no_kk), 1, 0, 'C');
           $pdf->Cell(59, 10, strtoupper($penduduk->nama_penduduk), 1, 0, 'C');
-          $pdf->Cell(20, 10, strtoupper($penduduk->status_menikah), 1, 0, 'C');
           $pdf->Cell(25, 10, strtoupper($penduduk->jenis_kelamin), 1, 0, 'C');
           $pdf->Cell(55, 10, strtoupper($penduduk->tempat_lahir) . ', '. $penduduk->tanggal_lahir, 1, 0, 'C');
           $pdf->Cell(45, 10, strtoupper($penduduk->pekerjaan), 1, 0, 'C');
-          $pdf->Cell(20, 10, strtoupper($penduduk->agama), 1, 0, 'C');
-          if($penduduk->pendidikan_terakhir == 'tidak sekolah'){
-            $pdf->Cell(20, 10, '-', 1, 0, 'C');
-          }else{
-            $pdf->Cell(20, 10, strtoupper($penduduk->pendidikan_terakhir), 1, 0, 'C');
-          }
-          if($penduduk->golongan_darah == 'tidak diketahui'){
-            $pdf->Cell(15, 10, '-', 1, 0, 'C');
-          }else{
-            $pdf->Cell(15, 10, strtoupper($penduduk->golongan_darah), 1, 0, 'C');
-          }
           $pdf->Ln();
         }
 
@@ -366,13 +354,19 @@ class PendudukController extends Controller
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(0, 7, "BIODATA PENDUDUK", 0, 2, 'C');
 
-        $pdf->Image(asset('assets-dashboard/images/' . $penduduk->foto_penduduk), 55, null, 100);
+        $pdf->Image(asset('assets-dashboard/images/' . $penduduk->foto_penduduk), 80, null, 50);
         $pdf->Ln();
         
         $pdf->SetFont('Arial', '', 11);
         $pdf->Cell(65, 10, "NOMOR INDUK KEPENDUDUKAN", 0, 0, 'L');
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Cell(150, 10, strtoupper($penduduk->nik), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "NOMOR KARTU KELUARGA", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->no_kk), 0, 0, 'L');
         $pdf->Ln();
         
         $pdf->SetFont('Arial', '', 11);
@@ -435,7 +429,26 @@ class PendudukController extends Controller
         $pdf->Cell(150, 10, strtoupper($penduduk->golongan_darah), 0, 0, 'L');
         $pdf->Ln();
 
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "LINGKUNGAN", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->lingkungan), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "RUKUN TETANGGA", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->rt), 0, 0, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->Cell(65, 10, "RUKUN WARGA", 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Cell(150, 10, strtoupper($penduduk->rw), 0, 0, 'L');
+        $pdf->Ln();
         
+
+
         // footer
         $pdf->SetY(265);
         $pdf->SetX(0);

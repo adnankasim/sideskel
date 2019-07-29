@@ -6,6 +6,10 @@
     <label class="control-label">NIK</label>
         {!! Form::number('nik', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 123456789098765']) !!}
 </div>
+<div class="form-group">
+    <label class="control-label">NO Kartu Keluarga</label>
+        {!! Form::number('no_kk', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 123456789098765']) !!}
+</div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Nama</label>
         {!! Form::text('nama_penduduk', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Alif Perdana Sugeha']) !!}
@@ -36,7 +40,8 @@
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Pendidikan Terakhir</label>
-    {!! Form::select('pendidikan_terakhir', ['tidak sekolah' => 'Tidak Sekolah', 'tk' => 'TK', 'sd' => 'SD', 'smp' => 'SMP', 'sma' => 'SMA', 'd1' => 'D1', 'd2' => 'D2', 'd3' => 'D3', 's1' => 'S1', 's2' => 'S2', 's3' => 'S3'], null, ['placeholder' => '-- Pendidikan Terakhir --', 'class' => 'form-control']) !!}
+    <!-- {!! Form::select('pendidikan_terakhir', ['tidak sekolah' => 'Tidak Sekolah', 'tk' => 'TK', 'sd' => 'SD', 'smp' => 'SMP', 'sma' => 'SMA', 'd1' => 'D1', 'd2' => 'D2', 'd3' => 'D3', 's1' => 'S1', 's2' => 'S2', 's3' => 'S3'], null, ['placeholder' => '-- Pendidikan Terakhir --', 'class' => 'form-control']) !!} -->
+    {!! Form::text('pendidikan_terakhir', null, ['class' => 'form-control', 'placeholder' => 'Contoh: S3']) !!}
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Golongan Darah</label>
@@ -45,6 +50,18 @@
 <div class="form-group has-success">
     <label class="control-label mb-1">Jenis Kelamin</label>
     {!! Form::select('jenis_kelamin', ['perempuan' => 'Perempuan', 'laki-laki' => 'Laki-Laki'], null, ['placeholder' => '-- Jenis Kelamin --', 'class' => 'form-control']) !!}
+</div>
+<div class="form-group has-success">
+    <label class="control-label mb-1">Lingkungan</label>
+    {!! Form::text('lingkungan', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 3']) !!}
+</div>
+<div class="form-group has-success">
+    <label class="control-label mb-1">Rukung Tetangga</label>
+    {!! Form::text('rt', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 1']) !!}
+</div>
+<div class="form-group has-success">
+    <label class="control-label mb-1">Rukung Warga</label>
+    {!! Form::text('rw', null, ['class' => 'form-control', 'placeholder' => 'Contoh: 2']) !!}
 </div>
 <div class="form-group has-success">
     <label>Foto</label>

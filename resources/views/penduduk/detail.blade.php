@@ -53,6 +53,10 @@
                                         <th> {{ $penduduk->nik }} </th>
                                     </tr>
                                     <tr>
+                                        <td>Nomor Kartu Keluarga</td>
+                                        <th> {{ $penduduk->no_kk }} </th>
+                                    </tr>
+                                    <tr>
                                         <td>Nama</td>
                                         <th>{{ $penduduk->nama_penduduk }}</th>
                                     </tr>
@@ -104,6 +108,24 @@
                                         <td>Jenis Kelamin</td>
                                         <th class="text-uppercase">
                                             {{ $penduduk->jenis_kelamin }}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lingkungan</td>
+                                        <th>
+                                            {{ $penduduk->lingkungan }}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>RT</td>
+                                        <th>
+                                            {{ $penduduk->rt }}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>RW</td>
+                                        <th>
+                                            {{ $penduduk->rw }}
                                         </th>
                                     </tr>
                                 </table>
