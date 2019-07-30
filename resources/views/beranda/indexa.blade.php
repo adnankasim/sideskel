@@ -29,6 +29,9 @@
       *{
         font-family: 'Montserrat', sans-serif;
       }
+      a.keu:hover{
+        background-color:#7ecfc0;
+      }
     </style>
   </head>
   <body>
@@ -425,7 +428,7 @@
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
           <a href="{{ url('beranda/pendapatan/'. date('Y') ) }}">
                           <div class="card">
-                            <div class="card-body bg-info" style="background-color:#5edfff">
+                            <div class="card-body btn-info">
                                     <div class="d-inline-block">
                                         <i class="fa fa-dollar fa-4x text-white"></i>
                                     </div>
@@ -443,7 +446,7 @@
           <div class="col-lg-6 col-md-12 p-2 mb-lg-0 post-entry">
           <a href="{{ url('beranda/belanja/'. date('Y') ) }}">
                           <div class="card">
-                            <div class="card-body" style="background-color:#7ecfc0">
+                            <div class="card-body btn-info">
                                     <div class="d-inline-block">
                                         <i class="fa fa-credit-card fa-4x text-white"></i>
                                     </div>
