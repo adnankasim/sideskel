@@ -28,7 +28,7 @@
                 APAKAH YAKIN DATA INI VALID? 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
+                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal"><i class="fa fa-times-circle"></i> BATAL</button>
                 {!! Form::open(['url' => 'artikel/validasi/'.$artikel->id, 'class' => 'd-inline']) !!}
                     <button type="submit" class="btn btn-primary btn-sm">
                          <i class="fa fa-check"></i> VALID

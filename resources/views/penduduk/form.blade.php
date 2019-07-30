@@ -40,7 +40,6 @@
 </div>
 <div class="form-group has-success">
     <label class="control-label mb-1">Pendidikan Terakhir</label>
-    <!-- {!! Form::select('pendidikan_terakhir', ['tidak sekolah' => 'Tidak Sekolah', 'tk' => 'TK', 'sd' => 'SD', 'smp' => 'SMP', 'sma' => 'SMA', 'd1' => 'D1', 'd2' => 'D2', 'd3' => 'D3', 's1' => 'S1', 's2' => 'S2', 's3' => 'S3'], null, ['placeholder' => '-- Pendidikan Terakhir --', 'class' => 'form-control']) !!} -->
     {!! Form::text('pendidikan_terakhir', null, ['class' => 'form-control', 'placeholder' => 'Contoh: S3']) !!}
 </div>
 <div class="form-group has-success">
@@ -67,13 +66,21 @@
     <label>Foto</label>
     <div class="input-group mb-3">
         <div class="custom-file">
-            {!! Form::file('foto_penduduk', ['class' => 'custom-file-input']) !!}
+            {!! Form::file('foto_penduduk', ['class' => 'custom-file-input', 'id' => 'foto_penduduk']) !!}
             <label class="custom-file-label">Cari Foto</label>
         </div>
     </div>
+    <p id="target"></p>
 </div>
 <div>
     <button type="submit" class="btn btn-primary btn-sm">
       <i class="fa fa-paper-plane fa-lg"></i> 
     </button>
 </div>
+
+<script>
+    var file = document.getElementById("foto_penduduk");
+    file.addEventListener('change', function(){
+        document.getElementById("target").innerHTML = "Nama Foto : "+file.files[0].name;
+    })
+</script>

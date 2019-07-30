@@ -14,13 +14,21 @@
     <label>Poster</label>
     <div class="input-group mb-3">
         <div class="custom-file">
-            {!! Form::file('poster_kegiatan', ['class' => 'custom-file-input']) !!}
+            {!! Form::file('poster_kegiatan', ['class' => 'custom-file-input', 'id' => 'poster_kegiatan']) !!}
             <label class="custom-file-label">Cari Poster</label>
         </div>
     </div>
+    <p id="target"></p>
 </div>
 <div>
     <button type="submit" class="btn btn-primary btn-sm">
       <i class="fa fa-paper-plane fa-lg"></i> 
     </button>
 </div>
+
+<script>
+    var file = document.getElementById("poster_kegiatan");
+    file.addEventListener('change', function(){
+        document.getElementById("target").innerHTML = "Nama Poster : "+file.files[0].name;
+    })
+</script>

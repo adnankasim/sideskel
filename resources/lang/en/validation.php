@@ -135,7 +135,8 @@ return [
     'timezone' => 'The :attribute must be a valid zone.',
     // 'unique' => 'The :attribute has already been taken.',
     'unique' => 'Kolom :attribute sudah tersedia, silahkan cari yang lain.',
-    'uploaded' => 'The :attribute failed to upload.',
+    // 'uploaded' => 'The :attribute failed to upload.',
+    'uploaded' => ':attribute gagal diunggah.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 

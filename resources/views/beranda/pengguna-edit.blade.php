@@ -38,10 +38,11 @@
     <label>Foto</label>
     <div class="input-group mb-3">
         <div class="custom-file">
-            {!! Form::file('foto_pengguna', ['class' => 'custom-file-input']) !!}
+            {!! Form::file('foto_pengguna', ['class' => 'custom-file-input', 'id' => 'foto_pengguna']) !!}
             <label class="custom-file-label">Cari Foto</label>
         </div>
     </div>
+    <p id="target"></p>
 </div>
 <div>
 {!! Form::hidden('id', $pengguna->id) !!}
@@ -52,6 +53,13 @@
       <a href="{{ url('beranda/dashboard') }}" class="btn btn-secondary btn-block fa fa-arrow-left fa-lg"></a> 
 </div>
 {!! Form::close() !!}
+
+<script>
+    var file = document.getElementById("foto_pengguna");
+    file.addEventListener('change', function(){
+        document.getElementById("target").innerHTML = "Nama Foto : "+file.files[0].name;
+    })
+</script>
 
                             
                         </div>
