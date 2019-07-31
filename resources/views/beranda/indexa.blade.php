@@ -77,7 +77,7 @@
                       <a href="#"> <i class="fa fa-home"></i> TENTANG</a>
                       <ul class="dropdown arrow-top">
                         <li><a href="{{ url('beranda/profil') }}"> <i class="fa fa-info"></i> PROFIL</a></li>
-                        <li><a href="{{ url('beranda/tanaman-komoditas') }}"><i class="fa fa-leaf"></i> TANAMAN KOMODITAS</a></li>
+                        <li><a href="{{ url('beranda/tanaman-komoditas') }}"><i class="fa fa-leaf"></i> KOMODITAS</a></li>
                         <li><a href="{{ url('beranda/pelayanan') }}"><i class="fa fa-info-circle"></i> PELAYANAN</a></li>
                         <li><a href="{{ url('beranda/lembaga') }}"><i class="fa fa-bank"></i> LEMBAGA</a></li>
                         <li><a href="{{ url('beranda/dokumen') }}"><i class="fa fa-file"></i> DOKUMEN</a></li>
@@ -167,7 +167,7 @@
           <div class="col-lg-6 col-md-12 mb-3 mb-lg-0 text-center">
             <div class="media custom-media">
               <div class="media-body text-center">
-                <img src="{{ asset('assets-beranda/images/ayah-kayubulan.png') }}" class="img img-responsive" width="300">
+                <img src="{{ asset('assets-beranda/images/ayah-kayubulan.png') }}" class="img img-responsive shadow" width="300">
                 <h4 class="mt-3 font-weight-bold">
                     HALID KADIR, S.IP
                 </h4>
@@ -196,7 +196,7 @@
         <div class="row">
           <div class="col-12 text-center">
             <a href="{{ url('beranda/penduduk-usia') }}">
-              <h2 class="font-weight-bold text-black mb-5"> <i class="fa fa-users"></i> PENDUDUK</h2>
+              <h2 class="font-weight-bold text-white mb-5"> <i class="fa fa-users"></i> PENDUDUK</h2>
             </a>
           </div>
         </div>
@@ -500,6 +500,7 @@
     <footer class="site-footer border-top" data-aos="fade-down">
       <div class="container">
         <div class="row pt-2 text-left">
+
           <div class="col-md-6">
             <img src="{{ asset('assets-dashboard/images/'.$profil->logo) }}" width="100" class="my-2">
             <p>
@@ -510,9 +511,10 @@
             <br>
             Copyright &copy; <script>document.write(new Date().getFullYear());</script>  <strong class="font-weight-bold">{{ $profil->nama }}</strong>
 
-            <br> SIDESKEL Dikembangkan oleh <strong class="font-weight-bold">TIM IT KKN-PPM UGM, UNG, UMGo 2019 </strong>
-            <br> Didukung oleh <strong class="font-weight-bold">Dinas Komunikasi dan Informatika Kabupaten Gorontalo </strong>
+            <br>Dikembangkan oleh <strong class="font-weight-bold">TIM IT KKN-PPM UGM, UNG, UMGo 2019 </strong>
+            <br>Didukung oleh <strong class="font-weight-bold">Dinas Komunikasi & Informatika Kabupaten Gorontalo </strong>
             </p>
+            
           </div>
           
           <div class="col-md-6">

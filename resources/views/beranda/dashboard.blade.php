@@ -17,7 +17,7 @@
                             <h5 class="float-left">PROFIL</h5>
                             <a href="{{ url('beranda/dashboard/edit-pengguna') }}" class="btn btn-success btn-sm d-inline-block my-1 float-right"><i class="fa fa-edit fa-lg"></i></a>
                             
-                            <table class="table">
+                            <table class="table table-borderless">
                                 <tr>
                                     <td class="text-center">
                                         @if(empty($pengguna->foto_pengguna))
@@ -28,7 +28,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table class="table table-responsive-sm">
+                            <table class="table table-responsive-sm table-borderless">
                                 <tr>
                                     <th class="text-center">
                                         NAMA

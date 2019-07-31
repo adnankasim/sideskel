@@ -18,21 +18,17 @@
                                 </span>
                             </div>
                             <?php $i=1 ?>
+                            
                             @foreach($daftar_pelayanan as $pelayanan)
-                            <div class="card my-2">
-                              <div class="card-body">
-                                <h5 class="card-title pelayanan pelayanan-judul-{{ $i }}">{{ $i }}. {{ $pelayanan->nama }} </h5>
-                                <div class="card-text pelayanan-keterangan-{{ $i }} d-none pl-3"> {!! $pelayanan->keterangan !!} </div>
-                              </div>
-                            </div>
 
-<script>
-    window.addEventListener("load", function(){
-        $( ".pelayanan-judul-{{ $i }}" ).click(function() {
-            $( ".pelayanan-keterangan-{{ $i++ }}" ).toggleClass( "d-none" )
-        });
-    });
-</script>
+                                <details>
+                                    <summary class="h5 border font-weight-bold my-3 p-1">
+                                        {{ $i++ }}. {{ $pelayanan->nama }} 
+                                    </summary>
+                                    <p class="h6 pl-2" style="line-height:30px">
+                                        {!! $pelayanan->keterangan !!}
+                                    </p>
+                                </details>
 
                             @endforeach
 
