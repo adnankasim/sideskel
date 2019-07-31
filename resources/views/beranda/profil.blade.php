@@ -19,7 +19,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table class="table table-hover">
+                            <table class="table table-hover table-responsive-sm">
                                 <tr>
                                     <td>Nama</td>
                                     <td class="font-weight-bold"> {{ $profil->nama }} </td>
@@ -37,7 +37,7 @@
                                     <td class="font-weight-bold"> {{ $profil->email }} </td>
                                 </tr>
                             </table>
-                            <table class="table">
+                            <table class="table table-responsive-sm">
                                 <tr>
                                     <td>Deskripsi</td>
                                 </tr>
@@ -45,7 +45,7 @@
                                     <td> {!! $profil->deskripsi !!} </td>
                                 </tr>
                             </table>
-                            <table class="table">
+                            <table class="table table-responsive-sm">
                                 <tr>
                                     <td class="font-weight-bold text-center">VISI & MISI</td>
                                 </tr>
@@ -56,7 +56,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     BATAS WILAYAH
                                 </strong>
@@ -79,7 +79,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     ORBITASI
                                 </strong>
@@ -102,7 +102,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     TIPOLOGI
                                 </strong>
@@ -125,7 +125,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     IKLIM
                                 </strong>
@@ -148,7 +148,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     KESUBURAN TANAH
                                 </strong>
@@ -173,7 +173,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     PENGGUNAAN TANAH
                                 </strong>
@@ -196,7 +196,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <strong class="float-left"> 
                                     INFRASTRUKTUR MELINTASI
                                 </strong>

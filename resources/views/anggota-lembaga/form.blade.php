@@ -18,13 +18,21 @@
     <label>Foto</label>
     <div class="input-group mb-3">
         <div class="custom-file">
-            {!! Form::file('foto', ['class' => 'custom-file-input']) !!}
+            {!! Form::file('foto', ['class' => 'custom-file-input', 'id' => 'foto']) !!}
             <label class="custom-file-label">Cari Foto</label>
         </div>
     </div>
+    <p id="target"></p>
 </div>
 <div>
     <button type="submit" class="btn btn-primary btn-sm">
       <i class="fa fa-paper-plane fa-lg"></i> 
     </button>
 </div>
+
+<script>
+    var file = document.getElementById("foto");
+    file.addEventListener('change', function(){
+        document.getElementById("target").innerHTML = "Nama Foto : "+file.files[0].name;
+    })
+</script>

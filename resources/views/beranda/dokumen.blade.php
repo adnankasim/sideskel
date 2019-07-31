@@ -16,7 +16,7 @@
                                         {{ $update_terakhir->updated_at->diffForHumans() }}  
                                     </strong>
                                 </span>
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <td class="font-weight-bold">NO</td>

@@ -8,9 +8,11 @@
 
                         <h2 class="site-heading text-center text-black mb-2 mt-5 mt-md-2 mt-xl-0"><strong>DASHBOARD PENGGUNA</strong></h2>
 
-                        <div class="non-home p-5 bg-white">
+                        <div class="non-home">
+                            @include('pesan.pesan_info')
+                        </div>
 
-                        @include('pesan.pesan_info')
+                        <div class="non-home p-5 bg-white">
 
                             <h5 class="float-left">PROFIL</h5>
                             <a href="{{ url('beranda/dashboard/edit-pengguna') }}" class="btn btn-success btn-sm d-inline-block my-1 float-right"><i class="fa fa-edit fa-lg"></i></a>
@@ -26,7 +28,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table class="table">
+                            <table class="table table-responsive-sm">
                                 <tr>
                                     <th class="text-center">
                                         NAMA
@@ -65,7 +67,7 @@
                             <a href="{{ url('beranda/dashboard/tambah') }}" class="btn btn-primary btn-sm d-inline-block my-1 float-right"><i class="fa fa-plus fa-lg"></i> </a>
                             
                             
-                            <table class="table table-hover">
+                            <table class="table table-hover table-responsive-sm">
                                 <tr>
                                     <th class="font-weight-bold text-center">NO</th>
                                     <th class="font-weight-bold text-center">JUDUL</th>
