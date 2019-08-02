@@ -1,6 +1,6 @@
 <?php
 Route::get('/', function () {
-    $daftar_artikel = App\Artikel::take(3)->get();
+    $daftar_artikel = App\Artikel::where('is_valid', 'ya')->take(3)->get();
     $daftar_kegiatan = App\Kegiatan::take(3)->get();
 
     $daftar_pendidikan = DB::table('penduduk')->select('pendidikan_terakhir', DB::raw('count(*) as total'))->groupBy('pendidikan_terakhir')->get();
