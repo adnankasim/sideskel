@@ -21,7 +21,7 @@
                     @foreach($daftar_kegiatan as $kegiatan)                    
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
                         <a href="{{ url('beranda/kegiatan/'.$kegiatan->slug_kegiatan) }}" class="d-block figure">
-                            <img src="{{ asset('assets-beranda/images/'.$kegiatan->poster_kegiatan) }}" class="img-fluid">
+                            <img src="{{ asset('assets-dashboard/images/'.$kegiatan->poster_kegiatan) }}" class="img-fluid">
                         </a>
                         <i class="text-muted d-inline-block fa fa-calendar"></i>
                         <span> {{ $kegiatan->created_at->diffForHumans() }} </span>

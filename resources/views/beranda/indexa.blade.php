@@ -481,7 +481,7 @@
           @foreach($daftar_kegiatan as $kegiatan)
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
             <a href="{{ url('beranda/kegiatan'.$kegiatan->slug_kegiatan) }}" class="d-block figure">
-              <img src="{{ asset('assets-beranda/images/'.$kegiatan->poster_kegiatan) }}" alt="Image" class="img-fluid">
+              <img src="{{ asset('assets-dashboard/images/'.$kegiatan->poster_kegiatan) }}" alt="Image" class="img-fluid">
             </a>
             <span class="text-muted d-block mb-2"> <i class="fa fa-calendar"></i> {{ $kegiatan->created_at->diffForHumans() }} </span>
             <h3><a href="{{ url('beranda/kegiatan/'.$kegiatan->slug_kegiatan) }}"> {{ $kegiatan->nama_kegiatan }} </a></h3>
