@@ -17,7 +17,7 @@
                     var ctx = document.getElementById( "pendudukAgama" );
                     ctx.height = 150;
                     var myChart = new Chart( ctx, {
-                        type: 'bar',
+                        type: 'pie',
                         data: {
                             labels: [ 
                             @foreach($daftar_agama as $agama)
@@ -34,18 +34,32 @@
                                         ],
                                     borderColor: "rgba(155, 89, 182,1.0)",
                                     borderWidth: "0",
-                                    backgroundColor: "rgba(155, 89, 182,1.0)"
+                                    backgroundColor: [
+                                        "chocolate",
+                                        "#E74C3C",
+                                        "#27AE60",
+                                        "maroon",
+                                        "gray",
+                                        "#3498DB",
+                                        "#F1C40F",
+                                        "teal",
+                                        "#8E44AD",
+                                        "#9B59B6",
+                                        "#2980B9",
+                                        "#D35400",
+                                        "gray",
+                                        "pink",
+                                        "darkblue",
+                                        "green",
+                                        "#E67E22",
+                                        "coral",
+                                        "blue",
+                                    ],
                                             }
                                         ]
                         },
                         options: {
-                            scales: {
-                                yAxes: [ {
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                                } ]
-                            }
+                            responsive: true
                         }
                     } );
                 </script>

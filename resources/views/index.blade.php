@@ -15,6 +15,7 @@
                     <a href="{{ url('penduduk') }}">
                         <div class="card">
                             <div class="card-body">
+                        <p class="text-center h5">Penduduk Berdasarkan Usia</p>
                                 <canvas id="pendudukUsia"></canvas>
                             </div>
                         </div>
@@ -24,7 +25,7 @@
                     var ctx = document.getElementById( "pendudukUsia" );
                     ctx.height = 150;
                     var myChart = new Chart( ctx, {
-                        type: 'bar',
+                        type: 'pie',
                         data: {
                             labels: ['0-5', '6-11', '12-16', '17-25', '26-35', '36-45', '46-55', '56-65', '65 Keatas']  ,
                             datasets: [
@@ -34,18 +35,32 @@
                                         {{ $balita }}, {{ $kanak_kanak }}, {{ $remaja_awal }}, {{ $remaja_akhir }}, {{ $dewasa_awal }}, {{ $dewasa_akhir }}, {{ $lansia_awal }}, {{ $lansia_akhir }}, {{ $manula }} ],
                                     borderColor: "rgba(241, 196, 15,1.0)",
                                     borderWidth: "0",
-                                    backgroundColor: "rgba(241, 196, 15,1.0)"
+                                    backgroundColor: [
+                                        "chocolate",
+                                        "#E74C3C",
+                                        "#27AE60",
+                                        "maroon",
+                                        "gray",
+                                        "#3498DB",
+                                        "#F1C40F",
+                                        "teal",
+                                        "#8E44AD",
+                                        "#9B59B6",
+                                        "#2980B9",
+                                        "#D35400",
+                                        "gray",
+                                        "pink",
+                                        "darkblue",
+                                        "green",
+                                        "#E67E22",
+                                        "coral",
+                                        "blue",
+                                    ],
                                             }
                                         ]
                         },
                         options: {
-                            scales: {
-                                yAxes: [ {
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                                } ]
-                            }
+                            responsive: true
                         }
                     } );
                 </script>
@@ -54,6 +69,7 @@
                     <a href="{{ url('penduduk') }}">
                         <div class="card">
                             <div class="card-body">
+                                <p class="text-center h5">Penduduk Berdasarkan Golongan Darah</p>
                                 <canvas id="pendudukGolonganDarah"></canvas>
                             </div>
                         </div>
@@ -63,7 +79,7 @@
                     var ctx = document.getElementById( "pendudukGolonganDarah" );
                     ctx.height = 150;
                     var myChart = new Chart( ctx, {
-                        type: 'bar',
+                        type: 'pie',
                         data: {
                             labels: [ 
                             @foreach($daftar_darah as $darah)
@@ -80,18 +96,32 @@
                                         ],
                                     borderColor: "rgba(155, 89, 182,1.0)",
                                     borderWidth: "0",
-                                    backgroundColor: "rgba(155, 89, 182,1.0)"
+                                    backgroundColor: [
+                                        "chocolate",
+                                        "#E74C3C",
+                                        "#27AE60",
+                                        "maroon",
+                                        "gray",
+                                        "#3498DB",
+                                        "#F1C40F",
+                                        "teal",
+                                        "#8E44AD",
+                                        "#9B59B6",
+                                        "#2980B9",
+                                        "#D35400",
+                                        "gray",
+                                        "pink",
+                                        "darkblue",
+                                        "green",
+                                        "#E67E22",
+                                        "coral",
+                                        "blue",
+                                    ],
                                             }
                                         ]
                         },
                         options: {
-                            scales: {
-                                yAxes: [ {
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                                } ]
-                            }
+                            responsive: true
                         }
                     } );
                 </script>
