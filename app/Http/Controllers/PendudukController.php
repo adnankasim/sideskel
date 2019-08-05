@@ -354,7 +354,12 @@ class PendudukController extends Controller
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(0, 7, "BIODATA PENDUDUK", 0, 2, 'C');
 
-        $pdf->Image(asset('assets-dashboard/images/' . $penduduk->foto_penduduk), 80, null, 50);
+        if(empty($penduduk->foto_penduduk)){
+          $pdf->Image(asset('assets-dashboard/images/default.jpg'), 80, null, 50);
+        }else{
+          $pdf->Image(asset('assets-dashboard/images/' . $penduduk->foto_penduduk), 80, null, 50);
+        }
+
         $pdf->Ln();
         
         $pdf->SetFont('Arial', '', 11);

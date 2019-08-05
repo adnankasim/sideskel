@@ -231,7 +231,7 @@ class DashboardController extends Controller
         $pengaturan = \App\Pengaturan::findOrFail($id);
         
         if($request->hasFile('gambar')){ 
-            $input['gambar'] = $this->uploadGambar($request);
+            $input['gambar'] = $this->uploadGambarBG($request);
             $pengaturan->gambar = $input['gambar'];
         } else $pengaturan->gambar = 'bg2.jpg';
 
@@ -263,6 +263,21 @@ class DashboardController extends Controller
           $gambar_name = date('YmdHis').".$ext";
           $upload_path = 'assets-beranda/images';
           $request->file('gambar_artikel')->move($upload_path, $gambar_name);
+
+          return $gambar_name;
+        }
+        return false;
+    }
+
+    private function uploadGambarBG(Request $request)
+    {
+        $gambar = $request->file('gambar');
+        $ext = $gambar->getClientOriginalExtension();
+
+        if($request->file('gambar')->isValid()){
+          $gambar_name = date('YmdHis').".$ext";
+          $upload_path = 'assets-beranda/images';
+          $request->file('gambar')->move($upload_path, $gambar_name);
 
           return $gambar_name;
         }

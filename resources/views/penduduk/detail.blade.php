@@ -43,8 +43,13 @@
                                         <th class="text-center">FOTO</th>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"> <img src="{{ asset('assets-dashboard/images/'.$penduduk->foto_penduduk) }}"
-                                                width="300"> </td>
+                                        <td class="text-center">
+                                        @if(empty($penduduk->foto_penduduk)) 
+                                            <img src="{{ asset('assets-dashboard/images/default.jpg') }}" width="300"> 
+                                        @else
+                                            <img src="{{ asset('assets-dashboard/images/'.$penduduk->foto_penduduk) }}" width="300">
+                                        @endif 
+                                        </td>
                                     </tr>
                                 </table>
                                 <table class="table">

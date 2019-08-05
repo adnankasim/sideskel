@@ -242,6 +242,7 @@ class BerandaController extends Controller
     }
     public function kegiatanDetail($slug){
         $kegiatan = \App\Kegiatan::where('slug_kegiatan', $slug)->first();
+        if(!$kegiatan) return redirect('beranda/kegiatan');
         return view('beranda/kegiatan-detail', compact('kegiatan'));
     }
     public function kegiatanCari(Request $request){

@@ -336,7 +336,12 @@
           @foreach($daftar_artikel as $artikel)
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
             <a href="{{ url('beranda/artikel/'.$artikel->slug_artikel) }}" class="d-block figure">
+              
+              @if(empty($artikel->gambar_artikel))
+              <img src="{{ asset('assets-beranda/images/img_2.jpg') }}" alt="Image" class="img-fluid">
+              @else
               <img src="{{ asset('assets-beranda/images/'.$artikel->gambar_artikel) }}" alt="Image" class="img-fluid">
+              @endif
             </a>
             <i class="text-muted d-inline-block fa fa-calendar"></i>
             <span> {{ $artikel->created_at->diffForHumans() }} </span>
@@ -511,7 +516,11 @@
           @foreach($daftar_kegiatan as $kegiatan)
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
             <a href="{{ url('beranda/kegiatan'.$kegiatan->slug_kegiatan) }}" class="d-block figure">
+              @if(empty($kegiatan->poster_kegiatan))
+              <img src="{{ asset('assets-dashboard/images/img_2.jpg') }}" alt="Image" class="img-fluid">
+              @else
               <img src="{{ asset('assets-dashboard/images/'.$kegiatan->poster_kegiatan) }}" alt="Image" class="img-fluid">
+              @endif
             </a>
             <span class="text-muted d-block mb-2"> <i class="fa fa-calendar"></i> {{ $kegiatan->created_at->diffForHumans() }} </span>
             <h3><a href="{{ url('beranda/kegiatan/'.$kegiatan->slug_kegiatan) }}"> {{ $kegiatan->nama_kegiatan }} </a></h3>
