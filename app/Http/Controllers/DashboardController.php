@@ -256,13 +256,13 @@ class DashboardController extends Controller
 
     private function uploadGambar(Request $request)
     {
-        $gambar = $request->file('gambar');
+        $gambar = $request->file('gambar_artikel');
         $ext = $gambar->getClientOriginalExtension();
 
-        if($request->file('gambar')->isValid()){
+        if($request->file('gambar_artikel')->isValid()){
           $gambar_name = date('YmdHis').".$ext";
           $upload_path = 'assets-beranda/images';
-          $request->file('gambar')->move($upload_path, $gambar_name);
+          $request->file('gambar_artikel')->move($upload_path, $gambar_name);
 
           return $gambar_name;
         }
