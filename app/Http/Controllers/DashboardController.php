@@ -91,7 +91,7 @@ class DashboardController extends Controller
         $pengguna = Pengguna::findOrFail($id);
 
         if($request->hasFile('foto_pengguna')){
-          $this->hapusFoto($pengguna);
+            if(!empty($pengguna->foto_pengguna)) $this->hapusFoto($pengguna);
             $pengguna->foto_pengguna = $this->uploadFoto($request);
         }
         

@@ -7,25 +7,54 @@
 
     @if(Request::segment(2) === 'profil')
         <meta name="keywords" content="Profil {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'batas')
-        <meta name="keywords" content="Batas Wilayah {{ $profil->nama }}">
     @elseif(Request::segment(2) === 'tanaman-komoditas')
         <meta name="keywords" content="Tanaman Komoditas {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'orbitasi')
-        <meta name="keywords" content="Orbitasi {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'tipologi')
-        <meta name="keywords" content="Tipologi {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'iklim')
-        <meta name="keywords" content="Iklim {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'kesuburan-tanah')
-        <meta name="keywords" content="Kesuburan Tanah {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'penggunaan-tanah')
-        <meta name="keywords" content="Penggunaan Tanah {{ $profil->nama }}">
-    @elseif(Request::segment(2) === 'infrastruktur-melintasi')
-        <meta name="keywords" content="Infrastruktur Melintasi {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'pelayanan')
+        <meta name="keywords" content="Pelayanan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'lembaga')
+        <meta name="keywords" content="Lembaga {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'dokumen')
+        <meta name="keywords" content="Dokumen {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-pemukiman')
+        <meta name="keywords" content="Fasilitas Pemukiman {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-pemerintahan')
+        <meta name="keywords" content="Fasilitas Pemerintahan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-peribadatan')
+        <meta name="keywords" content="Fasilitas Peribadatan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-kesehatan')
+        <meta name="keywords" content="Fasilitas Kesehatan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-ekonomi')
+        <meta name="keywords" content="Fasilitas Ekonomi {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-prasarana')
+        <meta name="keywords" content="Fasilitas Prasarana {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'fasilitas-pendidikan')
+        <meta name="keywords" content="Fasilitas Pendidikan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'belanja')
+        <meta name="keywords" content="Laporan Belanja {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'pendapatan')
+        <meta name="keywords" content="Laporan Pendapatan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-usia')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Usia {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-pekerjaan')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Pekerjaan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-pendidikan')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Pendidikan {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-golongan-darah')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Golongan Darah {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-menikah')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Menikah {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-agama')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Agama {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'penduduk-jenis-kelamin')
+        <meta name="keywords" content="Laporan Penduduk Berdasarkan Jenis Kelamin {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'artikel')
+        <meta name="keywords" content="Artikel {{ $profil->nama }}">
+    @elseif(Request::segment(2) === 'kegiatan')
+        <meta name="keywords" content="Kegiatan {{ $profil->nama }}">
     @endif
     
     <meta name="description" content="{{ $profil->deskripsi }}">
+    
     <meta name="author" content="{{ $profil->nama }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="index, follow">
